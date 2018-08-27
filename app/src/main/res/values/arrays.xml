@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- These are the options displayed in the supplier drop-down Spinner -->
+    <string-array name="array_supplier_options">
+        <item>@string/supplier_select</item>
+        <item>@string/supplier_1</item>
+        <item>@string/supplier_2</item>
+        <item>@string/supplier_3</item>
+        <item>@string/supplier_4</item>
+    </string-array>
+    <!-- These are the matching supplier phone numbers for reordering books -->
+    <string-array name="array_supplier_phone">
+        <item>@string/supplier_phone_unknown</item>
+        <item>@string/supplier_phone_1</item>
+        <item>@string/supplier_phone_2</item>
+        <item>@string/supplier_phone_3</item>
+        <item>@string/supplier_phone_4</item>
+    </string-array>
+</resources>

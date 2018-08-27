@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Labels for supplier dropdown [CHAR LIMIT=20] -->
+    <string name="supplier_select">Select Supplier&#8230;</string>
+    <string name="supplier_unknown">N/A</string>
+    <string name="supplier_1">Ingram Content Group</string>
+    <string name="supplier_2">Baker &amp; Taylor</string>
+    <string name="supplier_3">Publishers Group West</string>
+    <string name="supplier_4">Independent Publishers Group</string>
+
+    <!-- Phone numbers for suppliers [CHAR LIMIT=20] -->
+    <string name="supplier_phone_unknown">0</string>
+    <string name="supplier_phone_1">(615)793&#8211;5000</string>
+    <string name="supplier_phone_2">(800)775&#8211;1800</string>
+    <string name="supplier_phone_3">(510)809&#8211;3700</string>
+    <string name="supplier_phone_4">(312)337&#8211;0747</string>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Name for the application [CHAR LIMIT=12] -->
+    <string name="app_name">Books</string>
+
+    <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_add_book">Add a Book</string>
+    <string name="editor_activity_title_edit_book">Edit Book</string>
+
+    <!-- Text Labels for fields in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+    <string name="category_supplier">Supplier</string>
+    <string name="category_measurement">Measurement</string>
+
+
+    <!-- Text hints and units for fields in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_name">Name</string>
+    <string name="hint_book_author">Author</string>
+    <string name="hint_book_weight">Weight</string>
+    <string name="unit_book_weight">kg</string>
+
+    <!-- Label for the book's author if the author is unknown [CHAR LIMIT=20] -->
+    <string name="unknown_weight">Unknown weight</string>
+
+    <!-- Toast messages -->
+    <string name="toast_insert_book_failed">Error adding book!</string>
+    <string name="toast_update_book_failed">Error updating book!</string>
+    <string name="toast_delete_book_failed">Error deleting book!</string>
+    <string name="toast_delete_all_books_failed">Nothing was deleted.</string>
+    <string name="toast_insert_book_successful">New book added.</string>
+    <string name="toast_update_book_successful">Book updated.</string>
+    <string name="toast_delete_book_successful">Book deleted.</string>
+    <string name="toast_delete_all_books_successful">%1$d books have been deleted.</string>
+
+    <!-- Confirmation dialog labels and messages -->
+    <string name="delete_dialog_msg">Delete this book?</string>
+    <string name="delete_all_dialog_msg">Are you sure you want to delete all books in the database?</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Labels for editor menu option [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- Labels for overflow menu options [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+    <string name="action_delete_all_entries">Delete All Books</string>
+    <string name="cursor_message">The books table contains %1$d books.</string>
+
+    <!-- Text for the empty view, which that prompts the user to add a book [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">It\'s a bit lonely here&#8230;</string>
+    <string name="empty_view_subtitle_text">Get started by adding a book</string>
+
+    <!-- Image descriptions for accessibility -->
+    <string name="empty_shelter_image_desc">Empty book shelter</string>
+
+</resources>
