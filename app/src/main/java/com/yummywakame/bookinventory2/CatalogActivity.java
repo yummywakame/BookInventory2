@@ -36,8 +36,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.yummywakame.bookinventory2.data.ContentProvider;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
+import com.yummywakame.bookinventory2.data.ContentProvider;
 
 /**
  * Displays list of books that were entered and stored in the app.
@@ -113,17 +113,17 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      */
     private void insertBook() {
         // Create a ContentValues object where column names are the keys,
-        // and Toto's book attributes are the values.
+        // and the book attributes are the values.
         ContentValues values = new ContentValues();
-        values.put(BookEntry.COLUMN_BOOK_TITLE, "Toto");
-        values.put(BookEntry.COLUMN_BOOK_AUTHOR, "Terrier");
+        values.put(BookEntry.COLUMN_BOOK_TITLE, "Imajica");
+        values.put(BookEntry.COLUMN_BOOK_AUTHOR, "Clive Barker");
         values.put(BookEntry.COLUMN_SUPPLIER_ID, BookEntry.SUPPLIER_1);
-        values.put(BookEntry.COLUMN_BOOK_WEIGHT, 7);
+        values.put(BookEntry.COLUMN_BOOK_QUANTITY, 200);
 
-        // Insert a new row for Toto into the provider using the ContentResolver.
+        // Insert a new row for the book into the provider using the ContentResolver.
         // Use the {@link BookEntry#CONTENT_URI} to indicate that we want to insert
         // into the books database table.
-        // Receive the new content URI that will allow us to access Toto's data in the future.
+        // Receive the new content URI that will allow us to access the book's data in the future.
         Uri newUri = getContentResolver().insert(BookEntry.CONTENT_URI, values);
 
         Log.v(LOG_TAG, "Inserted new row: " + newUri);
@@ -207,7 +207,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         String[] projection = {
                 BookEntry._ID,
                 BookEntry.COLUMN_BOOK_TITLE,
-                BookEntry.COLUMN_BOOK_WEIGHT};
+                BookEntry.COLUMN_BOOK_QUANTITY};
 
         Log.i(LOG_TAG, "Loader<Cursor> onCreateLoader()");
 

@@ -2,6 +2,7 @@ package com.yummywakame.bookinventory2.data;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,12 +12,17 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.yummywakame.bookinventory2.R;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 
 /**
  * {@link android.content.ContentProvider} for Books app.
  */
 public class ContentProvider extends android.content.ContentProvider {
+    /**
+     * Variable for getting the context
+     */
+    private Context mContext;
 
     /**
      * Tag for the log messages
@@ -61,6 +67,7 @@ public class ContentProvider extends android.content.ContentProvider {
     @Override
     public boolean onCreate() {
         mDbHelper = new BookDbHelper(getContext());
+        mContext = getContext();
         return true;
     }
 
@@ -148,20 +155,23 @@ public class ContentProvider extends android.content.ContentProvider {
         // Check that the name is not null
         String name = values.getAsString(BookEntry.COLUMN_BOOK_TITLE);
         if (TextUtils.isEmpty(name)) {
-            throw new IllegalArgumentException("Book requires a name");
+            throw new IllegalArgumentException(mContext.getString(R.string.toast_required_title));
+        }
+        // Check that the author is not null
+        String author = values.getAsString(BookEntry.COLUMN_BOOK_AUTHOR);
+        if (TextUtils.isEmpty(author)) {
+            throw new IllegalArgumentException(mContext.getString(R.string.toast_required_author));
         }
         // Check that the supplier is valid
         Integer supplier = values.getAsInteger(BookEntry.COLUMN_SUPPLIER_ID);
         if (supplier == null || !BookEntry.isValidSupplier(supplier)) {
-            throw new IllegalArgumentException("Book requires valid supplier");
+            throw new IllegalArgumentException(mContext.getString(R.string.toast_required_supplier));
         }
-        // If the weight is provided, check that it's greater than or equal to 0 kg
-        Integer weight = values.getAsInteger(BookEntry.COLUMN_BOOK_WEIGHT);
-        if (weight != null && weight < 0) {
-            throw new IllegalArgumentException("Book requires valid weight");
+        // If the quantity is provided, check that it's greater than or equal to 0 kg
+        Integer quantity = values.getAsInteger(BookEntry.COLUMN_BOOK_QUANTITY);
+        if (quantity != null && quantity < 0) {
+            throw new IllegalArgumentException(mContext.getString(R.string.toast_required_quantity));
         }
-
-        // No need to check the author, any value is valid (including null).
 
         // Get writable database
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
@@ -227,7 +237,16 @@ public class ContentProvider extends android.content.ContentProvider {
         if (values.containsKey(BookEntry.COLUMN_BOOK_TITLE)) {
             String name = values.getAsString(BookEntry.COLUMN_BOOK_TITLE);
             if (name == null) {
-                throw new IllegalArgumentException("Book requires a name");
+                throw new IllegalArgumentException(mContext.getString(R.string.toast_required_title));
+            }
+        }
+
+        // If the {@link BookEntry#COLUMN_BOOK_AUTHOR} key is present,
+        // check that the name value is not null.
+        if (values.containsKey(BookEntry.COLUMN_BOOK_AUTHOR)) {
+            String author = values.getAsString(BookEntry.COLUMN_BOOK_AUTHOR);
+            if (author == null) {
+                throw new IllegalArgumentException(mContext.getString(R.string.toast_required_author));
             }
         }
 
@@ -236,21 +255,19 @@ public class ContentProvider extends android.content.ContentProvider {
         if (values.containsKey(BookEntry.COLUMN_SUPPLIER_ID)) {
             Integer supplier = values.getAsInteger(BookEntry.COLUMN_SUPPLIER_ID);
             if (supplier == null || !BookEntry.isValidSupplier(supplier)) {
-                throw new IllegalArgumentException("Book requires valid supplier");
+                throw new IllegalArgumentException(mContext.getString(R.string.toast_required_supplier));
             }
         }
 
-        // If the {@link BookEntry#COLUMN_BOOK_WEIGHT} key is present,
-        // check that the weight value is valid.
-        if (values.containsKey(BookEntry.COLUMN_BOOK_WEIGHT)) {
-            // Check that the weight is greater than or equal to 0 kg
-            Integer weight = values.getAsInteger(BookEntry.COLUMN_BOOK_WEIGHT);
-            if (weight != null && weight < 0) {
-                throw new IllegalArgumentException("Book requires valid weight");
+        // If the {@link BookEntry#COLUMN_BOOK_QUANTITY} key is present,
+        // check that the quantity value is valid.
+        if (values.containsKey(BookEntry.COLUMN_BOOK_QUANTITY)) {
+            // Check that the quantity is greater than or equal to 0 kg
+            Integer quantity = values.getAsInteger(BookEntry.COLUMN_BOOK_QUANTITY);
+            if (quantity != null && quantity < 0) {
+                throw new IllegalArgumentException(mContext.getString(R.string.toast_required_quantity));
             }
         }
-
-        // No need to check the author, any value is valid (including null).
 
         // If there are no values to update, then don't try to update the database
         if (values.size() == 0) {

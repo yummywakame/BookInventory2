@@ -105,10 +105,10 @@ public final class BookContract {
         public final static String COLUMN_SUPPLIER_ID = "supplier";
 
         /**
-         * Weight of the book.
+         * Quantity of the book.
          * Type: INTEGER
          */
-        public final static String COLUMN_BOOK_WEIGHT = "weight";
+        public final static String COLUMN_BOOK_QUANTITY = "quantity";
 
         /**
          * Possible values for the supplier of the book.
@@ -124,7 +124,7 @@ public final class BookContract {
          * {@link #SUPPLIER_2}, {@link #SUPPLIER_3} or {@link #SUPPLIER_4}.
          */
         public static boolean isValidSupplier(int supplier) {
-            return supplier == SUPPLIER_SELECT || supplier == SUPPLIER_1 || supplier == SUPPLIER_2 || supplier == SUPPLIER_3 || supplier == SUPPLIER_4;
+            return supplier == SUPPLIER_1 || supplier == SUPPLIER_2 || supplier == SUPPLIER_3 || supplier == SUPPLIER_4;
         }
     }
 }

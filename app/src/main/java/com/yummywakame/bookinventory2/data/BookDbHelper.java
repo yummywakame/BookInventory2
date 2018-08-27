@@ -20,7 +20,7 @@ public class BookDbHelper extends SQLiteOpenHelper {
     /**
      * Name of the database file
      */
-    private static final String DATABASE_NAME = "shelter.db";
+    private static final String DATABASE_NAME = "books.db";
 
     /**
      * If you change the database schema, you must increment the database version.
@@ -45,9 +45,9 @@ public class BookDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_BOOKS_TABLE = "CREATE TABLE " + BookEntry.TABLE_NAME + " ("
                 + BookEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BookEntry.COLUMN_BOOK_TITLE + " TEXT NOT NULL, "
-                + BookEntry.COLUMN_BOOK_AUTHOR + " TEXT, "
+                + BookEntry.COLUMN_BOOK_AUTHOR + " TEXT NOT NULL, "
                 + BookEntry.COLUMN_SUPPLIER_ID + " INTEGER NOT NULL, "
-                + BookEntry.COLUMN_BOOK_WEIGHT + " INTEGER NOT NULL DEFAULT 0);";
+                + BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER NOT NULL DEFAULT 0);";
 
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_BOOKS_TABLE);

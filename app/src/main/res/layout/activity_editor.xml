@@ -36,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:paddingLeft="4dp"
             android:orientation="vertical">
 
             <!-- Name field -->
@@ -79,7 +78,6 @@
                 android:id="@+id/spinner_supplier"
                 android:layout_height="48dp"
                 android:layout_width="wrap_content"
-                android:paddingRight="16dp"
                 android:spinnerMode="dropdown"/>
         </LinearLayout>
     </LinearLayout>
@@ -93,28 +91,21 @@
 
         <!-- Label -->
         <TextView
-            android:text="@string/category_measurement"
+            android:text="@string/category_quantity"
             style="@style/CategoryStyle" />
 
         <!-- Input fields -->
         <RelativeLayout
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:layout_weight="2"
-            android:paddingLeft="4dp">
+            android:layout_weight="2">
 
-            <!-- Weight field -->
+            <!-- Quantity field -->
             <EditText
-                android:id="@+id/edit_book_weight"
-                android:hint="@string/hint_book_weight"
+                android:id="@+id/edit_book_quantity"
+                android:hint="@string/hint_book_quantity"
                 android:inputType="number"
                 style="@style/EditorFieldStyle" />
-
-            <!-- Units for weight (kg) -->
-            <TextView
-                android:id="@+id/label_weight_units"
-                android:text="@string/unit_book_weight"
-                style="@style/EditorUnitsStyle"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

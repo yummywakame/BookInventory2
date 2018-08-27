@@ -56,16 +56,24 @@ public class EditorActivity extends AppCompatActivity implements
      */
     private Uri mCurrentBookUri;
 
-    /** EditText field to enter the book's name */
+    /**
+     * EditText field to enter the book's name
+     */
     private EditText mNameEditText;
 
-    /** EditText field to enter the book's author */
+    /**
+     * EditText field to enter the book's author
+     */
     private EditText mAuthorEditText;
 
-    /** EditText field to enter the book's weight */
-    private EditText mWeightEditText;
+    /**
+     * EditText field to enter the book's quantity
+     */
+    private EditText mQuantityEditText;
 
-    /** EditText field to enter the book's supplier */
+    /**
+     * EditText field to enter the book's supplier
+     */
     private Spinner mSupplierSpinner;
 
     /**
@@ -74,6 +82,14 @@ public class EditorActivity extends AppCompatActivity implements
      * {@link BookEntry#SUPPLIER_3}, or {@link BookEntry#SUPPLIER_4}
      */
     private int mSupplierId = BookEntry.SUPPLIER_SELECT;
+
+    /**
+     * Values for validation
+     */
+    private String titleString;
+    private String authorString;
+    private String quantityString;
+    //private int priceInt;
 
     /**
      * Boolean flag that keeps track of whether the book has been edited (true) or not (false)
@@ -123,7 +139,7 @@ public class EditorActivity extends AppCompatActivity implements
         // Find all relevant views that we will need to read user input from
         mNameEditText = findViewById(R.id.edit_book_name);
         mAuthorEditText = findViewById(R.id.edit_book_author);
-        mWeightEditText = findViewById(R.id.edit_book_weight);
+        mQuantityEditText = findViewById(R.id.edit_book_quantity);
         mSupplierSpinner = findViewById(R.id.spinner_supplier);
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
@@ -131,7 +147,7 @@ public class EditorActivity extends AppCompatActivity implements
         // or not, if the user tries to leave the editor without saving.
         mNameEditText.setOnTouchListener(mTouchListener);
         mAuthorEditText.setOnTouchListener(mTouchListener);
-        mWeightEditText.setOnTouchListener(mTouchListener);
+        mQuantityEditText.setOnTouchListener(mTouchListener);
         mSupplierSpinner.setOnTouchListener(mTouchListener);
 
         setupSpinner();
@@ -180,21 +196,48 @@ public class EditorActivity extends AppCompatActivity implements
         });
     }
 
+    public boolean isValidBook() {
+        // Read from input fields
+        // Use trim to eliminate leading or trailing white space
+        titleString = mNameEditText.getText().toString().trim();
+        authorString = mAuthorEditText.getText().toString().trim();
+        quantityString = mQuantityEditText.getText().toString().trim();
+
+        // Quick validation
+        if (TextUtils.isEmpty(titleString)) {
+            // Show the error in a toast message.
+            Toast.makeText(this, getString(R.string.toast_required_title),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (TextUtils.isEmpty(authorString)) {
+            // Show the error in a toast message.
+            Toast.makeText(this, getString(R.string.toast_required_author),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (mSupplierId == 0) {
+            // Show the error in a toast message.
+            Toast.makeText(this, getString(R.string.toast_required_supplier),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (TextUtils.isEmpty(quantityString)) {
+            // Show the error in a toast message.
+            Toast.makeText(this, getString(R.string.toast_required_quantity),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /**
      * Get user input from editor and save book into database.
      */
     private void saveBook() {
-        // Read from input fields
-        // Use trim to eliminate leading or trailing white space
-        String nameString = mNameEditText.getText().toString().trim();
-        String authorString = mAuthorEditText.getText().toString().trim();
-        String weightString = mWeightEditText.getText().toString().trim();
-
         // Check if this is supposed to be a new book
         // and check if all the fields in the editor are blank
         if (mCurrentBookUri == null &&
-                TextUtils.isEmpty(nameString) && TextUtils.isEmpty(authorString) &&
-                TextUtils.isEmpty(weightString) && mSupplierId == BookEntry.SUPPLIER_SELECT) {
+                TextUtils.isEmpty(titleString) && TextUtils.isEmpty(authorString) &&
+                TextUtils.isEmpty(quantityString) && mSupplierId == BookEntry.SUPPLIER_SELECT) {
             // Since no fields were modified, we can return early without creating a new book.
             // No need to create ContentValues and no need to do any ContentProvider operations.
             return;
@@ -203,16 +246,16 @@ public class EditorActivity extends AppCompatActivity implements
         // Create a ContentValues object where column names are the keys,
         // and book attributes from the editor are the values.
         ContentValues values = new ContentValues();
-        values.put(BookEntry.COLUMN_BOOK_TITLE, nameString);
+        values.put(BookEntry.COLUMN_BOOK_TITLE, titleString);
         values.put(BookEntry.COLUMN_BOOK_AUTHOR, authorString);
         values.put(BookEntry.COLUMN_SUPPLIER_ID, mSupplierId);
-        // If the weight is not provided by the user, don't try to parse the string into an
+        // If the quantity is not provided by the user, don't try to parse the string into an
         // integer value. Use 0 by default.
-        int weight = 0;
-        if (!TextUtils.isEmpty(weightString)) {
-            weight = Integer.parseInt(weightString);
+        int quantity = 0;
+        if (!TextUtils.isEmpty(quantityString)) {
+            quantity = Integer.parseInt(quantityString);
         }
-        values.put(BookEntry.COLUMN_BOOK_WEIGHT, weight);
+        values.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
 
         // Determine if this is a new or existing book by checking if mCurrentBookUri is null or not
         if (mCurrentBookUri == null) {
@@ -280,11 +323,15 @@ public class EditorActivity extends AppCompatActivity implements
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                 // Save book to database
-                saveBook();
-                // Exit activity
-                finish();
-                return true;
-            // Respond to a click on the "Delete" menu option
+                if (isValidBook()) {
+                    saveBook();
+                    // Exit activity
+                    finish();
+                    return true;
+                } else {
+                    return false;
+                }
+                // Respond to a click on the "Delete" menu option
             case R.id.action_delete:
                 // Pop up confirmation dialog for deletion
                 showDeleteConfirmationDialog();
@@ -352,7 +399,7 @@ public class EditorActivity extends AppCompatActivity implements
                 BookEntry.COLUMN_BOOK_TITLE,
                 BookEntry.COLUMN_BOOK_AUTHOR,
                 BookEntry.COLUMN_SUPPLIER_ID,
-                BookEntry.COLUMN_BOOK_WEIGHT};
+                BookEntry.COLUMN_BOOK_QUANTITY};
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,   // Parent activity context
@@ -377,18 +424,18 @@ public class EditorActivity extends AppCompatActivity implements
             int nameColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_TITLE);
             int authorColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_AUTHOR);
             int supplierColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_SUPPLIER_ID);
-            int weightColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_WEIGHT);
+            int quantityColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
 
             // Extract out the value from the Cursor for the given column index
             String name = cursor.getString(nameColumnIndex);
             String author = cursor.getString(authorColumnIndex);
             int supplier = cursor.getInt(supplierColumnIndex);
-            int weight = cursor.getInt(weightColumnIndex);
+            int quantity = cursor.getInt(quantityColumnIndex);
 
             // Update the views on the screen with the values from the database
             mNameEditText.setText(name);
             mAuthorEditText.setText(author);
-            mWeightEditText.setText(Integer.toString(weight));
+            mQuantityEditText.setText(Integer.toString(quantity));
 
             // Supplier is a dropdown spinner, so map the constant value from the database
             // into one of the dropdown options (0 is "Please select...",
@@ -421,7 +468,7 @@ public class EditorActivity extends AppCompatActivity implements
         // If the loader is invalidated, clear out all the data from the input fields.
         mNameEditText.setText("");
         mAuthorEditText.setText("");
-        mWeightEditText.setText("");
+        mQuantityEditText.setText("");
         mSupplierSpinner.setSelection(0); // Select "Unknown" supplier
     }
 

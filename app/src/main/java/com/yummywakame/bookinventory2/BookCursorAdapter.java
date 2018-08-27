@@ -44,7 +44,7 @@ public class BookCursorAdapter extends CursorAdapter {
 
     /**
      * This method binds the book data (in the current row pointed to by cursor) to the given
-     * list item layout. For example, the name for the current book can be set on the name TextView
+     * list item layout. For example, the title for the current book can be set on the title TextView
      * in the list item layout.
      *
      * @param view    Existing view, returned earlier by newView() method
@@ -55,21 +55,21 @@ public class BookCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         // Find fields to populate in inflated template
-        TextView nameTextView = view.findViewById(R.id.name);
-        TextView weightTextView = view.findViewById(R.id.weight);
+        TextView titleTextView = view.findViewById(R.id.title);
+        TextView quantityTextView = view.findViewById(R.id.quantity);
 
         // Extract properties from cursor
-        String bookName = cursor.getString(cursor.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_TITLE));
-        int bookWeight = cursor.getInt(cursor.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_WEIGHT));
+        String bookTitle = cursor.getString(cursor.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_TITLE));
+        int bookQuantity = cursor.getInt(cursor.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_QUANTITY));
 
         // Populate fields with extracted properties
-        nameTextView.setText(bookName);
-        // If the book author is empty string or null, then use some default text
-        // that says "Unknown author", so the TextView isn't blank.
-        if (bookWeight == 0) {
-            weightTextView.setText(context.getString(R.string.unknown_weight));
+        titleTextView.setText(bookTitle);
+
+        // If the book quantity is empty string or null, then set it to zero.
+        if (bookQuantity == 0) {
+            quantityTextView.setText(context.getString(R.string.unknown_quantity));
         } else {
-            weightTextView.setText(String.valueOf(bookWeight));
+            quantityTextView.setText(String.valueOf(bookQuantity));
         }
     }
 }

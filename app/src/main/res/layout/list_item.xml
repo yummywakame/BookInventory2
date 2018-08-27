@@ -6,7 +6,7 @@
     android:padding="@dimen/activity_margin">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
@@ -14,7 +14,7 @@
         android:textColor="#2B3D4D" />
 
     <TextView
-        android:id="@+id/weight"
+        android:id="@+id/quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"

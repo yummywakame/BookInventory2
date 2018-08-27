@@ -21,17 +21,16 @@
     <!-- Text Labels for fields in the editor [CHAR LIMIT=30] -->
     <string name="category_overview">Overview</string>
     <string name="category_supplier">Supplier</string>
-    <string name="category_measurement">Measurement</string>
+    <string name="category_quantity">In Stock</string>
 
 
     <!-- Text hints and units for fields in the editor [CHAR LIMIT=30] -->
     <string name="hint_book_name">Name</string>
     <string name="hint_book_author">Author</string>
-    <string name="hint_book_weight">Weight</string>
-    <string name="unit_book_weight">kg</string>
+    <string name="hint_book_quantity">Quantity</string>
 
-    <!-- Label for the book's author if the author is unknown [CHAR LIMIT=20] -->
-    <string name="unknown_weight">Unknown weight</string>
+    <!-- Label for the book's quantity if the quantity is unknown [CHAR LIMIT=20] -->
+    <string name="unknown_quantity">0</string>
 
     <!-- Toast messages -->
     <string name="toast_insert_book_failed">Error adding book!</string>
@@ -42,6 +41,10 @@
     <string name="toast_update_book_successful">Book updated.</string>
     <string name="toast_delete_book_successful">Book deleted.</string>
     <string name="toast_delete_all_books_successful">%1$d books have been deleted.</string>
+    <string name="toast_required_title">Book Title required.</string>
+    <string name="toast_required_author">Book Author required.</string>
+    <string name="toast_required_supplier">Book Supplier required.</string>
+    <string name="toast_required_quantity">Book quantity required.</string>
 
     <!-- Confirmation dialog labels and messages -->
     <string name="delete_dialog_msg">Delete this book?</string>
