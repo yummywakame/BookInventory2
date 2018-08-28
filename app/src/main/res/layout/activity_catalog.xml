@@ -11,12 +11,52 @@
      limitations under the License.
 -->
 <!-- Layout for the list of books -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CatalogActivity">
+
+    <!-- Toolbar should be above content-->
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CatalogActivity">
+
+        <ImageView
+            android:id="@+id/book_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="reading a book in the background"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="w,2:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_image" />
+
+        <ImageView
+            android:id="@+id/ripple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="ripple"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/book_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ripple" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <RelativeLayout
         android:id="@+id/empty_view"
@@ -69,8 +109,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_book"/>
+        android:outlineAmbientShadowColor="@color/colorFabButton"
+        android:outlineSpotShadowColor="@color/colorFabButton"
+        android:src="@drawable/ic_add_book"
+        app:backgroundTint="@color/colorFabButton"
+        app:borderWidth="0dp" />
+
 </RelativeLayout>
