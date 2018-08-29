@@ -12,7 +12,7 @@
 -->
 <resources>
     <!-- Name for the application [CHAR LIMIT=12] -->
-    <string name="app_name">Books</string>
+    <string name="app_name">Book Inventory</string>
 
     <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
     <string name="editor_activity_title_add_book">Add a Book</string>
