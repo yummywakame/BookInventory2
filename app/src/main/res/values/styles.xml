@@ -21,8 +21,11 @@
         <item name="fontFamily">@font/quicksand
         </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
         <!--<item name="windowActionBar">false</item>-->
         <!--<item name="windowNoTitle">true</item>-->
         <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
@@ -30,6 +33,7 @@
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
     </style>
+
 
     <!-- Theme of the editor -->
     <style name="EditorTheme" parent="Theme.AppCompat.Light.DarkActionBar">

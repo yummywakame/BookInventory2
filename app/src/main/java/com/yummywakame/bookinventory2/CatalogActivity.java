@@ -35,7 +35,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -241,23 +240,26 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     }
 
     /**
-     * Helper method to finalize the a fancy transparent status bar
+     * Helper method to finalize the a fancy transparent status bar while keeping an opaque
+     * navigation bar at the bottom.`
      */
     private void setStatusBarTransparent() {
-        // This makes the action bar transparent instead of translucent
+        // This makes the bottom navigation bar show as opaque
+        // while the topmost status bar is translucent
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow(); // in Activity's onCreate() for instance
-            w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
-            w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
-
-        // This makes the default toolbar and title transparent, while still showing menu buttons
+        // This makes the default toolbar and toolbar title transparent,
+        // while still showing action menu buttons on the right
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
+            // This removes the default toolbar title so that a
+            // custom title can display over it in xml
             getSupportActionBar().setTitle("");
+            // These show or hides the toolbar up/back button
             getSupportActionBar().setHomeButtonEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
