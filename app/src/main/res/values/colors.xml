@@ -12,16 +12,13 @@
 -->
 <resources>
     <!-- Darker variant for the status bar and contextual app bars -->
-    <color name="colorPrimaryDark">#0e365b</color>
+    <color name="colorPrimaryDark">#512DA8</color>
 
     <!-- The app branding color for the app bar -->
-    <color name="colorPrimary">#0e365b</color>
-
-    <!-- Color Blue -->
-    <color name="colorBlue">#5d85b0</color>
+    <color name="colorPrimary">#673AB7</color>
 
     <!-- Accent color for UI controls like checkboxes and text fields -->
-    <color name="colorAccent">#f63c61</color>
+    <color name="colorAccent">#FF4081</color>
 
     <!-- Background color -->
     <color name="colorBackground">#ffffff</color>
@@ -39,5 +36,8 @@
     <color name="mediumTextColor">#999999</color>
 
     <!-- FAB button color -->
-    <color name="colorFabButton">#f63c61</color>
+    <color name="colorFabButton">#FF4081</color>
+
+    <!-- Navigation Bar translucent color -->
+    <color name="navigationBarColor">#80512DA8</color>
 </resources>

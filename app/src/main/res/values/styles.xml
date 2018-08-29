@@ -23,7 +23,8 @@
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowActionBar">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>\
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:windowContentOverlay">@null</item>-->
         <!--<item name="windowActionBar">false</item>-->
@@ -44,7 +45,7 @@
         <item name="buttonStyle">@style/DefaultFontButtonStyle</item>
         <item name="android:fontFamily">@font/quicksand</item>
         <item name="fontFamily">@font/quicksand
-        </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        </item><!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
     </style>
 
     <!-- Theme of the custom transparent toolbar -->
