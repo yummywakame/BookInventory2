@@ -31,7 +31,7 @@
             android:contentDescription="reading a book in the background"
             android:cropToPadding="false"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="w,1.5:3"
+            app:layout_constraintDimensionRatio="w,1.2:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
