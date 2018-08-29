@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:background="@android:color/transparent"
-        android:elevation="1dp"
+        android:elevation="0dp"
         app:theme="@style/TransparentBar">
 
         <LinearLayout
@@ -25,6 +25,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="@string/app_name"
                 android:textColor="@color/appTitleColor"
                 android:textSize="20sp" />

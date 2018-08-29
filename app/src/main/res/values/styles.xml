@@ -15,6 +15,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:textViewStyle">@style/DefaultFontTextViewStyle</item>-->
+        <!--<item name="buttonStyle">@style/DefaultFontButtonStyle</item>-->
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="fontFamily">@font/quicksand
+        </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -31,6 +36,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/DefaultFontTextViewStyle</item>
+        <item name="buttonStyle">@style/DefaultFontButtonStyle</item>
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="fontFamily">@font/quicksand
+        </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
     </style>
 
     <!-- Theme of the custom transparent toolbar -->
@@ -68,6 +78,15 @@
         <item name="android:paddingRight">16dp</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
+    </style>
+
+    <!-- Default Font Text Style -->
+    <style name="DefaultFontTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">open-sans</item>
+    </style>
+    <!-- Default Font Button Style -->
+    <style name="DefaultFontButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">open-sans</item>
     </style>
 </resources>
 
