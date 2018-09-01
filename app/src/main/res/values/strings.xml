@@ -23,7 +23,6 @@
     <string name="category_supplier">Supplier</string>
     <string name="category_quantity">In Stock</string>
 
-
     <!-- Text hints and units for fields in the editor [CHAR LIMIT=30] -->
     <string name="hint_book_name">Name</string>
     <string name="hint_book_author">Author</string>
@@ -31,6 +30,9 @@
 
     <!-- Label for the book's quantity if the quantity is unknown [CHAR LIMIT=20] -->
     <string name="unknown_quantity">0</string>
+
+    <!-- Buttons -->
+    <string name="sale_button">Sale</string>
 
     <!-- Toast messages -->
     <string name="toast_insert_book_failed">Error adding book!</string>

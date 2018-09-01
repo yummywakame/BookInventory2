@@ -137,9 +137,9 @@ public class EditorActivity extends AppCompatActivity implements
         }
 
         // Find all relevant views that we will need to read user input from
-        mNameEditText = findViewById(R.id.edit_book_name);
-        mAuthorEditText = findViewById(R.id.edit_book_author);
-        mQuantityEditText = findViewById(R.id.edit_book_quantity);
+        mNameEditText = findViewById(R.id.title);
+        mAuthorEditText = findViewById(R.id.author);
+        mQuantityEditText = findViewById(R.id.quantity);
         mSupplierSpinner = findViewById(R.id.spinner_supplier);
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user

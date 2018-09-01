@@ -11,30 +11,16 @@
 -->
 <resources>
     <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--<item name="android:textViewStyle">@style/DefaultFontTextViewStyle</item>-->
-        <!--<item name="buttonStyle">@style/DefaultFontButtonStyle</item>-->
         <item name="android:fontFamily">@font/quicksand</item>
         <item name="fontFamily">@font/quicksand
         </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>\
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:windowContentOverlay">@null</item>-->
-        <!--<item name="windowActionBar">false</item>-->
-        <!--<item name="windowNoTitle">true</item>-->
-        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
-        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
     </style>
-
 
     <!-- Theme of the editor -->
     <style name="EditorTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -48,14 +34,6 @@
         </item><!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
     </style>
 
-    <!-- Theme of the custom transparent toolbar -->
-    <style name="TransparentBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="windowActionBarOverlay">true</item>
-        <item name="colorPrimary">@android:color/transparent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
     <!-- Style for a category in the editor -->
     <style name="CategoryStyle">
         <item name="android:layout_height">wrap_content</item>
@@ -63,35 +41,53 @@
         <item name="android:layout_weight">1</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
     <!-- Style for an EditText field in the editor -->
     <style name="EditorFieldStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">@font/quicksand_light</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
-    <!-- Style for the quantity units for an EditText field in the editor -->
-    <style name="EditorUnitsStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+    <!-- List Item Button Style -->
+    <style name="SaleButtonStyle">
+        <item name="android:layout_width">@dimen/sale_btn_size</item>
+        <item name="android:layout_height">@dimen/sale_btn_size</item>
         <item name="android:layout_alignParentRight">true</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/half_dim</item>
+        <item name="android:background">@drawable/sale_background</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:text">@string/sale_button</item>
     </style>
 
     <!-- Default Font Text Style -->
     <style name="DefaultFontTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">open-sans</item>
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
+
     <!-- Default Font Button Style -->
     <style name="DefaultFontButtonStyle" parent="android:Widget.Holo.Button">
-        <item name="android:fontFamily">open-sans</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+    </style>
+
+    <!-- Main Input Style -->
+    <style name="InputStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Price Input -->
+    <style name="PriceInputStyle" parent="InputStyle">
+        <item name="android:drawableRight">@drawable/ic_attach_money</item>
+        <item name="android:inputType">numberDecimal</item>
     </style>
 </resources>
 

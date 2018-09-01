@@ -25,16 +25,13 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -64,8 +61,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
-
-        setStatusBarTransparent();
 
         // Setup FAB to open EditorActivity
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -212,6 +207,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         String[] projection = {
                 BookEntry._ID,
                 BookEntry.COLUMN_BOOK_TITLE,
+                BookEntry.COLUMN_BOOK_AUTHOR,
                 BookEntry.COLUMN_BOOK_QUANTITY};
 
         Log.i(LOG_TAG, "Loader<Cursor> onCreateLoader()");
@@ -237,31 +233,5 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         // Callback called when the data needs to be deleted
         mCursorAdapter.swapCursor(null);
         Log.i(LOG_TAG, "onLoaderReset() on data that needs to be deleted.");
-    }
-
-    /**
-     * Helper method to finalize the a fancy transparent status bar while keeping an opaque
-     * navigation bar at the bottom.`
-     */
-    private void setStatusBarTransparent() {
-        // This makes the bottom navigation bar show as opaque
-        // while the topmost status bar is translucent
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow(); // in Activity's onCreate() for instance
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-
-        // This makes the default toolbar and toolbar title transparent,
-        // while still showing action menu buttons on the right
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            // This removes the default toolbar title so that a
-            // custom title can display over it in xml
-            getSupportActionBar().setTitle("");
-            // These show or hides the toolbar up/back button
-            getSupportActionBar().setHomeButtonEnabled(false);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
     }
 }
