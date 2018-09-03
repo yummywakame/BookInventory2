@@ -68,9 +68,9 @@
 
     <!-- Text for the empty view, which that prompts the user to add a book [CHAR LIMIT=50] -->
     <string name="empty_view_title_text">It\'s a bit lonely here&#8230;</string>
-    <string name="empty_view_subtitle_text">Get started by adding a book</string>
+    <string name="empty_view_subtitle_text">Get started by adding a book.</string>
 
     <!-- Image descriptions for accessibility -->
-    <string name="empty_shelter_image_desc">Empty book shelter</string>
+    <string name="empty_shelf_image_desc">Empty book shelf</string>
 
 </resources>

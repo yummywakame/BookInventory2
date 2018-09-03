@@ -32,6 +32,7 @@
                 android:layout_marginTop="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
+                android:fontFamily="@font/cc_quicksand_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,8 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_marginEnd="8dp"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toStartOf="@+id/sale_button"
                 app:layout_constraintTop_toTopOf="@+id/title"
                 tools:text="100" />
@@ -66,8 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_marginEnd="8dp"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintBottom_toBottomOf="@+id/author"
                 app:layout_constraintEnd_toStartOf="@+id/sale_button"
                 tools:text="250" />

@@ -18,7 +18,7 @@
     tools:context=".CatalogActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/ConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".CatalogActivity">
@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
-            android:contentDescription="reading a book in the background"
+            android:contentDescription="@null"
             android:cropToPadding="false"
             android:scaleType="centerCrop"
             app:layout_constraintDimensionRatio="w,1.2:3"
@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:contentDescription="ripple"
+            android:contentDescription="@null"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/book_bg"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,28 +72,30 @@
 
         <RelativeLayout
             android:id="@+id/empty_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/offWhiteColor">
 
             <ImageView
-                android:id="@+id/empty_shelter_image"
-                android:layout_width="wrap_content"
+                android:id="@+id/empty_shelf_image"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:contentDescription="@string/empty_shelter_image_desc"
-                android:src="@drawable/ic_empty_shelter" />
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/empty_shelf_image_desc"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/empty_shelf" />
 
             <TextView
                 android:id="@+id/empty_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/empty_shelter_image"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="sans-serif-medium"
-                android:paddingTop="16dp"
+                android:fontFamily="@font/cc_quicksand_bold"
+                android:paddingTop="160dp"
                 android:text="@string/empty_view_title_text"
-                android:textAppearance="?android:textAppearanceMedium" />
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:id="@+id/empty_subtitle_text"
@@ -101,11 +103,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/empty_title_text"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="sans-serif"
                 android:paddingTop="8dp"
                 android:text="@string/empty_view_subtitle_text"
                 android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="#A2AAB0" />
+                android:layout_centerInParent="true"
+                android:textColor="@color/mediumTextColor" />
+
+
         </RelativeLayout>
 
         <!-- Empty view for the list -->
