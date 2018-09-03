@@ -115,6 +115,8 @@
             android:layout_height="wrap_content"
             android:divider="@null"
             android:dividerHeight="0dp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/base_dim"
             tools:listitem="@layout/list_item" />
 
     </RelativeLayout>

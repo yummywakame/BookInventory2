@@ -11,7 +11,7 @@
 -->
 <resources>
     <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -20,10 +20,11 @@
         </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
+        <item name="cardViewStyle">@style/CardView.Light</item>
     </style>
 
     <!-- Theme of the editor -->
-    <style name="EditorTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="EditorTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
