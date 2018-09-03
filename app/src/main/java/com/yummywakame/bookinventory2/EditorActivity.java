@@ -160,10 +160,11 @@ public class EditorActivity extends AppCompatActivity implements
         // Create adapter for spinner. The list options are from the String array it will use
         // the spinner will use the default layout
         ArrayAdapter supplierSpinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.array_supplier_options, android.R.layout.simple_spinner_item);
+                R.array.array_supplier_options, R.layout.spinner_title);
+        supplierSpinnerAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
 
         // Specify dropdown layout style - simple list view with 1 item per line
-        supplierSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        supplierSpinnerAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
 
         // Apply the adapter to the spinner
         mSupplierSpinner.setAdapter(supplierSpinnerAdapter);

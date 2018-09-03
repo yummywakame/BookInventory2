@@ -16,8 +16,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/quicksand</item>
-        <item name="fontFamily">@font/quicksand
-        </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <item name="fontFamily">@font/quicksand</item>
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
@@ -31,8 +31,8 @@
         <item name="android:textViewStyle">@style/DefaultFontTextViewStyle</item>
         <item name="buttonStyle">@style/DefaultFontButtonStyle</item>
         <item name="android:fontFamily">@font/quicksand</item>
-        <item name="fontFamily">@font/quicksand
-        </item><!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <item name="fontFamily">@font/quicksand</item>
     </style>
 
     <!-- Style for a category in the editor -->
@@ -42,16 +42,31 @@
         <item name="android:layout_weight">1</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/quicksand_medium</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
     <!-- Style for an EditText field in the editor -->
     <style name="EditorFieldStyle">
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:fontFamily">@font/quicksand_light</item>
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textColor">@color/darkTextColor</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/edittext_bg</item>
+    </style>
+
+    <!-- Style for the Spinner -->
+    <style name="SpinnerFieldStyle">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textColor">@color/darkTextColor</item>
+    </style>
+
+    <!-- Style for the Spinners Background -->
+    <style name="EditorSpinnerBg" parent="Base.Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_bg</item>
     </style>
 
     <!-- List Item Button Style -->
@@ -69,13 +84,11 @@
 
     <!-- Default Font Text Style -->
     <style name="DefaultFontTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
     <!-- Default Font Button Style -->
     <style name="DefaultFontButtonStyle" parent="android:Widget.Holo.Button">
-        <item name="android:fontFamily">@font/quicksand_medium</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 

@@ -20,9 +20,6 @@
     <!-- Accent color for UI controls like checkboxes and text fields -->
     <color name="colorAccent">#FF4081</color>
 
-    <!-- Background color -->
-    <color name="colorBackground">#ffffff</color>
-
     <!-- App Title color -->
     <color name="appTitleColor">#ffffff</color>
 

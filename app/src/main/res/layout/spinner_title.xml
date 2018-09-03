@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!-- "Please Select..." text in the Spinner dropdown -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start"
+    android:ellipsize="end"
+    android:paddingEnd="24dp"
+    android:paddingStart="@dimen/half_dim"
+    android:singleLine="true"
+    android:textAppearance="?android:textAppearanceListItem"
+    android:textColor="@color/darkTextColor" />
