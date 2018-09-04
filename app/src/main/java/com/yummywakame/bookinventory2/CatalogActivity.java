@@ -111,12 +111,12 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     /**
      * Helper method to insert hardcoded book data into the database. For debugging purposes only.
      */
-    private void insertBook() {
+    private void insertBook(String Title, String Author) {
         // Create a ContentValues object where column names are the keys,
         // and the book attributes are the values.
         ContentValues values = new ContentValues();
-        values.put(BookEntry.COLUMN_BOOK_TITLE, "Imajica");
-        values.put(BookEntry.COLUMN_BOOK_AUTHOR, "Clive Barker");
+        values.put(BookEntry.COLUMN_BOOK_TITLE, Title);
+        values.put(BookEntry.COLUMN_BOOK_AUTHOR, Author);
         values.put(BookEntry.COLUMN_SUPPLIER_ID, BookEntry.SUPPLIER_1);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, 200);
 
@@ -189,7 +189,16 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         switch (item.getItemId()) {
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.action_insert_dummy_data:
-                insertBook();
+                insertBook("Imajica", "Clive Barker");
+                insertBook("The Faraway Tree", "Enid Blyton");
+                insertBook("The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life", "Mark Manson");
+                insertBook("The Complete Ketogenic Diet for Beginners: Your Essential Guide to Living the Keto Lifestyle", "Amy Ramos");
+                insertBook("To Kill a Mockingbird", "Harper Lee");
+                insertBook("The Alchemist", "Paulo Coelho");
+                insertBook("The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)", "Don Miguel Ruiz");
+                insertBook("The Power of Now: A Guide to Spiritual Enlightenment", "Eckhart Tolle");
+                insertBook("Think and Grow Rich", "Napoleon Hill");
+                insertBook("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change", "Stephen R. Covey");
                 return true;
             // Respond to a click on the "Delete all entries" menu option
             case R.id.action_delete_all_entries:
