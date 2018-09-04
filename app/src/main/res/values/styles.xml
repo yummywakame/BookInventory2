@@ -71,15 +71,9 @@
 
     <!-- List Item Button Style -->
     <style name="SaleButtonStyle">
-        <item name="android:layout_width">@dimen/sale_btn_size</item>
-        <item name="android:layout_height">@dimen/sale_btn_size</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_centerVertical">true</item>
-        <item name="android:layout_marginRight">@dimen/half_dim</item>
-        <item name="android:background">@drawable/sale_background</item>
+        <item name="android:background">@drawable/sale_button_states</item>
         <item name="android:focusable">false</item>
         <item name="android:focusableInTouchMode">false</item>
-        <item name="android:text">@string/sale_button</item>
     </style>
 
     <!-- Default Font Text Style -->

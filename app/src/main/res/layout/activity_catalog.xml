@@ -121,6 +121,7 @@
             android:dividerHeight="0dp"
             android:clipToPadding="false"
             android:paddingBottom="@dimen/base_dim"
+            android:listSelector="@android:color/transparent"
             tools:listitem="@layout/list_item" />
 
     </RelativeLayout>

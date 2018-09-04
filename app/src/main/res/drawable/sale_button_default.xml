@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:angle="-90"
+                android:endColor="@color/colorPrimaryDark"
+                android:startColor="@color/colorPrimary" />
+            <size
+                android:width="@dimen/sale_btn_size"
+                android:height="@dimen/sale_btn_size" />
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="center_vertical|center_horizontal"
+            android:src="@drawable/ic_cart"
+            android:tint="@color/colorAccent" />
+    </item>
+</layer-list>
