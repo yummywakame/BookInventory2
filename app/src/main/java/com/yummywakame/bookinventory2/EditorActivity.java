@@ -72,6 +72,11 @@ public class EditorActivity extends AppCompatActivity implements
     private EditText mQuantityEditText;
 
     /**
+     * EditText field to enter the book's price
+     */
+    private EditText mPriceEditText;
+
+    /**
      * EditText field to enter the book's supplier
      */
     private Spinner mSupplierSpinner;
@@ -89,7 +94,7 @@ public class EditorActivity extends AppCompatActivity implements
     private String titleString;
     private String authorString;
     private String quantityString;
-    //private int priceInt;
+    private String priceString;
 
     /**
      * Boolean flag that keeps track of whether the book has been edited (true) or not (false)
@@ -141,6 +146,7 @@ public class EditorActivity extends AppCompatActivity implements
         mAuthorEditText = findViewById(R.id.author);
         mQuantityEditText = findViewById(R.id.quantity);
         mSupplierSpinner = findViewById(R.id.spinner_supplier);
+        mPriceEditText = findViewById(R.id.price);
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
         // has touched or modified them. This will let us know if there are unsaved changes
@@ -149,6 +155,7 @@ public class EditorActivity extends AppCompatActivity implements
         mAuthorEditText.setOnTouchListener(mTouchListener);
         mQuantityEditText.setOnTouchListener(mTouchListener);
         mSupplierSpinner.setOnTouchListener(mTouchListener);
+        mPriceEditText.setOnTouchListener(mTouchListener);
 
         setupSpinner();
     }
@@ -203,6 +210,7 @@ public class EditorActivity extends AppCompatActivity implements
         titleString = mNameEditText.getText().toString().trim();
         authorString = mAuthorEditText.getText().toString().trim();
         quantityString = mQuantityEditText.getText().toString().trim();
+        priceString = mPriceEditText.getText().toString().trim();
 
         // Quick validation
         if (TextUtils.isEmpty(titleString)) {
@@ -225,6 +233,11 @@ public class EditorActivity extends AppCompatActivity implements
             Toast.makeText(this, getString(R.string.toast_required_quantity),
                     Toast.LENGTH_SHORT).show();
             return false;
+        } else if (TextUtils.isEmpty(priceString)) {
+            // Show the error in a toast message.
+            Toast.makeText(this, getString(R.string.toast_required_price),
+                    Toast.LENGTH_SHORT).show();
+            return false;
         } else {
             return true;
         }
@@ -238,7 +251,8 @@ public class EditorActivity extends AppCompatActivity implements
         // and check if all the fields in the editor are blank
         if (mCurrentBookUri == null &&
                 TextUtils.isEmpty(titleString) && TextUtils.isEmpty(authorString) &&
-                TextUtils.isEmpty(quantityString) && mSupplierId == BookEntry.SUPPLIER_SELECT) {
+                TextUtils.isEmpty(quantityString) && TextUtils.isEmpty(priceString) &&
+                mSupplierId == BookEntry.SUPPLIER_SELECT) {
             // Since no fields were modified, we can return early without creating a new book.
             // No need to create ContentValues and no need to do any ContentProvider operations.
             return;
@@ -250,6 +264,7 @@ public class EditorActivity extends AppCompatActivity implements
         values.put(BookEntry.COLUMN_BOOK_TITLE, titleString);
         values.put(BookEntry.COLUMN_BOOK_AUTHOR, authorString);
         values.put(BookEntry.COLUMN_SUPPLIER_ID, mSupplierId);
+
         // If the quantity is not provided by the user, don't try to parse the string into an
         // integer value. Use 0 by default.
         int quantity = 0;
@@ -257,6 +272,14 @@ public class EditorActivity extends AppCompatActivity implements
             quantity = Integer.parseInt(quantityString);
         }
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
+
+        // If the price is not provided by the user, don't try to parse the string into an
+        // integer value. Use 0 by default.
+        int price = 0;
+        if (!TextUtils.isEmpty(priceString)) {
+            price = Integer.parseInt(priceString);
+        }
+        values.put(BookEntry.COLUMN_BOOK_PRICE, price);
 
         // Determine if this is a new or existing book by checking if mCurrentBookUri is null or not
         if (mCurrentBookUri == null) {
@@ -400,7 +423,8 @@ public class EditorActivity extends AppCompatActivity implements
                 BookEntry.COLUMN_BOOK_TITLE,
                 BookEntry.COLUMN_BOOK_AUTHOR,
                 BookEntry.COLUMN_SUPPLIER_ID,
-                BookEntry.COLUMN_BOOK_QUANTITY};
+                BookEntry.COLUMN_BOOK_QUANTITY,
+                BookEntry.COLUMN_BOOK_PRICE};
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,   // Parent activity context
@@ -426,17 +450,20 @@ public class EditorActivity extends AppCompatActivity implements
             int authorColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_AUTHOR);
             int supplierColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_SUPPLIER_ID);
             int quantityColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
+            int priceColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_PRICE);
 
             // Extract out the value from the Cursor for the given column index
             String name = cursor.getString(nameColumnIndex);
             String author = cursor.getString(authorColumnIndex);
             int supplier = cursor.getInt(supplierColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
+            int price = cursor.getInt(priceColumnIndex);
 
             // Update the views on the screen with the values from the database
             mNameEditText.setText(name);
             mAuthorEditText.setText(author);
-            mQuantityEditText.setText(Integer.toString(quantity));
+            mQuantityEditText.setText(String.valueOf(quantity));
+            mPriceEditText.setText(String.valueOf(price));
 
             // Supplier is a dropdown spinner, so map the constant value from the database
             // into one of the dropdown options (0 is "Please select...",
@@ -471,6 +498,7 @@ public class EditorActivity extends AppCompatActivity implements
         mAuthorEditText.setText("");
         mQuantityEditText.setText("");
         mSupplierSpinner.setSelection(0); // Select "Unknown" supplier
+        mPriceEditText.setText("");
     }
 
     /**

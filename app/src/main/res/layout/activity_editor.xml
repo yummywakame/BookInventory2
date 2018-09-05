@@ -93,10 +93,11 @@
             android:text="@string/category_quantity" />
 
         <!-- Input fields -->
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:orientation="vertical">
 
             <!-- Quantity field -->
             <EditText
@@ -104,6 +105,14 @@
                 style="@style/EditorFieldStyle"
                 android:hint="@string/hint_book_quantity"
                 android:inputType="number" />
-        </RelativeLayout>
+
+            <!-- Price field -->
+            <EditText
+                android:id="@+id/price"
+                style="@style/EditorFieldStyle"
+                android:hint="@string/hint_book_price"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

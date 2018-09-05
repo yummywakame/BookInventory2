@@ -30,8 +30,6 @@
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
@@ -39,44 +37,63 @@
                 android:maxLines="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@android:color/black"
-                app:layout_constraintBottom_toBottomOf="@id/ConstraintLayout"
-                app:layout_constraintEnd_toStartOf="@+id/quantity"
+                app:layout_constraintEnd_toStartOf="@+id/sale_button"
                 app:layout_constraintStart_toStartOf="@id/ConstraintLayout"
                 app:layout_constraintTop_toTopOf="@id/ConstraintLayout"
-                app:layout_constraintVertical_bias="0.0"
                 tools:text="Title" />
 
             <TextView
                 android:id="@+id/author"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintBottom_toBottomOf="@id/ConstraintLayout"
                 app:layout_constraintEnd_toStartOf="@+id/quantity"
                 app:layout_constraintStart_toStartOf="@id/ConstraintLayout"
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 tools:text="Author" />
 
             <TextView
+                android:id="@+id/currency_symbol"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/ConstraintLayout"
+                app:layout_constraintTop_toBottomOf="@+id/author"
+                tools:text="$" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toStartOf="@+id/quantity"
+                app:layout_constraintStart_toEndOf="@+id/currency_symbol"
+                app:layout_constraintTop_toTopOf="@+id/currency_symbol"
+                tools:text="25" />
+
+            <TextView
                 android:id="@+id/quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_corners"
                 android:gravity="center_vertical"
                 android:paddingEnd="60dp"
                 android:paddingStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/author"
                 app:layout_constraintEnd_toEndOf="@+id/sale_button"
-                app:layout_constraintTop_toTopOf="@+id/sale_button"
+                app:layout_constraintTop_toTopOf="@+id/author"
                 tools:text="250" />
 
             <Button
@@ -84,15 +101,13 @@
                 style="@style/SaleButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/ConstraintLayout"
+                app:layout_constraintBottom_toBottomOf="@+id/quantity"
                 app:layout_constraintDimensionRatio="h,1:1"
                 app:layout_constraintEnd_toEndOf="@id/ConstraintLayout"
-                app:layout_constraintTop_toTopOf="@id/ConstraintLayout" />
+                app:layout_constraintTop_toTopOf="@+id/quantity" />
 
         </android.support.constraint.ConstraintLayout>
 

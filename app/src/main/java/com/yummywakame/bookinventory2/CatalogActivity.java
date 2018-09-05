@@ -36,6 +36,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.yummywakame.bookinventory2.adapters.BookCursorAdapter;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 import com.yummywakame.bookinventory2.data.ContentProvider;
 
@@ -119,6 +120,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         values.put(BookEntry.COLUMN_BOOK_AUTHOR, Author);
         values.put(BookEntry.COLUMN_SUPPLIER_ID, BookEntry.SUPPLIER_1);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, 200);
+        values.put(BookEntry.COLUMN_BOOK_PRICE, 2500);
 
         // Insert a new row for the book into the provider using the ContentResolver.
         // Use the {@link BookEntry#CONTENT_URI} to indicate that we want to insert
@@ -217,7 +219,8 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                 BookEntry._ID,
                 BookEntry.COLUMN_BOOK_TITLE,
                 BookEntry.COLUMN_BOOK_AUTHOR,
-                BookEntry.COLUMN_BOOK_QUANTITY};
+                BookEntry.COLUMN_BOOK_QUANTITY,
+                BookEntry.COLUMN_BOOK_PRICE};
 
         Log.i(LOG_TAG, "Loader<Cursor> onCreateLoader()");
 

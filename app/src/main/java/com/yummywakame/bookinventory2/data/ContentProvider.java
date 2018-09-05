@@ -167,10 +167,15 @@ public class ContentProvider extends android.content.ContentProvider {
         if (supplier == null || !BookEntry.isValidSupplier(supplier)) {
             throw new IllegalArgumentException(mContext.getString(R.string.toast_required_supplier));
         }
-        // If the quantity is provided, check that it's greater than or equal to 0 kg
+        // If the quantity is provided, check that it's greater than or equal to 0
         Integer quantity = values.getAsInteger(BookEntry.COLUMN_BOOK_QUANTITY);
-        if (quantity != null && quantity < 0) {
+        if (quantity == null || quantity < 0) {
             throw new IllegalArgumentException(mContext.getString(R.string.toast_required_quantity));
+        }
+        // If the price is provided, check that it's greater than or equal to 0
+        Integer price = values.getAsInteger(BookEntry.COLUMN_BOOK_PRICE);
+        if (price == null || price < 0) {
+            throw new IllegalArgumentException(mContext.getString(R.string.toast_required_price));
         }
 
         // Get writable database
@@ -262,10 +267,20 @@ public class ContentProvider extends android.content.ContentProvider {
         // If the {@link BookEntry#COLUMN_BOOK_QUANTITY} key is present,
         // check that the quantity value is valid.
         if (values.containsKey(BookEntry.COLUMN_BOOK_QUANTITY)) {
-            // Check that the quantity is greater than or equal to 0 kg
+            // Check that the quantity is greater than or equal to 0
             Integer quantity = values.getAsInteger(BookEntry.COLUMN_BOOK_QUANTITY);
             if (quantity != null && quantity < 0) {
                 throw new IllegalArgumentException(mContext.getString(R.string.toast_required_quantity));
+            }
+        }
+
+        // If the {@link BookEntry#COLUMN_BOOK_PRICE} key is present,
+        // check that the price value is valid.
+        if (values.containsKey(BookEntry.COLUMN_BOOK_PRICE)) {
+            // Check that the price is greater than or equal to 0
+            Integer price = values.getAsInteger(BookEntry.COLUMN_BOOK_PRICE);
+            if (price == null || price < 0) {
+                throw new IllegalArgumentException(mContext.getString(R.string.toast_required_price));
             }
         }
 
@@ -274,7 +289,7 @@ public class ContentProvider extends android.content.ContentProvider {
             return 0;
         }
 
-        // Otherwise, get writeable database to update the data
+        // Otherwise, get writable database to update the data
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
         // Perform the update on the database and get the number of rows affected

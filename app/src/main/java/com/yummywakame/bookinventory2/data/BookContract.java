@@ -111,6 +111,12 @@ public final class BookContract {
         public final static String COLUMN_BOOK_QUANTITY = "quantity";
 
         /**
+         * Price of the book.
+         * Type: INTEGER
+         */
+        public final static String COLUMN_BOOK_PRICE = "price";
+
+        /**
          * Possible values for the supplier of the book.
          */
         public static final int SUPPLIER_SELECT = 0;

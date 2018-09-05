@@ -27,9 +27,11 @@
     <string name="hint_book_name">Name</string>
     <string name="hint_book_author">Author</string>
     <string name="hint_book_quantity">Quantity</string>
+    <string name="hint_book_price">Price</string>
 
-    <!-- Label for the book's quantity if the quantity is unknown [CHAR LIMIT=20] -->
+    <!-- Label for the book's quantity or price if the quantity is unknown [CHAR LIMIT=20] -->
     <string name="unknown_quantity">0</string>
+    <string name="unknown_price">0</string>
 
     <!-- Buttons -->
     <string name="sale_button">Sale</string>
@@ -43,10 +45,11 @@
     <string name="toast_update_book_successful">Book updated.</string>
     <string name="toast_delete_book_successful">Book deleted.</string>
     <string name="toast_delete_all_books_successful">%1$d books have been deleted.</string>
-    <string name="toast_required_title">Book Title required.</string>
-    <string name="toast_required_author">Book Author required.</string>
-    <string name="toast_required_supplier">Book Supplier required.</string>
+    <string name="toast_required_title">Book title required.</string>
+    <string name="toast_required_author">Book author required.</string>
+    <string name="toast_required_supplier">Book supplier required.</string>
     <string name="toast_required_quantity">Book quantity required.</string>
+    <string name="toast_required_price">Book price required.</string>
 
     <!-- Confirmation dialog labels and messages -->
     <string name="delete_dialog_msg">Delete this book?</string>

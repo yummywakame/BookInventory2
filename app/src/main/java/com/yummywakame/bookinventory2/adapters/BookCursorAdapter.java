@@ -1,4 +1,4 @@
-package com.yummywakame.bookinventory2;
+package com.yummywakame.bookinventory2.adapters;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -13,6 +13,7 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yummywakame.bookinventory2.R;
 import com.yummywakame.bookinventory2.data.BookContract;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 
@@ -64,11 +65,13 @@ public class BookCursorAdapter extends CursorAdapter {
         TextView titleTextView = view.findViewById(R.id.title);
         TextView authorTextView = view.findViewById(R.id.author);
         TextView quantityTextView = view.findViewById(R.id.quantity);
+        TextView priceTextView = view.findViewById(R.id.price);
 
         // Extract properties from cursor
         final String bookTitle = cursorData.getString(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_TITLE));
         final String bookAuthor = cursorData.getString(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_AUTHOR));
         final int bookQuantity = cursorData.getInt(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_QUANTITY));
+        final int bookPrice = cursorData.getInt(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_PRICE));
 
         // Populate fields with extracted properties
         titleTextView.setText(bookTitle);
@@ -79,6 +82,13 @@ public class BookCursorAdapter extends CursorAdapter {
             quantityTextView.setText(context.getString(R.string.unknown_quantity));
         } else {
             quantityTextView.setText(String.valueOf(bookQuantity));
+        }
+
+        // If the book price is empty string or null, then set it to zero.
+        if (bookPrice == 0) {
+            priceTextView.setText(context.getString(R.string.unknown_price));
+        } else {
+            priceTextView.setText(String.valueOf(bookPrice));
         }
 
         // OnClickListener for Sale button
