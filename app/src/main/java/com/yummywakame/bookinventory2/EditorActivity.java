@@ -58,24 +58,9 @@ public class EditorActivity extends AppCompatActivity implements
     private Uri mCurrentBookUri;
 
     /**
-     * EditText field to enter the book's name
+     * EditText fields to enter the book's information
      */
-    private EditText mNameEditText;
-
-    /**
-     * EditText field to enter the book's author
-     */
-    private EditText mAuthorEditText;
-
-    /**
-     * EditText field to enter the book's quantity
-     */
-    private EditText mQuantityEditText;
-
-    /**
-     * EditText field to enter the book's price
-     */
-    private EditText mPriceEditText;
+    private EditText mNameEditText, mAuthorEditText, mQuantityEditText, mPriceEditText;
 
     /**
      * EditText field to enter the book's supplier
