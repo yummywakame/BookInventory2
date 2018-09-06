@@ -41,8 +41,8 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:paddingTop">16dp</item>
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAppearance">?android:textAppearanceListItem</item>
     </style>
 
     <!-- Style for an EditText field in the editor -->
@@ -54,6 +54,16 @@
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
         <item name="android:background">@drawable/edittext_bg</item>
+    </style>
+
+    <!-- Style for required field asterisk -->
+    <style name="AsteriskStyle">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:text">@string/required_field_asterisk</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <!-- Style for the Spinner -->

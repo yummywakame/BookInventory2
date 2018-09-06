@@ -36,6 +36,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
@@ -181,6 +182,9 @@ public class EditorActivity extends AppCompatActivity implements
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
+                //Set the text color of the Spinner's selected view (not a drop down list view)
+                View v = mSupplierSpinner.getSelectedView();
+                ((TextView) v).setTextColor(getResources().getColor(R.color.darkTextColor));
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.supplier_1))) {
                         mSupplierId = BookEntry.SUPPLIER_1;
@@ -192,6 +196,8 @@ public class EditorActivity extends AppCompatActivity implements
                         mSupplierId = BookEntry.SUPPLIER_4;
                     } else {
                         mSupplierId = BookEntry.SUPPLIER_SELECT;
+                        v = mSupplierSpinner.getSelectedView();
+                        ((TextView) v).setTextColor(getResources().getColor(R.color.mediumTextColor));
                     }
                 }
             }

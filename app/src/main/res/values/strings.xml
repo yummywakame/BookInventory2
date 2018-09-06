@@ -19,19 +19,19 @@
     <string name="editor_activity_title_edit_book">Edit Book</string>
 
     <!-- Text Labels for fields in the editor [CHAR LIMIT=30] -->
-    <string name="category_overview">Overview</string>
-    <string name="category_supplier">Supplier</string>
-    <string name="category_quantity">In Stock</string>
+    <string name="label_overview">Overview</string>
+    <string name="label_supplier">Supplier</string>
+    <string name="label_in_stock">In Stock</string>
 
     <!-- Text hints and units for fields in the editor [CHAR LIMIT=30] -->
-    <string name="hint_book_name">Name</string>
+    <string name="hint_book_title">Book Title</string>
     <string name="hint_book_author">Author</string>
     <string name="hint_book_quantity">Quantity</string>
     <string name="hint_book_price">Price</string>
 
     <!-- Label for the book's quantity or price if the quantity is unknown [CHAR LIMIT=20] -->
-    <string name="unknown_quantity">0</string>
-    <string name="unknown_price">0</string>
+    <string name="unknown_quantity" translatable="false">0</string>
+    <string name="unknown_price" translatable="false">00.00</string>
 
     <!-- Buttons -->
     <string name="sale_button">Sale</string>
@@ -74,6 +74,12 @@
     <string name="empty_view_subtitle_text">Get started by adding a book.</string>
 
     <!-- Image descriptions for accessibility -->
-    <string name="empty_shelf_image_desc">Empty book shelf</string>
+    <string name="empty_shelf_image_desc" translatable="false">Empty book shelf</string>
+
+    <!-- Asterisk that indicates a required field -->
+    <string name="required_field_asterisk" translatable="false">*</string>
+
+    <!-- Instructions for the user -->
+    <string name="instruction_required_field">Indicates required fields.</string>
 
 </resources>
