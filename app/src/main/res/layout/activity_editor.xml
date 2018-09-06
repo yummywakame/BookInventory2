@@ -46,8 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/title"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/title" />
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <!-- Title field -->
         <android.support.design.widget.TextInputLayout
@@ -66,7 +65,7 @@
                 android:id="@+id/editTextTitle"
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_book_title"
                 android:inputType="textCapWords"
                 android:singleLine="true" />
@@ -80,8 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/author"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/author" />
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <!-- Author field -->
         <android.support.design.widget.TextInputLayout
@@ -90,7 +88,7 @@
             android:layout_height="56dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_author"
             app:layout_constraintTop_toBottomOf="@+id/title">
@@ -99,7 +97,7 @@
                 android:id="@+id/editTextAuthor"
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_book_author"
                 android:inputType="textCapWords"
                 android:singleLine="true" />
@@ -130,18 +128,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/spinnerSupplier" />
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <!-- Supplier drop-down spinner -->
         <Spinner
             android:id="@+id/spinnerSupplier"
             style="@style/EditorSpinnerBg"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:spinnerMode="dropdown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_supplier"
@@ -171,8 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/quantity"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/quantity" />
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <!-- Quantity field -->
         <android.support.design.widget.TextInputLayout
@@ -181,7 +177,7 @@
             android:layout_height="56dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_quantity"
             app:layout_constraintTop_toBottomOf="@+id/spinnerSupplier">
@@ -190,7 +186,7 @@
                 android:id="@+id/editTextQuantity"
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_book_quantity"
                 android:inputType="number"
                 android:singleLine="true" />
@@ -204,8 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/price"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/price" />
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <!-- Price field -->
         <android.support.design.widget.TextInputLayout
@@ -214,7 +209,7 @@
             android:layout_height="56dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_price"
             app:layout_constraintTop_toBottomOf="@+id/quantity">
@@ -223,7 +218,7 @@
                 android:id="@+id/editTextPrice"
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_book_price"
                 android:inputType="numberDecimal"
                 android:singleLine="true" />
