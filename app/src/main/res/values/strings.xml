@@ -79,6 +79,9 @@
     <!-- Asterisk that indicates a required field -->
     <string name="required_field_asterisk" translatable="false">*</string>
 
+    <!-- Currency for dollar -->
+    <string name="currency_dollar" translatable="false">$</string>
+
     <!-- Instructions for the user -->
     <string name="instruction_required_field">Indicates required fields.</string>
 

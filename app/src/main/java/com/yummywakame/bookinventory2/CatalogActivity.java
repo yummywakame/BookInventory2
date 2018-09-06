@@ -189,19 +189,15 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
+
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.action_insert_dummy_data:
-                insertBook("Imajica", "Clive Barker");
-                insertBook("The Faraway Tree", "Enid Blyton");
-                insertBook("The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life", "Mark Manson");
-                insertBook("The Complete Ketogenic Diet for Beginners: Your Essential Guide to Living the Keto Lifestyle", "Amy Ramos");
-                insertBook("To Kill a Mockingbird", "Harper Lee");
-                insertBook("The Alchemist", "Paulo Coelho");
-                insertBook("The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)", "Don Miguel Ruiz");
-                insertBook("The Power of Now: A Guide to Spiritual Enlightenment", "Eckhart Tolle");
-                insertBook("Think and Grow Rich", "Napoleon Hill");
-                insertBook("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change", "Stephen R. Covey");
+                // Insert 10 books from array_dummy_data
+                for (int i = 0; i <= 9; i++) {
+                    insertBook(getResources().getStringArray(R.array.array_book_title)[i], getResources().getStringArray(R.array.array_book_author)[i]);
+                }
                 return true;
+
             // Respond to a click on the "Delete all entries" menu option
             case R.id.action_delete_all_entries:
                 // Pop up confirmation dialog for deletion

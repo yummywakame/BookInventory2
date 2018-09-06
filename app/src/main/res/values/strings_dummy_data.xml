@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Dummy Data book titles [NO CHAR LIMIT] -->
+    <string name="book_title_1">Imajica</string>
+    <string name="book_title_2">The Faraway Tree</string>
+    <string name="book_title_3">The Subtle Art of Not Giving a F*ck</string>
+    <string name="book_title_4">The Complete Ketogenic Diet for Beginners</string>
+    <string name="book_title_5">To Kill a Mockingbird</string>
+    <string name="book_title_6">The Alchemist</string>
+    <string name="book_title_7">The Four Agreements</string>
+    <string name="book_title_8">The Power of Now</string>
+    <string name="book_title_9">Think and Grow Rich</string>
+    <string name="book_title_10">Reality Transurfing. Steps I-V</string>
+
+    <!-- Dummy Data book authors [NO CHAR LIMIT] -->
+    <string name="book_author_1">Clive Barker</string>
+    <string name="book_author_2">Enid Blyton</string>
+    <string name="book_author_3">Mark Manson</string>
+    <string name="book_author_4">Amy Ramos</string>
+    <string name="book_author_5">Harper Lee</string>
+    <string name="book_author_6">Paulo Coelho</string>
+    <string name="book_author_7">Don Miguel Ruiz</string>
+    <string name="book_author_8">Eckhart Tolle</string>
+    <string name="book_author_9">Napoleon Hill</string>
+    <string name="book_author_10">Vadim Zeland</string>
+
+</resources>
