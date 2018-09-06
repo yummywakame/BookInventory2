@@ -128,11 +128,11 @@ public class EditorActivity extends AppCompatActivity implements
         }
 
         // Find all relevant views that we will need to read user input from
-        mNameEditText = findViewById(R.id.title);
-        mAuthorEditText = findViewById(R.id.author);
-        mQuantityEditText = findViewById(R.id.quantity);
-        mSupplierSpinner = findViewById(R.id.spinner_supplier);
-        mPriceEditText = findViewById(R.id.price);
+        mNameEditText = findViewById(R.id.editTextTitle);
+        mAuthorEditText = findViewById(R.id.editTextAuthor);
+        mQuantityEditText = findViewById(R.id.editTextQuantity);
+        mSupplierSpinner = findViewById(R.id.spinnerSupplier);
+        mPriceEditText = findViewById(R.id.editTextPrice);
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
         // has touched or modified them. This will let us know if there are unsaved changes

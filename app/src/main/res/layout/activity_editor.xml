@@ -8,228 +8,262 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
---><!-- Layout for the editor -->
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-->
+<android.support.design.widget.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EditorActivity">
+    android:layout_height="wrap_content">
 
-    <!-- Overview category -->
+    <!-- Layout for the editor -->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EditorActivity">
 
+        <!-- Overview category -->
 
-    <!-- Label -->
-    <TextView
-        android:id="@+id/label_overview"
-        style="@style/CategoryStyle"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/label_overview"
-        app:layout_constraintBaseline_toBaselineOf="@+id/title"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Label -->
+        <TextView
+            android:id="@+id/label_overview"
+            style="@style/CategoryStyle"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/label_overview"
+            app:layout_constraintBottom_toBottomOf="@+id/title"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Input fields -->
+        <!-- Input fields -->
 
-    <!-- Asterisk for Title -->
-    <TextView
-        android:id="@+id/asterisk_title"
-        style="@style/AsteriskStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/title"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/title" />
+        <!-- Asterisk for Title -->
+        <TextView
+            android:id="@+id/asterisk_title"
+            style="@style/AsteriskStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/title" />
 
-    <!-- Title field -->
-    <EditText
-        android:id="@+id/title"
-        style="@style/EditorFieldStyle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/hint_book_title"
-        android:inputType="textCapWords"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/asterisk_title"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Title field -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/asterisk_title"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Asterisk -->
-    <TextView
-        android:id="@+id/asterisk_author"
-        style="@style/AsteriskStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/author"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/author" />
+            <EditText
+                android:id="@+id/editTextTitle"
+                style="@style/EditorFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/hint_book_title"
+                android:inputType="textCapWords"
+                android:singleLine="true" />
 
-    <!-- Author field -->
-    <EditText
-        android:id="@+id/author"
-        style="@style/EditorFieldStyle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/hint_book_author"
-        android:inputType="textCapWords"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/asterisk_author"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        </android.support.design.widget.TextInputLayout>
 
-    <!-- Supplier category -->
+        <!-- Asterisk -->
+        <TextView
+            android:id="@+id/asterisk_author"
+            style="@style/AsteriskStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/author"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/author" />
 
-    <!-- Label -->
-    <TextView
-        android:id="@+id/label_supplier"
-        style="@style/CategoryStyle"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/label_supplier"
-        app:layout_constraintBaseline_toBaselineOf="@+id/spinner_supplier"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Author field -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/author"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/asterisk_author"
+            app:layout_constraintTop_toBottomOf="@+id/title">
 
-    <!-- Input field -->
+            <EditText
+                android:id="@+id/editTextAuthor"
+                style="@style/EditorFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/hint_book_author"
+                android:inputType="textCapWords"
+                android:singleLine="true" />
 
-    <!-- Asterisk -->
-    <TextView
-        android:id="@+id/asterisk_supplier"
-        style="@style/AsteriskStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner_supplier"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/spinner_supplier" />
+        </android.support.design.widget.TextInputLayout>
 
-    <!-- Supplier drop-down spinner -->
-    <Spinner
-        android:id="@+id/spinner_supplier"
-        style="@style/EditorSpinnerBg"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/asterisk_supplier"
-        app:layout_constraintTop_toBottomOf="@+id/author" />
+        <!-- Supplier category -->
 
+        <!-- Label -->
+        <TextView
+            android:id="@+id/label_supplier"
+            style="@style/CategoryStyle"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/label_supplier"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Quantity category -->
+        <!-- Input field -->
 
+        <!-- Asterisk -->
+        <TextView
+            android:id="@+id/asterisk_supplier"
+            style="@style/AsteriskStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/spinnerSupplier" />
 
-    <!-- Label -->
-    <TextView
-        android:id="@+id/label_in_stock"
-        style="@style/CategoryStyle"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/label_in_stock"
-        app:layout_constraintBaseline_toBaselineOf="@+id/quantity"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Supplier drop-down spinner -->
+        <Spinner
+            android:id="@+id/spinnerSupplier"
+            style="@style/EditorSpinnerBg"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/asterisk_supplier"
+            app:layout_constraintTop_toBottomOf="@+id/author" />
 
-    <!-- Input fields -->
+        <!-- Quantity category -->
 
-    <!-- Asterisk -->
-    <TextView
-        android:id="@+id/asterisk_quantity"
-        style="@style/AsteriskStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/quantity"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/quantity" />
+        <!-- Label -->
+        <TextView
+            android:id="@+id/label_in_stock"
+            style="@style/CategoryStyle"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/label_in_stock"
+            app:layout_constraintBottom_toBottomOf="@+id/quantity"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Quantity field -->
-    <EditText
-        android:id="@+id/quantity"
-        style="@style/EditorFieldStyle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/hint_book_quantity"
-        android:inputType="number"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/asterisk_quantity"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_supplier" />
+        <!-- Input fields -->
 
-    <!-- Asterisk -->
-    <TextView
-        android:id="@+id/asterisk_price"
-        style="@style/AsteriskStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/price"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/price" />
+        <!-- Asterisk -->
+        <TextView
+            android:id="@+id/asterisk_quantity"
+            style="@style/AsteriskStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/quantity"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/quantity" />
 
-    <!-- Price field -->
-    <EditText
-        android:id="@+id/price"
-        style="@style/EditorFieldStyle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/hint_book_price"
-        android:inputType="numberDecimal"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/asterisk_price"
-        app:layout_constraintTop_toBottomOf="@+id/quantity" />
+        <!-- Quantity field -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/quantity"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/asterisk_quantity"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerSupplier">
 
-    <!-- Guideline that divides labels from fields -->
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33" />
+            <EditText
+                android:id="@+id/editTextQuantity"
+                style="@style/EditorFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/hint_book_quantity"
+                android:inputType="number"
+                android:singleLine="true" />
 
-    <!-- Asterisk -->
-    <TextView
-        android:id="@+id/asterisk_instruction"
-        style="@style/AsteriskStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/instruction_required_field"
-        app:layout_constraintEnd_toStartOf="@+id/instruction_required_field"
-        app:layout_constraintTop_toTopOf="@+id/instruction_required_field" />
+        </android.support.design.widget.TextInputLayout>
 
-    <!-- Instruction -->
-    <TextView
-        android:id="@+id/instruction_required_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/instruction_required_field"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price"
-        app:layout_constraintVertical_bias="1.0" />
+        <!-- Asterisk -->
+        <TextView
+            android:id="@+id/asterisk_price"
+            style="@style/AsteriskStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/price"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/price" />
 
+        <!-- Price field -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/asterisk_price"
+            app:layout_constraintTop_toBottomOf="@+id/quantity">
 
-</android.support.constraint.ConstraintLayout>
+            <EditText
+                android:id="@+id/editTextPrice"
+                style="@style/EditorFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/hint_book_price"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Guideline that divides labels from fields -->
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <!-- Asterisk -->
+        <TextView
+            android:id="@+id/asterisk_instruction"
+            style="@style/AsteriskStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/instruction_required_field"
+            app:layout_constraintEnd_toStartOf="@+id/instruction_required_field"
+            app:layout_constraintTop_toTopOf="@+id/instruction_required_field" />
+
+        <!-- Instruction -->
+        <TextView
+            android:id="@+id/instruction_required_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/instruction_required_field"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.TextInputLayout>
