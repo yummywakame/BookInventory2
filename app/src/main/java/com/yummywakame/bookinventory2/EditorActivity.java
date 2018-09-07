@@ -63,6 +63,11 @@ public class EditorActivity extends AppCompatActivity implements
     private EditText mNameEditText, mAuthorEditText, mQuantityEditText, mPriceEditText;
 
     /**
+     * TextView field to display the currency symbol based on chosen locale
+     */
+    private TextView mCurrencyTextView;
+
+    /**
      * EditText field to enter the book's supplier
      */
     private Spinner mSupplierSpinner;
@@ -133,6 +138,7 @@ public class EditorActivity extends AppCompatActivity implements
         mQuantityEditText = findViewById(R.id.editTextQuantity);
         mSupplierSpinner = findViewById(R.id.spinnerSupplier);
         mPriceEditText = findViewById(R.id.editTextPrice);
+        mCurrencyTextView = findViewById(R.id.currencySymbol);
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
         // has touched or modified them. This will let us know if there are unsaved changes
@@ -455,6 +461,7 @@ public class EditorActivity extends AppCompatActivity implements
             mAuthorEditText.setText(author);
             mQuantityEditText.setText(String.valueOf(quantity));
             mPriceEditText.setText(String.valueOf(HelperClass.formatPrice(price, false, true)));
+            mCurrencyTextView.setText(String.valueOf(HelperClass.formatPrice(price, true, false)));
 
             // Supplier is a dropdown spinner, so map the constant value from the database
             // into one of the dropdown options (0 is "Please select...",
