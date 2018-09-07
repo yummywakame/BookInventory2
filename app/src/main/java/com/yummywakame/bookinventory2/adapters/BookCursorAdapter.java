@@ -13,13 +13,10 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yummywakame.bookinventory2.HelperClass;
 import com.yummywakame.bookinventory2.R;
 import com.yummywakame.bookinventory2.data.BookContract;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
-
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
 
 /**
  * {@link BookCursorAdapter} is an adapter for a list or grid view
@@ -27,9 +24,6 @@ import java.util.Locale;
  * how to create list items for each row of book data in the {@link Cursor}.
  */
 public class BookCursorAdapter extends CursorAdapter {
-
-    // Set the locale manually
-    private Locale locale = Locale.US;
 
     /**
      * Constructs a new {@link BookCursorAdapter}.
@@ -96,7 +90,7 @@ public class BookCursorAdapter extends CursorAdapter {
         if (bookPrice == 0) {
             priceTextView.setText(context.getString(R.string.unknown_price));
         } else {
-            priceTextView.setText(String.valueOf(formatPrice(bookPrice)));
+            priceTextView.setText(String.valueOf(HelperClass.formatPrice(bookPrice, false, false)));
         }
 
         // OnClickListener for Sale button
@@ -118,22 +112,5 @@ public class BookCursorAdapter extends CursorAdapter {
                 }
             }
         });
-    }
-
-    /**
-     * Helper method that formats the price
-     *
-     * @param price is the original double price
-     * @return price    formatted with chosen currency in correct position
-     * Displays eg: $25 instead of $25.00 and $35.99 instead of $39.998
-     */
-    private String formatPrice(double price) {
-        // Get the correct currency symbol and position depending on chosen locale
-        DecimalFormat formatter = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
-        // Never display .00 prices
-        formatter.setMinimumFractionDigits(0);
-        // Shorten .9998 to .99
-        formatter.setMaximumFractionDigits(2);
-        return formatter.format(price);
     }
 }

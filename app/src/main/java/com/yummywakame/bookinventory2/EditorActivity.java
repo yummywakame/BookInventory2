@@ -454,7 +454,7 @@ public class EditorActivity extends AppCompatActivity implements
             mNameEditText.setText(name);
             mAuthorEditText.setText(author);
             mQuantityEditText.setText(String.valueOf(quantity));
-            mPriceEditText.setText(String.valueOf(price));
+            mPriceEditText.setText(String.valueOf(HelperClass.formatPrice(price, false, true)));
 
             // Supplier is a dropdown spinner, so map the constant value from the database
             // into one of the dropdown options (0 is "Please select...",
