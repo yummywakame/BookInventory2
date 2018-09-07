@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:hint="@string/hint_book_title"
-                android:inputType="textMultiLine"
+                android:inputType="textMultiLine|textCapWords"
                 android:lines="6"
                 android:minHeight="48dp"
                 android:minLines="1"

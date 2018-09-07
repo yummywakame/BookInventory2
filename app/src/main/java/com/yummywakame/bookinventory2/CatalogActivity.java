@@ -26,7 +26,6 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -58,36 +57,20 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      */
     BookCursorAdapter mCursorAdapter;
 
-    /**
-     * Stores the user's locale
-     */
-    public static String sLocale;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
-        // Get the users locale to display the correct currency
-//        sLocale = Locale.getDefault().getCountry();
-//        sLocale = "Locale."+sLocale;
-//        Log.i(LOG_TAG, "getCountry: " + sLocale);
-
-//        String cCode = Locale.getDefault().getCountry();
-//        String lCode = Locale.getDefault().getLanguage();
-//        sLocale = lCode+"_"+cCode;
-//        Log.i(LOG_TAG, "Locale: " + sLocale);
-
-
         // Setup FAB to open EditorActivity
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CatalogActivity.this, EditorActivity.class);
-                startActivity(intent);
-            }
-        });
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(CatalogActivity.this, EditorActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         // Find the ListView which will be populated with the book data
         ListView bookListView = findViewById(R.id.list);
