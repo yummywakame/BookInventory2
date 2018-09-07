@@ -65,6 +65,7 @@
     <string name="action_delete">Delete</string>
 
     <!-- Labels for overflow menu options [CHAR LIMIT=20] -->
+    <string name="action_add">Add a Book</string>
     <string name="action_insert_dummy_data">Insert Dummy Data</string>
     <string name="action_delete_all_entries">Delete All Books</string>
     <string name="cursor_message">The books table contains %1$d books.</string>

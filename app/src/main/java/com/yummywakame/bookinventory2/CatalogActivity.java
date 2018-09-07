@@ -206,6 +206,13 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
 
+            // Respond to a click on the "Add a Book" menu option
+            case R.id.action_add:
+                // Open EditorActivity
+                Intent intent = new Intent(CatalogActivity.this, EditorActivity.class);
+                startActivity(intent);
+                return true;
+
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.action_insert_dummy_data:
                 // Insert 10 books from array_dummy_data
