@@ -13,7 +13,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:context=".EditorActivity">
 
     <!-- Layout for the editor -->
     <android.support.constraint.ConstraintLayout
@@ -28,12 +29,11 @@
         <TextView
             android:id="@+id/label_overview"
             style="@style/CategoryStyle"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
             android:text="@string/label_overview"
-            app:layout_constraintBottom_toBottomOf="@+id/title"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/asterisk_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/asterisk_title" />
 
         <!-- Input fields -->
 
@@ -44,8 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:paddingTop="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/title"
-            app:layout_constraintStart_toEndOf="@+id/barrier" />
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="@+id/title" />
 
         <!-- Title field -->
         <android.support.design.widget.TextInputLayout
@@ -84,8 +86,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:paddingTop="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/author"
-            app:layout_constraintStart_toEndOf="@+id/barrier" />
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="@+id/author" />
 
         <!-- Author field -->
         <android.support.design.widget.TextInputLayout
@@ -118,7 +122,6 @@
         <TextView
             android:id="@+id/label_supplier"
             style="@style/CategoryStyle"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
             android:text="@string/label_supplier"
@@ -135,7 +138,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
-            app:layout_constraintStart_toEndOf="@+id/barrier" />
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="@+id/spinnerSupplier" />
 
         <!-- Supplier drop-down spinner -->
         <Spinner
@@ -157,12 +161,11 @@
         <TextView
             android:id="@+id/label_in_stock"
             style="@style/CategoryStyle"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
             android:text="@string/label_in_stock"
-            app:layout_constraintBottom_toBottomOf="@+id/quantity"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/asterisk_quantity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/asterisk_quantity" />
 
         <!-- Input fields -->
 
@@ -173,8 +176,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:paddingTop="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/quantity"
-            app:layout_constraintStart_toEndOf="@+id/barrier" />
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="@+id/quantity" />
 
         <!-- Quantity field -->
         <android.support.design.widget.TextInputLayout
@@ -208,8 +213,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:paddingTop="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/price"
-            app:layout_constraintStart_toEndOf="@+id/barrier" />
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="@+id/price" />
 
         <!-- Price field -->
         <android.support.design.widget.TextInputLayout
@@ -259,7 +266,6 @@
             style="@style/AsteriskStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/instruction_required_field"
             app:layout_constraintEnd_toStartOf="@+id/instruction_required_field"
             app:layout_constraintTop_toTopOf="@+id/instruction_required_field" />
@@ -285,7 +291,7 @@
             android:layout_height="wrap_content"
             app:barrierDirection="right"
             app:constraint_referenced_ids="label_overview,label_supplier,label_in_stock"
-            tools:layout_editor_absoluteX="384dp" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
