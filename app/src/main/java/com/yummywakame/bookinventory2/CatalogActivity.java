@@ -58,10 +58,26 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      */
     BookCursorAdapter mCursorAdapter;
 
+    /**
+     * Stores the user's locale
+     */
+    public static String sLocale;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
+
+        // Get the users locale to display the correct currency
+//        sLocale = Locale.getDefault().getCountry();
+//        sLocale = "Locale."+sLocale;
+//        Log.i(LOG_TAG, "getCountry: " + sLocale);
+
+//        String cCode = Locale.getDefault().getCountry();
+//        String lCode = Locale.getDefault().getLanguage();
+//        sLocale = lCode+"_"+cCode;
+//        Log.i(LOG_TAG, "Locale: " + sLocale);
+
 
         // Setup FAB to open EditorActivity
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -112,15 +128,15 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     /**
      * Helper method to insert hardcoded book data into the database. For debugging purposes only.
      */
-    private void insertBook(String Title, String Author) {
+    private void insertBook(String Title, String Author, Integer Supplier, Integer Stock, Double Price) {
         // Create a ContentValues object where column names are the keys,
         // and the book attributes are the values.
         ContentValues values = new ContentValues();
         values.put(BookEntry.COLUMN_BOOK_TITLE, Title);
         values.put(BookEntry.COLUMN_BOOK_AUTHOR, Author);
-        values.put(BookEntry.COLUMN_SUPPLIER_ID, BookEntry.SUPPLIER_1);
-        values.put(BookEntry.COLUMN_BOOK_QUANTITY, 200);
-        values.put(BookEntry.COLUMN_BOOK_PRICE, 2500);
+        values.put(BookEntry.COLUMN_SUPPLIER_ID, Supplier);
+        values.put(BookEntry.COLUMN_BOOK_QUANTITY, Stock);
+        values.put(BookEntry.COLUMN_BOOK_PRICE, Price);
 
         // Insert a new row for the book into the provider using the ContentResolver.
         // Use the {@link BookEntry#CONTENT_URI} to indicate that we want to insert
@@ -194,7 +210,12 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             case R.id.action_insert_dummy_data:
                 // Insert 10 books from array_dummy_data
                 for (int i = 0; i <= 9; i++) {
-                    insertBook(getResources().getStringArray(R.array.array_book_title)[i], getResources().getStringArray(R.array.array_book_author)[i]);
+                    insertBook(
+                            getResources().getStringArray(R.array.array_book_title)[i],
+                            getResources().getStringArray(R.array.array_book_author)[i],
+                            getResources().getIntArray(R.array.array_book_supplier)[i],
+                            getResources().getIntArray(R.array.array_book_stock)[i],
+                            Double.parseDouble(getResources().getStringArray(R.array.array_book_price)[i]));
                 }
                 return true;
 
@@ -242,4 +263,14 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         mCursorAdapter.swapCursor(null);
         Log.i(LOG_TAG, "onLoaderReset() on data that needs to be deleted.");
     }
+
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        // Check to see if the user's locale has changed
+//        super.onConfigurationChanged(newConfig);
+//        String cCode = Locale.getDefault().getCountry();
+//        String lCode = Locale.getDefault().getLanguage();
+//        sLocale = lCode + "_" + cCode;
+//        Log.i(LOG_TAG, "New Locale: " + sLocale);
+//    }
 }

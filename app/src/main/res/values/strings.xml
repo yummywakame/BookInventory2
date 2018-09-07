@@ -31,7 +31,7 @@
 
     <!-- Label for the book's quantity or price if the quantity is unknown [CHAR LIMIT=20] -->
     <string name="unknown_quantity" translatable="false">0</string>
-    <string name="unknown_price" translatable="false">00.00</string>
+    <string name="unknown_price" translatable="false">0</string>
 
     <!-- Buttons -->
     <string name="sale_button">Sale</string>

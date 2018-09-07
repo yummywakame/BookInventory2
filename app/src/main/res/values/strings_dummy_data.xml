@@ -25,4 +25,17 @@
     <string name="book_author_9">Napoleon Hill</string>
     <string name="book_author_10">Vadim Zeland</string>
 
+    <!-- Dummy book prices -->
+    <!-- Doubles are stored as Strings in Android -->
+    <string name="dummy_book_price_1">9.00</string>
+    <string name="dummy_book_price_2">27.99</string>
+    <string name="dummy_book_price_3">56.00</string>
+    <string name="dummy_book_price_4">25.00</string>
+    <string name="dummy_book_price_5">20.00</string>
+    <string name="dummy_book_price_6">150.00</string>
+    <string name="dummy_book_price_7">25.00</string>
+    <string name="dummy_book_price_8">39.99</string>
+    <string name="dummy_book_price_9">16.99</string>
+    <string name="dummy_book_price_10">25.00</string>
+
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Values for inserting dummy book data into the database -->
+    <!-- Dummy book stock levels -->
+    <integer name="dummy_book_stock_1">5</integer>
+    <integer name="dummy_book_stock_2">200</integer>
+    <integer name="dummy_book_stock_3">350</integer>
+    <integer name="dummy_book_stock_4">20</integer>
+    <integer name="dummy_book_stock_5">500</integer>
+    <integer name="dummy_book_stock_6">1200</integer>
+    <integer name="dummy_book_stock_7">55</integer>
+    <integer name="dummy_book_stock_8">21</integer>
+    <integer name="dummy_book_stock_9">2</integer>
+    <integer name="dummy_book_stock_10">0</integer>
+
+    <!-- Dummy book suppliers -->
+    <integer name="dummy_book_supplier_1">4</integer>
+    <integer name="dummy_book_supplier_2">2</integer>
+    <integer name="dummy_book_supplier_3">1</integer>
+    <integer name="dummy_book_supplier_4">2</integer>
+    <integer name="dummy_book_supplier_5">3</integer>
+    <integer name="dummy_book_supplier_6">4</integer>
+    <integer name="dummy_book_supplier_7">1</integer>
+    <integer name="dummy_book_supplier_8">2</integer>
+    <integer name="dummy_book_supplier_9">4</integer>
+    <integer name="dummy_book_supplier_10">3</integer>
+</resources>

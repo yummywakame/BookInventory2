@@ -173,7 +173,7 @@ public class ContentProvider extends android.content.ContentProvider {
             throw new IllegalArgumentException(mContext.getString(R.string.toast_required_quantity));
         }
         // If the price is provided, check that it's greater than or equal to 0
-        Integer price = values.getAsInteger(BookEntry.COLUMN_BOOK_PRICE);
+        Double price = values.getAsDouble(BookEntry.COLUMN_BOOK_PRICE);
         if (price == null || price < 0) {
             throw new IllegalArgumentException(mContext.getString(R.string.toast_required_price));
         }

@@ -265,10 +265,10 @@ public class EditorActivity extends AppCompatActivity implements
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
 
         // If the price is not provided by the user, don't try to parse the string into an
-        // integer value. Use 0 by default.
-        int price = 0;
+        // double value. Use 0 by default.
+        double price = 0.00;
         if (!TextUtils.isEmpty(priceString)) {
-            price = Integer.parseInt(priceString);
+            price = Double.parseDouble(priceString);
         }
         values.put(BookEntry.COLUMN_BOOK_PRICE, price);
 
@@ -448,7 +448,7 @@ public class EditorActivity extends AppCompatActivity implements
             String author = cursor.getString(authorColumnIndex);
             int supplier = cursor.getInt(supplierColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
-            int price = cursor.getInt(priceColumnIndex);
+            double price = cursor.getDouble(priceColumnIndex);
 
             // Update the views on the screen with the values from the database
             mNameEditText.setText(name);

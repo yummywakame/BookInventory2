@@ -17,12 +17,19 @@ import com.yummywakame.bookinventory2.R;
 import com.yummywakame.bookinventory2.data.BookContract;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * {@link BookCursorAdapter} is an adapter for a list or grid view
  * that uses a {@link Cursor} of book data as its data source. This adapter knows
  * how to create list items for each row of book data in the {@link Cursor}.
  */
 public class BookCursorAdapter extends CursorAdapter {
+
+    // Set the locale manually
+    private Locale locale = Locale.US;
 
     /**
      * Constructs a new {@link BookCursorAdapter}.
@@ -32,6 +39,7 @@ public class BookCursorAdapter extends CursorAdapter {
      */
     public BookCursorAdapter(Context context, Cursor c) {
         super(context, c, 0 /* flags */);
+
     }
 
     /**
@@ -71,7 +79,7 @@ public class BookCursorAdapter extends CursorAdapter {
         final String bookTitle = cursorData.getString(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_TITLE));
         final String bookAuthor = cursorData.getString(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_AUTHOR));
         final int bookQuantity = cursorData.getInt(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_QUANTITY));
-        final int bookPrice = cursorData.getInt(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_PRICE));
+        final double bookPrice = cursorData.getDouble(cursorData.getColumnIndexOrThrow(BookEntry.COLUMN_BOOK_PRICE));
 
         // Populate fields with extracted properties
         titleTextView.setText(bookTitle);
@@ -88,7 +96,7 @@ public class BookCursorAdapter extends CursorAdapter {
         if (bookPrice == 0) {
             priceTextView.setText(context.getString(R.string.unknown_price));
         } else {
-            priceTextView.setText(String.valueOf(bookPrice));
+            priceTextView.setText(String.valueOf(formatPrice(bookPrice)));
         }
 
         // OnClickListener for Sale button
@@ -110,5 +118,22 @@ public class BookCursorAdapter extends CursorAdapter {
                 }
             }
         });
+    }
+
+    /**
+     * Helper method that formats the price
+     *
+     * @param price is the original double price
+     * @return price    formatted with chosen currency in correct position
+     * Displays eg: $25 instead of $25.00 and $35.99 instead of $39.998
+     */
+    private String formatPrice(double price) {
+        // Get the correct currency symbol and position depending on chosen locale
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
+        // Never display .00 prices
+        formatter.setMinimumFractionDigits(0);
+        // Shorten .9998 to .99
+        formatter.setMaximumFractionDigits(2);
+        return formatter.format(price);
     }
 }
