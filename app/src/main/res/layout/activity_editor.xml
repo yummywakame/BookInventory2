@@ -52,7 +52,8 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/title"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
@@ -64,11 +65,16 @@
             <EditText
                 android:id="@+id/editTextTitle"
                 style="@style/EditorFieldStyle"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:inputType="textMultiLine"
+                android:lines="6"
+                android:minHeight="48dp"
+                android:minLines="1"
+                android:paddingBottom="@dimen/half_dim"
                 android:hint="@string/hint_book_title"
-                android:inputType="textCapWords"
-                android:singleLine="true" />
+                android:paddingTop="@dimen/half_dim" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -98,6 +104,8 @@
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/half_dim"
                 android:hint="@string/hint_book_author"
                 android:inputType="textCapWords"
                 android:singleLine="true" />
@@ -187,6 +195,8 @@
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/half_dim"
                 android:hint="@string/hint_book_quantity"
                 android:inputType="number"
                 android:singleLine="true" />
@@ -219,11 +229,28 @@
                 style="@style/EditorFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/half_dim"
                 android:hint="@string/hint_book_price"
                 android:inputType="numberDecimal"
                 android:singleLine="true" />
 
         </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/currencySymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/currency_dollar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/lightTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/price"
+            app:layout_constraintEnd_toEndOf="@+id/price"
+            app:layout_constraintTop_toTopOf="@+id/price"
+            tools:text="@string/currency_dollar" />
 
         <!-- Guideline that divides labels from fields -->
         <android.support.constraint.Guideline

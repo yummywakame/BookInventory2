@@ -19,6 +19,7 @@
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
+        <item name="textInputStyle">@style/Widget.Design.TextInputLayout</item>
     </style>
 
     <!-- Theme of the editor -->

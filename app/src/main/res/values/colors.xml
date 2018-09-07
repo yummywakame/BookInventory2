@@ -32,6 +32,9 @@
     <!-- Text color dark -->
     <color name="mediumTextColor">#999999</color>
 
+    <!-- Text color light -->
+    <color name="lightTextColor">#CCCCCC</color>
+
     <!-- FAB button color -->
     <color name="colorFabButton">#FF4081</color>
 
