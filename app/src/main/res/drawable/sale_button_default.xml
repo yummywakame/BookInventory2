@@ -14,7 +14,6 @@
     <item>
         <bitmap
             android:gravity="center_vertical|center_horizontal"
-            android:src="@drawable/ic_cart"
-            android:tint="@color/colorAccent" />
+            android:src="@drawable/ic_cart" />
     </item>
 </layer-list>

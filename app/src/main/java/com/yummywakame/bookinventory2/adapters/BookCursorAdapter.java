@@ -63,6 +63,9 @@ public class BookCursorAdapter extends CursorAdapter {
      */
     @Override
     public void bindView(View view, final Context context, final Cursor cursorData) {
+        // Find saleButton
+        Button saleButton = view.findViewById(R.id.sale_button);
+
         // Find fields to populate in inflated template
         TextView titleTextView = view.findViewById(R.id.title);
         TextView authorTextView = view.findViewById(R.id.author);
@@ -82,8 +85,18 @@ public class BookCursorAdapter extends CursorAdapter {
         // If the book quantity is empty string or null, then set it to zero.
         if (bookQuantity == 0) {
             quantityTextView.setText(context.getString(R.string.unknown_quantity));
+            // Set colour of sale button and quantity text view to disabled
+            saleButton.setBackgroundResource(R.drawable.sale_button_disabled);
+            quantityTextView.setBackgroundResource(R.drawable.rounded_corners_disabled);
+            // Disable button click
+            saleButton.setEnabled(false);
         } else {
             quantityTextView.setText(String.valueOf(bookQuantity));
+            // Set colour of sale button and quantity text view to disabled
+            saleButton.setBackgroundResource(R.drawable.sale_button_states);
+            quantityTextView.setBackgroundResource(R.drawable.rounded_corners);
+            // Enable button click
+            saleButton.setEnabled(true);
         }
 
         // If the book price is empty string or null, then set it to zero.
@@ -95,7 +108,6 @@ public class BookCursorAdapter extends CursorAdapter {
 
         // OnClickListener for Sale button
         // When clicked it reduces the number in stock by 1.
-        Button saleButton = view.findViewById(R.id.sale_button);
         final String id = cursorData.getString(cursorData.getColumnIndex(BookContract.BookEntry._ID));
 
         saleButton.setOnClickListener(new View.OnClickListener() {
@@ -107,8 +119,10 @@ public class BookCursorAdapter extends CursorAdapter {
                     values.put(BookEntry.COLUMN_BOOK_QUANTITY, bookQuantity - 1);
                     context.getContentResolver().update(currentBookUri, values, null, null);
                     swapCursor(cursorData);
-                } else {
-                    Toast.makeText(context, R.string.toast_out_of_stock, Toast.LENGTH_SHORT).show();
+                    // Check if out of stock to display toast
+                    if (bookQuantity == 1) {
+                        Toast.makeText(context, R.string.toast_out_of_stock, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

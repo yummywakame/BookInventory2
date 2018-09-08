@@ -12,7 +12,7 @@
 -->
 <resources>
     <!-- Darker variant for the status bar and contextual app bars -->
-    <color name="colorPrimaryDark">#512da8</color>
+    <color name="colorPrimaryDark">#4b2a9b</color>
 
     <!-- The app branding color for the app bar -->
     <color name="colorPrimary">#673AB7</color>
@@ -39,7 +39,7 @@
     <color name="colorFabButton">#FF4081</color>
 
     <!-- Navigation Bar translucent color -->
-    <color name="navigationBarColor">#80512DA8</color>
+    <color name="navigationBarColor">@color/colorPrimaryDark</color>
 
     <!-- Semi transparent white -->
     <color name="semiTransparentWhite">#80FFFFFF</color>
