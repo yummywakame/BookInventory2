@@ -56,20 +56,6 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <!-- FAB button to add a book -->
-        <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--android:outlineAmbientShadowColor="@color/colorFabButton"-->
-        <!--android:outlineSpotShadowColor="@color/colorFabButton"-->
-        <!--android:src="@drawable/ic_add_book"-->
-        <!--app:backgroundTint="@color/colorFabButton"-->
-        <!--app:borderWidth="0dp" />-->
-
         <RelativeLayout
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
@@ -109,6 +95,17 @@
                 android:layout_centerInParent="true"
                 android:textColor="@color/mediumTextColor" />
 
+            <!-- FAB button to add a book -->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/ic_add_book"
+                app:backgroundTint="@color/colorFabButton"
+                app:borderWidth="0dp" />
 
         </RelativeLayout>
 

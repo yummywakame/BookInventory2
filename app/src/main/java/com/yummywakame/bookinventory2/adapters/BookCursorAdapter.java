@@ -108,7 +108,7 @@ public class BookCursorAdapter extends CursorAdapter {
                     context.getContentResolver().update(currentBookUri, values, null, null);
                     swapCursor(cursorData);
                 } else {
-                    Toast.makeText(context, "Out of stock.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.toast_out_of_stock, Toast.LENGTH_SHORT).show();
                 }
             }
         });

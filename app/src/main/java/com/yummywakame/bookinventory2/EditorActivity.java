@@ -15,6 +15,7 @@
  */
 package com.yummywakame.bookinventory2;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.ContentValues;
@@ -32,6 +33,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -93,14 +95,41 @@ public class EditorActivity extends AppCompatActivity implements
     private boolean mBookHasChanged = false;
 
     /**
-     * OnTouchListener that listens for any user touches on a View, implying that they are modifying
-     * the view, and we change the mBookHasChanged boolean to true.
+     * OnTouchListener that listens touches on EditText views, implying that they are modifying
+     * the view, so we change the mBookHasChanged boolean to true.
      */
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             mBookHasChanged = true;
+            view.performClick();
             return false;
+        }
+    };
+
+    /**
+     * OnTouchListener that listens for when a user touches the spinner
+     * to close the soft keyboard if it is open.
+     */
+    private View.OnTouchListener mSpinnerTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            hideSoftKeyboard(view);
+            view.performClick();
+            return false;
+        }
+    };
+
+    /**
+     * OnFocusChangeListener that listens for any click outside the EditText field
+     * so we can hide the keyboard.
+     */
+    private View.OnFocusChangeListener mFocusChangeListener = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View view, boolean hasFocus) {
+            if (!hasFocus) {
+                hideSoftKeyboard(view);
+            }
         }
     };
 
@@ -146,8 +175,17 @@ public class EditorActivity extends AppCompatActivity implements
         mNameEditText.setOnTouchListener(mTouchListener);
         mAuthorEditText.setOnTouchListener(mTouchListener);
         mQuantityEditText.setOnTouchListener(mTouchListener);
-        mSupplierSpinner.setOnTouchListener(mTouchListener);
         mPriceEditText.setOnTouchListener(mTouchListener);
+
+        // Setup OnFocusChangeListeners on all the input fields, so we can hide the
+        // soft keyboard and get it out of the way
+        mNameEditText.setOnFocusChangeListener(mFocusChangeListener);
+        mAuthorEditText.setOnFocusChangeListener(mFocusChangeListener);
+        mQuantityEditText.setOnFocusChangeListener(mFocusChangeListener);
+        mPriceEditText.setOnFocusChangeListener(mFocusChangeListener);
+
+        // Setup OntouchListener on the spinner so we can hide the soft keyboard
+        mSupplierSpinner.setOnTouchListener(mSpinnerTouchListener);
 
         // Show user's locale currency
         mCurrencyTextView.setText(String.valueOf(HelperClass.formatPrice(0, true, false)));
@@ -163,7 +201,6 @@ public class EditorActivity extends AppCompatActivity implements
         // the spinner will use the default layout
         ArrayAdapter supplierSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_supplier_options, R.layout.spinner_title);
-        supplierSpinnerAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
 
         // Specify dropdown layout style - simple list view with 1 item per line
         supplierSpinnerAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
@@ -176,22 +213,28 @@ public class EditorActivity extends AppCompatActivity implements
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
-                //Set the text color of the Spinner's selected view (not a drop down list view)
-                View v = mSupplierSpinner.getSelectedView();
-                ((TextView) v).setTextColor(getResources().getColor(R.color.darkTextColor));
+
+                // Set the text color of the Spinner's selected view (not a drop down list view)
+                TextView selectedSpinnerView = (TextView) mSupplierSpinner.getSelectedView();
+                selectedSpinnerView.setTextColor(getResources().getColor(R.color.darkTextColor));
+
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.supplier_1))) {
+                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_1;
                     } else if (selection.equals(getString(R.string.supplier_2))) {
+                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_2;
                     } else if (selection.equals(getString(R.string.supplier_3))) {
+                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_3;
                     } else if (selection.equals(getString(R.string.supplier_4))) {
+                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_4;
                     } else {
+                        mBookHasChanged = false;
                         mSupplierId = BookEntry.SUPPLIER_SELECT;
-                        v = mSupplierSpinner.getSelectedView();
-                        ((TextView) v).setTextColor(getResources().getColor(R.color.mediumTextColor));
+                        selectedSpinnerView.setTextColor(getResources().getColor(R.color.mediumTextColor));
                     }
                 }
             }
@@ -205,8 +248,7 @@ public class EditorActivity extends AppCompatActivity implements
     }
 
     public boolean isValidBook() {
-        // Read from input fields
-        // Use trim to eliminate leading or trailing white space
+        // Read from input fields. Use trim to eliminate leading or trailing white space.
         titleString = mNameEditText.getText().toString().trim();
         authorString = mAuthorEditText.getText().toString().trim();
         quantityString = mQuantityEditText.getText().toString().trim();
@@ -586,5 +628,11 @@ public class EditorActivity extends AppCompatActivity implements
 
         // Close the activity
         finish();
+    }
+
+    // Hide the software keyboard when necessary
+    public void hideSoftKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

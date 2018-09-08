@@ -36,20 +36,24 @@
     <!-- Buttons -->
     <string name="sale_button">Sale</string>
 
-    <!-- Toast messages -->
-    <string name="toast_insert_book_failed">Error adding book!</string>
-    <string name="toast_update_book_failed">Error updating book!</string>
-    <string name="toast_delete_book_failed">Error deleting book!</string>
-    <string name="toast_delete_all_books_failed">Nothing was deleted.</string>
-    <string name="toast_insert_book_successful">New book added.</string>
-    <string name="toast_update_book_successful">Book updated.</string>
-    <string name="toast_delete_book_successful">Book deleted.</string>
-    <string name="toast_delete_all_books_successful">%1$d books have been deleted.</string>
-    <string name="toast_required_title">Book title required.</string>
-    <string name="toast_required_author">Book author required.</string>
-    <string name="toast_required_supplier">Book supplier required.</string>
-    <string name="toast_required_quantity">Book quantity required.</string>
-    <string name="toast_required_price">Book price required.</string>
+    <!-- Toast / Validation messages -->
+    <string name="toast_insert_book_failed">Error adding book</string>
+    <string name="toast_update_book_failed">Error updating book</string>
+    <string name="toast_delete_book_failed">Error deleting book</string>
+    <string name="toast_delete_all_books_failed">Nothing was deleted</string>
+    <string name="toast_insert_book_successful">New book added</string>
+    <string name="toast_update_book_successful">Book updated</string>
+    <string name="toast_delete_book_successful">Book deleted</string>
+    <string name="toast_delete_all_books_successful">%1$d books have been deleted</string>
+    <string name="toast_required_title">Book title required</string>
+    <string name="toast_required_author">Book author required</string>
+    <string name="toast_required_supplier">Book supplier required</string>
+    <string name="toast_required_quantity">Book quantity required</string>
+    <string name="toast_required_price">Book price required</string>
+    <string name="toast_out_of_stock">Out of stock</string>
+
+    <!-- Instructions for the user -->
+    <string name="instruction_required_field">Indicates required fields.</string>
 
     <!-- Confirmation dialog labels and messages -->
     <string name="delete_dialog_msg">Delete this book?</string>
@@ -80,10 +84,7 @@
     <!-- Asterisk that indicates a required field -->
     <string name="required_field_asterisk" translatable="false">*</string>
 
-    <!-- Currency for dollar -->
+    <!-- Temporary view contents -->
     <string name="currency_dollar" translatable="false">$</string>
-
-    <!-- Instructions for the user -->
-    <string name="instruction_required_field">Indicates required fields.</string>
 
 </resources>

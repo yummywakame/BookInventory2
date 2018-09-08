@@ -11,21 +11,21 @@
 -->
 <resources>
     <!-- Base application theme -->
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/quicksand</item>
         <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/quicksand</item>
-        <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
-        <item name="textInputStyle">@style/Widget.Design.TextInputLayout</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">0dp</item>
     </style>
 
     <!-- Theme of the editor -->
-    <style name="EditorTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    <style name="EditorTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -36,12 +36,10 @@
         <item name="fontFamily">@font/quicksand</item>
     </style>
 
-    <!-- Style for a category in the editor -->
-    <style name="CategoryStyle">
+    <!-- Style for a Label in the editor -->
+    <style name="LabelStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:paddingTop">16dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textAppearance">?android:textAppearanceListItem</item>
     </style>
@@ -62,7 +60,7 @@
 
     <!-- Style for required field asterisk -->
     <style name="AsteriskStyle">
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textAppearance">?android:textAppearanceLarge</item>
         <item name="android:gravity">center_vertical</item>
