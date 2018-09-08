@@ -114,6 +114,7 @@ public class EditorActivity extends AppCompatActivity implements
     private View.OnTouchListener mSpinnerTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
+            mBookHasChanged = true;
             hideSoftKeyboard(view);
             view.performClick();
             return false;
@@ -220,19 +221,14 @@ public class EditorActivity extends AppCompatActivity implements
 
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.supplier_1))) {
-                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_1;
                     } else if (selection.equals(getString(R.string.supplier_2))) {
-                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_2;
                     } else if (selection.equals(getString(R.string.supplier_3))) {
-                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_3;
                     } else if (selection.equals(getString(R.string.supplier_4))) {
-                        mBookHasChanged = true;
                         mSupplierId = BookEntry.SUPPLIER_4;
                     } else {
-                        mBookHasChanged = false;
                         mSupplierId = BookEntry.SUPPLIER_SELECT;
                         selectedSpinnerView.setTextColor(getResources().getColor(R.color.mediumTextColor));
                     }
