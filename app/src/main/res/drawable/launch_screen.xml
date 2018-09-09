@@ -7,10 +7,13 @@
     <!-- The background color, preferably the same as your normal theme -->
     <item android:drawable="@color/colorPrimaryDark" />
 
-    <item>
+    <item
+        android:left="75dp"
+        android:right="75dp"
+        android:top="75dp">
         <bitmap
             android:gravity="center"
-            android:src="@drawable/splash_logo" />
+            android:src="@drawable/animated_logo" />
     </item>
 
 </layer-list>

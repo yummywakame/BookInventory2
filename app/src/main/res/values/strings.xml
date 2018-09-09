@@ -54,6 +54,7 @@
 
     <!-- Instructions for the user -->
     <string name="instruction_required_field">Indicates required fields.</string>
+    <string name="instruction_loading">Loading&#8230;</string>
 
     <!-- Confirmation dialog labels and messages -->
     <string name="delete_dialog_msg">Delete this book?</string>
@@ -79,7 +80,8 @@
     <string name="empty_view_subtitle_text">Get started by adding a book.</string>
 
     <!-- Image descriptions for accessibility -->
-    <string name="empty_shelf_image_desc" translatable="false">Empty book shelf</string>
+    <string name="logo_image_desc">Logo</string>
+    <string name="empty_shelf_image_desc">Empty book shelf</string>
 
     <!-- Asterisk that indicates a required field -->
     <string name="required_field_asterisk" translatable="false">*</string>
