@@ -103,7 +103,7 @@ public class BookCursorAdapter extends CursorAdapter {
         if (bookPrice == 0) {
             priceTextView.setText(context.getString(R.string.unknown_price));
         } else {
-            priceTextView.setText(String.valueOf(HelperClass.formatPrice(bookPrice, false, false)));
+            priceTextView.setText(String.valueOf(HelperClass.formatPrice(context, bookPrice, false, false)));
         }
 
         // OnClickListener for Sale button

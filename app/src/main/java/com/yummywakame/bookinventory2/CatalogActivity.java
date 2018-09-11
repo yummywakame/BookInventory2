@@ -215,6 +215,12 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                 // Pop up confirmation dialog for deletion
                 showDeleteConfirmationDialog();
                 return true;
+
+            // Respond to a click on the "Settings" menu option
+            case R.id.action_preferences:
+                Intent settingsIntent = new Intent(this, PreferencesActivity.class);
+                startActivity(settingsIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

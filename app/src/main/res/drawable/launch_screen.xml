@@ -8,12 +8,13 @@
     <item android:drawable="@color/colorPrimaryDark" />
 
     <item
-        android:left="75dp"
-        android:right="75dp"
-        android:top="75dp">
+        android:bottom="50dp"
+        android:left="50dp"
+        android:right="50dp"
+        android:top="150dp">
         <bitmap
-            android:gravity="center"
-            android:src="@drawable/animated_logo" />
+            android:gravity="center_horizontal|top"
+            android:src="@drawable/splash_logo" />
     </item>
 
 </layer-list>

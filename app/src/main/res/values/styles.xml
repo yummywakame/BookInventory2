@@ -15,6 +15,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
         <item name="android:fontFamily">@font/quicksand</item>
         <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/quicksand</item>
@@ -86,6 +87,32 @@
     <!-- Style for the Spinners Background -->
     <style name="EditorSpinnerBg" parent="Base.Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/spinner_bg</item>
+    </style>
+
+    <!-- Settings Preferences Text Style -->
+    <style name="SettingsFragmentTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@color/colorSecondary</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_m</item>
+        <item name="fontFamily">@font/quicksand_medium</item>
+        <!-- Dialog Styles -->
+        <item name="android:dialogTheme">@style/DialogStyle</item>
+        <item name="android:alertDialogTheme">@style/DialogStyle</item>
+    </style>
+    <!-- Settings Dialog Styles -->
+    <style name="DialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <item name="android:background">@color/colorSecondary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_size_m</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
 
     <!-- List Item Button Style -->

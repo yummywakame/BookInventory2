@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_order_by_labels">
+        <item>@string/pref_order_by_author_label</item>
+        <item>@string/pref_order_by_title_label</item>
+        <item>@string/pref_order_by_stockcount_label</item>
+    </string-array>
+    <string-array name="pref_order_by_values">
+        <item>@string/pref_order_by_author_value</item>
+        <item>@string/pref_order_by_title_value</item>
+        <item>@string/pref_order_by_stockcount_value</item>
+    </string-array>
+    <string-array name="pref_currency_labels">
+        <item>@string/pref_currency_0_label</item>
+        <item>@string/pref_currency_1_label</item>
+        <item>@string/pref_currency_2_label</item>
+        <item>@string/pref_currency_3_label</item>
+        <item>@string/pref_currency_4_label</item>
+        <item>@string/pref_currency_5_label</item>
+    </string-array>
+    <string-array name="pref_currency_locales">
+        <item>@string/pref_currency_0_label_value</item>
+        <item>@string/pref_currency_1_label_value</item>
+        <item>@string/pref_currency_2_label_value</item>
+        <item>@string/pref_currency_3_label_value</item>
+        <item>@string/pref_currency_4_label_value</item>
+        <item>@string/pref_currency_5_label_value</item>
+
+    </string-array>
+</resources>

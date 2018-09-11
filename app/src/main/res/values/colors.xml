@@ -17,6 +17,9 @@
     <!-- The app branding color for the app bar -->
     <color name="colorPrimary">#673ab7</color>
 
+    <!-- The app secondary color for preferences screen -->
+    <color name="colorSecondary">#9b69eb</color>
+
     <!-- Accent color for UI controls like checkboxes and text fields -->
     <color name="colorAccent">#FF4081</color>
 

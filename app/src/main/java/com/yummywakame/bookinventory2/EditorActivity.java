@@ -189,7 +189,7 @@ public class EditorActivity extends AppCompatActivity implements
         mSupplierSpinner.setOnTouchListener(mSpinnerTouchListener);
 
         // Show user's locale currency
-        mCurrencyTextView.setText(String.valueOf(HelperClass.formatPrice(0, true, false)));
+        mCurrencyTextView.setText(String.valueOf(HelperClass.formatPrice(this, 0, true, false)));
 
         setupSpinner();
     }
@@ -501,9 +501,9 @@ public class EditorActivity extends AppCompatActivity implements
             mNameEditText.setText(name);
             mAuthorEditText.setText(author);
             mQuantityEditText.setText(String.valueOf(quantity));
-            mPriceEditText.setText(String.valueOf(HelperClass.formatPrice(price, false, true)));
+            mPriceEditText.setText(String.valueOf(HelperClass.formatPrice(this, price, false, true)));
             // Show user's locale currency
-            mCurrencyTextView.setText(String.valueOf(HelperClass.formatPrice(price, true, false)));
+            mCurrencyTextView.setText(String.valueOf(HelperClass.formatPrice(this, price, true, false)));
 
             // Supplier is a dropdown spinner, so map the constant value from the database
             // into one of the dropdown options (0 is "Please select...",

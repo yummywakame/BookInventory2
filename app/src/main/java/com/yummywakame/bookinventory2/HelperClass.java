@@ -1,5 +1,8 @@
 package com.yummywakame.bookinventory2;
 
+import android.content.Context;
+import android.util.Log;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Currency;
@@ -14,7 +17,7 @@ import java.util.Locale;
 public class HelperClass {
 
     // Hardcode the locale for now
-    public static Locale locale = Locale.ITALY;
+    public static Locale locale = Locale.JAPAN;
 
     /**
      * Helper method that formats the price
@@ -23,9 +26,13 @@ public class HelperClass {
      * @return price    formatted with chosen currency in correct position
      * Displays eg: $25 instead of $25.00 and $35.99 instead of $39.998
      */
-    public static String formatPrice(double price, boolean showOnlyCurrencySymbol, boolean showOnlyPrice) {
+    public static String formatPrice(Context context, double price, boolean showOnlyCurrencySymbol, boolean showOnlyPrice) {
         // Get only the currency symbol to display in the EditText field
         String formattedPrice = "";
+
+        Locale current = context.getResources().getConfiguration().locale;
+        Log.i("current", current.toString());
+        Log.i("locale", Currency.getInstance(current).getCurrencyCode());
 
         // Displays only the currency symbol in the Editor's Price field background
         if (showOnlyCurrencySymbol) {
