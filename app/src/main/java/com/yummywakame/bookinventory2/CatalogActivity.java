@@ -270,4 +270,5 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 //        sLocale = lCode + "_" + cCode;
 //        Log.i(LOG_TAG, "New Locale: " + sLocale);
 //    }
+
 }
