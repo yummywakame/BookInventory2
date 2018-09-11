@@ -99,6 +99,7 @@
         <item name="android:textColorSecondary">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/text_size_m</item>
         <item name="fontFamily">@font/quicksand_medium</item>
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <!-- Dialog Styles -->
         <item name="android:dialogTheme">@style/DialogStyle</item>
         <item name="android:alertDialogTheme">@style/DialogStyle</item>
