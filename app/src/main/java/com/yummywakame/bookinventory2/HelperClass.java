@@ -18,9 +18,6 @@ import java.util.Locale;
  */
 public class HelperClass {
 
-    // Hardcode the locale for now
-//    private static Locale locale = Locale.JAPAN;
-
     /**
      * Helper method that formats the price
      *
@@ -33,10 +30,6 @@ public class HelperClass {
         String formattedPrice = "";
 
         Locale locale = getCurrencyPreference();
-
-//        Locale current = context.getResources().getConfiguration().locale;
-//        Log.i("current", current.toString());
-//        Log.i("locale", Currency.getInstance(current).getCurrencyCode());
 
         // Displays only the currency symbol in the Editor's Price field background
         if (showOnlyCurrencySymbol) {

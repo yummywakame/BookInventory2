@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (C) 2016 The Android Open Source Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -10,16 +10,17 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<manifest package="com.yummywakame.bookinventory2"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yummywakame.bookinventory2">
 
     <application
-        android:name="com.yummywakame.bookinventory2.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -30,23 +31,40 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".CatalogActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
+
         <activity
             android:name=".EditorActivity"
-            android:theme="@style/EditorTheme"
             android:configChanges="orientation|keyboardHidden"
             android:parentActivityName=".CatalogActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CatalogActivity" />
         </activity>
+
+        <activity
+            android:name=".DetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:parentActivityName=".CatalogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CatalogActivity" />
+        </activity>
+
         <activity
             android:name=".PreferencesActivity"
             android:label="@string/preferences_title"
