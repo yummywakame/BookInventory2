@@ -14,7 +14,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_home"
+    android:background="@color/offWhiteColor"
     tools:context=".CatalogActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -22,6 +22,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".CatalogActivity">
+
+        <ImageView
+            android:id="@+id/book_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="w,2:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_image" />
+
+        <ImageView
+            android:id="@+id/ripple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/book_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ripple" />
 
     </android.support.constraint.ConstraintLayout>
 

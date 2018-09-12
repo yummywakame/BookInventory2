@@ -10,8 +10,14 @@
      limitations under the License.
 -->
 <resources>
+
+    <style name="Theme.TransparentAppBar" parent="Base.Theme.TransparentAppBar">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
     <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Base.Theme.TransparentAppBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -19,14 +25,6 @@
         <item name="android:fontFamily">@font/cc_quicksand_medium</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
-    </style>
-
-    <!-- Theme of the editor -->
-    <style name="EditorTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/cc_quicksand_medium</item>
     </style>
 
 </resources>

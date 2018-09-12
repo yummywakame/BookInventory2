@@ -19,7 +19,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Base.Theme.TransparentAppBar">
 
         <activity
             android:name=".SplashActivity"
@@ -57,7 +57,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:parentActivityName=".CatalogActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/EditorTheme">
+            android:theme="@style/DetailTheme">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
