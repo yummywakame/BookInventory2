@@ -29,14 +29,4 @@
         <item name="android:fontFamily">@font/cc_quicksand_medium</item>
     </style>
 
-    <!-- Style for required field asterisk -->
-    <style name="AsteriskStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:textAppearance">?android:textAppearanceLarge</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:text">@string/required_field_asterisk</item>
-        <item name="android:fontFamily">@font/cc_quicksand_bold</item>
-    </style>
 </resources>

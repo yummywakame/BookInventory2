@@ -36,7 +36,8 @@
             android:text="@string/label_overview"
             app:layout_constraintBottom_toBottomOf="@+id/asterisk_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/asterisk_title" />
+            app:layout_constraintTop_toTopOf="@+id/asterisk_title"
+            app:layout_constraintVertical_bias="0.0" />
 
         <!-- Input fields -->
 
@@ -44,13 +45,11 @@
         <TextView
             android:id="@+id/asterisk_title"
             style="@style/AsteriskStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:paddingTop="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/title"
             app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/title" />
+            app:layout_constraintTop_toTopOf="@+id/title"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Title field -->
         <android.support.design.widget.TextInputLayout
@@ -90,7 +89,8 @@
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/author"
             app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/author" />
+            app:layout_constraintTop_toTopOf="@+id/author"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Author field -->
         <android.support.design.widget.TextInputLayout
@@ -124,10 +124,14 @@
         <TextView
             android:id="@+id/label_supplier"
             style="@style/LabelStyle"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/label_supplier"
-            app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/asterisk_supplier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/asterisk_supplier"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Input field -->
 
@@ -138,7 +142,8 @@
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
             app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/spinnerSupplier" />
+            app:layout_constraintTop_toTopOf="@+id/spinnerSupplier"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Supplier drop-down spinner -->
         <Spinner
@@ -165,7 +170,8 @@
             android:text="@string/label_in_stock"
             app:layout_constraintBottom_toBottomOf="@+id/asterisk_quantity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/asterisk_quantity" />
+            app:layout_constraintTop_toTopOf="@+id/asterisk_quantity"
+            app:layout_constraintVertical_bias="0.0" />
 
         <!-- Input fields -->
 
@@ -176,7 +182,8 @@
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/quantity"
             app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/quantity" />
+            app:layout_constraintTop_toTopOf="@+id/quantity"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Quantity field -->
         <android.support.design.widget.TextInputLayout
@@ -211,7 +218,8 @@
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/price"
             app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/price" />
+            app:layout_constraintTop_toTopOf="@+id/price"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Price field -->
         <android.support.design.widget.TextInputLayout
