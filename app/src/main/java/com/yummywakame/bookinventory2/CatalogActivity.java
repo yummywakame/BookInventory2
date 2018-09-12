@@ -58,6 +58,11 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      */
     BookCursorAdapter mCursorAdapter;
 
+    /**
+     * The Sort By preference array
+     */
+    String[] sortBy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,13 +243,16 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         Log.i(LOG_TAG, "Loader<Cursor> onCreateLoader()");
 
+        // Get the Sort By preference array from Preferences using the helper method
+        sortBy = HelperClass.getSortByPreference();
+
         // This loader will execute the ContentProvider's query method on a background thread
-        return new CursorLoader(this,   // Parent activity context
-                BookEntry.CONTENT_URI,           //Provider content URI to query
-                projection,                     // Columns to include in the resulting Cursor
-                null,                  // No selection clause
-                null,               // No selection arguments
-                null);                 // Default sort order
+        return new CursorLoader(this,               // Parent activity context
+                BookEntry.CONTENT_URI,                      //Provider content URI to query
+                projection,                                 // Columns to include in the resulting Cursor
+                null,                              // No selection clause
+                null,                           // No selection arguments
+                sortBy[0] + " " + sortBy[1]);      // Sort order from Preferences
     }
 
     @Override
@@ -261,14 +269,12 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         Log.i(LOG_TAG, "onLoaderReset() on data that needs to be deleted.");
     }
 
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        // Check to see if the user's locale has changed
-//        super.onConfigurationChanged(newConfig);
-//        String cCode = Locale.getDefault().getCountry();
-//        String lCode = Locale.getDefault().getLanguage();
-//        sLocale = lCode + "_" + cCode;
-//        Log.i(LOG_TAG, "New Locale: " + sLocale);
+//    /**
+//     * Helper method that sorts the array alphabetically
+//     */
+//    private void sortArray() {
+//        Arrays.sort(mArrayNames);
+//        mCursorAdapter.notifyDataSetChanged();
 //    }
 
 }

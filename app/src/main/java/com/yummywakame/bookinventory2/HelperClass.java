@@ -70,6 +70,22 @@ public class HelperClass {
     }
 
     /**
+     * A helper method that gets the user's Sort By column and direction (ASC or DESC) preference
+     * from Preferences
+     *
+     * @return String array sort by COLUMN and ascending or descending order
+     * Example: new String[] { "BookEntry.COLUMN_BOOK_AUTHOR", "DESC" };
+     *
+     * To extract use String[] sortBy = HelperClass.getSortByPreference();
+     * Then: sortBy[0] to retrieve the column and sortBy[2] to retrieve the sort direction;
+     */
+    public static String[] getSortByPreference() {
+        String orderByColumn = getPreferenceStringValue(R.string.pref_order_by_key, R.string.pref_order_by_default);
+        String orderByDirection = getPreferenceStringValue(R.string.pref_order_by_direction_key, R.string.pref_order_by_direction_default);
+        return new String[]{orderByColumn, orderByDirection};
+    }
+
+    /**
      * A helper method that gets the user's Currency preference from Preferences and returns a
      * Usable locale.
      *

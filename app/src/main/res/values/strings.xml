@@ -100,13 +100,23 @@
     <!-- Order preference-->
     <string name="pref_order_by_title">Order By</string>
     <string name="pref_order_by_key" translatable="false">order_by</string>
-    <string name="pref_order_by_default">@string/pref_order_by_author_value</string>
+    <string name="pref_order_by_default">@string/pref_order_by_title_value</string>
     <string name="pref_order_by_author_label">Author</string>
     <string name="pref_order_by_title_label">Title</string>
     <string name="pref_order_by_stockcount_label">Stock Count</string>
-    <string name="pref_order_by_author_value" translatable="false">author</string>
-    <string name="pref_order_by_title_value" translatable="false">title</string>
-    <string name="pref_order_by_stockcount_value" translatable="false">stockcount</string>
+    <string name="pref_order_by_price_label">Price</string>
+    <string name="pref_order_by_author_value" translatable="false">book_author</string>
+    <string name="pref_order_by_title_value" translatable="false">book_title</string>
+    <string name="pref_order_by_stockcount_value" translatable="false">quantity</string>
+    <string name="pref_order_by_price_value" translatable="false">price</string>
+
+    <string name="pref_order_by_direction_title">@null</string>
+    <string name="pref_order_by_direction_key" translatable="false">order_by_direction</string>
+    <string name="pref_order_by_direction_default">@string/pref_order_by_direction_asc_value</string>
+    <string name="pref_order_by_direction_asc_label">Ascending Order</string>
+    <string name="pref_order_by_direction_desc_label">Descending Order</string>
+    <string name="pref_order_by_direction_asc_value" translatable="false">ASC</string>
+    <string name="pref_order_by_direction_desc_value" translatable="false">DESC</string>
 
     <!-- Topic preference-->
     <string name="pref_currency_title">Currency</string>

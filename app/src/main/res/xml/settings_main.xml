@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:divider="@null">
     <PreferenceCategory android:title="@string/general_category">
 
         <ListPreference
@@ -13,11 +14,19 @@
 
         <ListPreference
             android:defaultValue="@string/pref_order_by_default"
-            android:entries="@array/pref_order_by_labels"
-            android:entryValues="@array/pref_order_by_values"
+            android:entries="@array/pref_order_by_column_labels"
+            android:entryValues="@array/pref_order_by_column_values"
             android:key="@string/pref_order_by_key"
             android:summary="%s"
             android:title="@string/pref_order_by_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_order_by_direction_default"
+            android:entries="@array/pref_order_by_direction_labels"
+            android:entryValues="@array/pref_order_by_direction_values"
+            android:key="@string/pref_order_by_direction_key"
+            android:summary="%s"
+            android:title="@string/pref_order_by_direction_title" />
 
     </PreferenceCategory>
 
