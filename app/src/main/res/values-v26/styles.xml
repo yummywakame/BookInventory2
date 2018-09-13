@@ -22,7 +22,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/launch_screen</item>
-        <item name="android:fontFamily">@font/cc_quicksand_medium</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
     </style>

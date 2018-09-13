@@ -16,7 +16,7 @@
     <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
     <string name="editor_activity_title_add_book">Add a Book</string>
     <string name="editor_activity_title_edit_book">Edit Book</string>
-    <string name="editor_activity_title_view_book">Book Properties</string>
+    <string name="editor_activity_title_view_book">Book Details</string>
 
     <!-- Text Labels for fields in the editor [CHAR LIMIT=30] -->
     <string name="label_overview">Overview</string>

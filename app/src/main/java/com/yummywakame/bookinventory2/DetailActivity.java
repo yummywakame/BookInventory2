@@ -5,13 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+
 
 /**
  * Allows user to view the details of a book but not edit it.
@@ -31,13 +34,6 @@ public class DetailActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-//        getSupportActionBar().setTitle("Details");
-
-        // Locate FAB buttons
-        mFabTop = findViewById(R.id.fab_call_supplier_top);
-        mFabBottom = findViewById(R.id.fab_call_supplier_bottom);
-        // Hide bottom FAB button
-        mFabBottom.setVisibility(View.INVISIBLE);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -47,9 +43,27 @@ public class DetailActivity extends AppCompatActivity implements
             }
         });
 
+        // Style the CollapsingToolbarLayout Title
+        CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         AppBarLayout appbar = findViewById(R.id.appbar);
         appbar.addOnOffsetChangedListener(this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.editor_activity_title_view_book);
+        mCollapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
+        mCollapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+        Typeface font = Typeface.createFromAsset(MyApplication.getAppContext().getAssets(), "fonts/quicksand_medium.ttf");
+        mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
+        mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); //bellow setSupportActionBar(toolbar);
+//        getSupportActionBar().setCustomView(R.layout.titlebar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Locate both FAB buttons
+        mFabTop = findViewById(R.id.fab_call_supplier_top);
+        mFabBottom = findViewById(R.id.fab_call_supplier_bottom);
+        // Hide bottom FAB button to start
+        mFabBottom.setVisibility(View.INVISIBLE);
     }
 
     @Override

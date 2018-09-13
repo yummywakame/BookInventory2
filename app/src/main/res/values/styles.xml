@@ -11,12 +11,12 @@
 -->
 <resources>
 
+    <!-- Base application theme -->
     <style name="Theme.TransparentAppBar" parent="Base.Theme.TransparentAppBar">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <!-- Base application theme -->
     <style name="Base.Theme.TransparentAppBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -48,6 +48,18 @@
     <style name="DetailTheme" parent="Base.Theme.TransparentAppBar">
         <item name="android:windowBackground">@color/offWhiteColor</item>
         <item name="buttonStyle">@style/DefaultFontButtonStyle</item>
+    </style>
+
+    <!-- Collapsed CollapsingToolbarLayout Title -->
+    <style name="CollapsedAppBar" parent="Base.Theme.TransparentAppBar">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Expanded CollapsingToolbarLayout Title -->
+    <style name="ExpandedAppBar" parent="Base.Theme.TransparentAppBar">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!-- Style for a Label in the editor -->
