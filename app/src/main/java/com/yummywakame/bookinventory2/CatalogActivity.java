@@ -73,7 +73,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         // Get the App Title Bar and menu items to display
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.app_name);
+//        getSupportActionBar().setTitle("");
         toolbar.setTitleTextColor(Color.WHITE);
 
         // Setup FAB to open EditorActivity
@@ -120,6 +120,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         // Kick off the loader that loads the list items
         getLoaderManager().initLoader(BOOK_LOADER, null, this);
+
     }
 
     /**
@@ -153,7 +154,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             // If all rows were deleted, then show the success message as a toast
             Toast.makeText(CatalogActivity.this, getString(R.string.toast_delete_all_books_successful, rowsDeleted),
                     Toast.LENGTH_SHORT).show();
-            Log.i(LOG_TAG, rowsDeleted + " rows deleted from book database");
         } else {
             // Nothing was deleted
             Toast.makeText(CatalogActivity.this, getString(R.string.toast_delete_all_books_failed),

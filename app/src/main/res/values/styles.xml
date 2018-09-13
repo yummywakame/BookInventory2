@@ -17,7 +17,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Base.Theme.TransparentAppBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.TransparentAppBar" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -52,7 +52,7 @@
     </style>
 
     <!-- The launcher theme. It sets the main window background to the launch_screen drawable -->
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
         <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -83,6 +83,12 @@
     <style name="ActionButtonOverflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@android:color/white</item>
     </style>
+
+    <!-- Overflow Preferences menu -->
+    <!--<style name="MenuOverflow" parent="@style/Widget.AppCompat.PopupMenu.Overflow">-->
+    <!--<item name="android:colorBackground">@color/offWhiteColor</item>-->
+    <!--<item name="android:textColor">@android:color/black</item>-->
+    <!--</style>-->
 
     <!-- Style for a Label in the editor -->
     <style name="LabelStyle">
@@ -160,7 +166,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textSize">@dimen/text_size_m</item>
         <item name="android:fontFamily">@font/quicksand_medium</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
 

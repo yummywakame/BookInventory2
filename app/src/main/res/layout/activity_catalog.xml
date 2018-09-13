@@ -63,6 +63,13 @@
             android:background="@color/offWhiteColor">
 
             <ImageView
+                android:id="@+id/scrim"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/scrim" />
+
+            <ImageView
                 android:id="@+id/empty_shelf_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

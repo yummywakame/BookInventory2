@@ -64,7 +64,6 @@
                 android:layout_marginStart="16dp"
                 android:maxLines="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/quantity"
                 app:layout_constraintHorizontal_bias="0.0"
