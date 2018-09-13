@@ -139,6 +139,12 @@ public class EditorActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
 
+//        // Get the App Title Bar and menu items to display
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setTitle(R.string.app_name);
+//        toolbar.setTitleTextColor(Color.WHITE);
+
         // Examine the intent that was used to launch this activity,
         // in order to figure out if we're creating a new book or editing an existing one.
         Intent intent = getIntent();

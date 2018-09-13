@@ -31,7 +31,7 @@
             android:contentDescription="@null"
             android:cropToPadding="false"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="w,2:3"
+            app:layout_constraintDimensionRatio="w,1:2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -77,7 +77,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/quicksand"
                 android:textStyle="bold"
                 android:paddingTop="160dp"
                 android:text="@string/empty_view_title_text"
@@ -110,6 +109,13 @@
 
         </RelativeLayout>
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
         <!-- Empty view for the list -->
         <ListView
             android:id="@+id/list"
@@ -120,6 +126,7 @@
             android:clipToPadding="false"
             android:paddingBottom="@dimen/half_dim"
             android:listSelector="@android:color/transparent"
+            android:layout_below="@id/toolbar"
             tools:listitem="@layout/list_item" />
 
     </RelativeLayout>

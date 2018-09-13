@@ -44,7 +44,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:parentActivityName=".CatalogActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/EditorTheme">
+            android:theme="@style/ActionBarTheme">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data

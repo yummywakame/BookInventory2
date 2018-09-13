@@ -25,6 +25,10 @@
         <item name="android:fontFamily">@font/quicksand_medium</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
+
+        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
+        <!-- Support library compatibility -->
+        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
     </style>
 
 </resources>
