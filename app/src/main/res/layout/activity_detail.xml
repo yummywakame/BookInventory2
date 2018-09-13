@@ -67,133 +67,142 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-            <!-- Layout for the Views -->
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/ConstraintLayout"
+            <android.support.v7.widget.CardView
+                android:id="@+id/book_card"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/offWhiteColor">
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/base_dim"
+                android:layout_marginStart="@dimen/base_dim"
+                android:layout_marginTop="40dp"
+                app:cardBackgroundColor="@android:color/white">
 
-                <!-- Overview category -->
+                <!-- Layout for the Views -->
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/ConstraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <!-- Label -->
-                <TextView
-                    android:id="@+id/label_overview"
-                    style="@style/LabelStyle"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/label_overview"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <!-- Overview category -->
 
-                <TextView
-                    android:id="@+id/textViewTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:lines="6"
-                    android:minHeight="48dp"
-                    android:minLines="1"
-                    android:text="Title"
-                    app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <!-- Label -->
+                    <TextView
+                        android:id="@+id/label_overview"
+                        style="@style/LabelStyle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/label_overview"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textViewAuthor"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:singleLine="true"
-                    android:text="Author"
-                    app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+                    <TextView
+                        android:id="@+id/textViewTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:lines="6"
+                        android:minHeight="48dp"
+                        android:minLines="1"
+                        android:text="Title"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <!-- Supplier category -->
+                    <TextView
+                        android:id="@+id/textViewAuthor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:singleLine="true"
+                        android:text="Author"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
-                <!-- Label -->
-                <TextView
-                    android:id="@+id/label_supplier"
-                    style="@style/LabelStyle"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/label_supplier"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewSupplier"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    <!-- Supplier category -->
 
-                <!-- Input field -->
+                    <!-- Label -->
+                    <TextView
+                        android:id="@+id/label_supplier"
+                        style="@style/LabelStyle"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/label_supplier"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewSupplier"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-                <!-- Supplier -->
-                <TextView
-                    android:id="@+id/textViewSupplier"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:singleLine="true"
-                    android:text="Supplier"
-                    app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewAuthor" />
+                    <!-- Input field -->
 
-                <!-- Quantity category -->
+                    <!-- Supplier -->
+                    <TextView
+                        android:id="@+id/textViewSupplier"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:singleLine="true"
+                        android:text="Supplier"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewAuthor" />
 
-                <!-- Label -->
-                <TextView
-                    android:id="@+id/label_in_stock"
-                    style="@style/LabelStyle"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/label_in_stock"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    <!-- Quantity category -->
 
-                <!-- Quantity field -->
-                <TextView
-                    android:id="@+id/textViewQuantity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:singleLine="true"
-                    android:text="500"
-                    app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewSupplier" />
+                    <!-- Label -->
+                    <TextView
+                        android:id="@+id/label_in_stock"
+                        style="@style/LabelStyle"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/label_in_stock"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-                <!-- Currency and Price fields -->
+                    <!-- Quantity field -->
+                    <TextView
+                        android:id="@+id/textViewQuantity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:singleLine="true"
+                        android:text="500"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewSupplier" />
 
-                <TextView
-                    android:id="@+id/currencySymbol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/currency_dollar"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
-                    app:layout_constraintStart_toEndOf="@+id/barrier"
-                    tools:text="@string/currency_dollar" />
+                    <!-- Currency and Price fields -->
 
-                <TextView
-                    android:id="@+id/textViewPrice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:singleLine="true"
-                    android:text="25.00"
-                    app:layout_constraintStart_toEndOf="@+id/currencySymbol"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewQuantity" />
+                    <TextView
+                        android:id="@+id/currencySymbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/currency_dollar"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        tools:text="@string/currency_dollar" />
 
-                <!-- Guideline that divides labels from fields -->
-                <android.support.constraint.Barrier
-                    android:id="@+id/barrier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:barrierDirection="right"
-                    app:constraint_referenced_ids="label_overview,label_supplier,label_in_stock"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    <TextView
+                        android:id="@+id/textViewPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:singleLine="true"
+                        android:text="25.00"
+                        app:layout_constraintStart_toEndOf="@+id/currencySymbol"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewQuantity" />
 
-            </android.support.constraint.ConstraintLayout>
+                    <!-- Guideline that divides labels from fields -->
+                    <android.support.constraint.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="right"
+                        app:constraint_referenced_ids="label_overview,label_supplier,label_in_stock"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
 
         </android.support.v4.widget.NestedScrollView>
 
