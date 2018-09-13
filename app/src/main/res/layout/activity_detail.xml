@@ -48,7 +48,7 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bg_image"
+                    android:src="@drawable/bg_image_color"
                     app:layout_collapseMode="parallax" />
 
                 <android.support.v7.widget.Toolbar
@@ -88,22 +88,25 @@
                     <TextView
                         android:id="@+id/label_overview"
                         style="@style/LabelStyle"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="24dp"
                         android:text="@string/label_overview"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTitle"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
                         android:id="@+id/textViewTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
-                        android:lines="6"
-                        android:minHeight="48dp"
-                        android:minLines="1"
-                        android:text="Title"
+                        android:lines="1"
+                        android:maxLines="4"
+                        android:text="@string/hint_book_title"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,10 +114,13 @@
                         android:id="@+id/textViewAuthor"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
                         android:singleLine="true"
-                        android:text="Author"
+                        android:text="@string/hint_book_author"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
                         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
@@ -124,9 +130,10 @@
                     <TextView
                         android:id="@+id/label_supplier"
                         style="@style/LabelStyle"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="24dp"
                         android:text="@string/label_supplier"
-                        app:layout_constraintBottom_toBottomOf="@+id/textViewSupplier"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewSupplier"
                         app:layout_constraintStart_toStartOf="parent" />
 
                     <!-- Input field -->
@@ -136,12 +143,15 @@
                         android:id="@+id/textViewSupplier"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
                         android:singleLine="true"
-                        android:text="Supplier"
+                        android:text="@string/supplier_unknown"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewAuthor" />
+                        app:layout_constraintTop_toBottomOf="@+id/hr1" />
 
                     <!-- Quantity category -->
 
@@ -149,46 +159,67 @@
                     <TextView
                         android:id="@+id/label_in_stock"
                         style="@style/LabelStyle"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="24dp"
                         android:text="@string/label_in_stock"
-                        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewQuantity"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <!-- Quantity field -->
+                    <!-- Quantity fields -->
+                    <Button
+                        android:id="@+id/button_subtract"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/ic_subtract"
+                        android:text="@null"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
+                        app:layout_constraintDimensionRatio="w,1:1"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toTopOf="@+id/textViewQuantity" />
+
                     <TextView
                         android:id="@+id/textViewQuantity"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
                         android:singleLine="true"
-                        android:text="500"
-                        app:layout_constraintStart_toEndOf="@+id/barrier"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewSupplier" />
+                        android:text="@string/hint_book_quantity"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toEndOf="@+id/button_subtract"
+                        app:layout_constraintTop_toTopOf="@+id/hr2" />
+
+                    <Button
+                        android:id="@+id/button_add"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/ic_add"
+                        android:text="@null"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
+                        app:layout_constraintDimensionRatio="w,1:1"
+                        app:layout_constraintStart_toEndOf="@+id/textViewQuantity"
+                        app:layout_constraintTop_toTopOf="@+id/textViewQuantity" />
 
                     <!-- Currency and Price fields -->
-
-                    <TextView
-                        android:id="@+id/currencySymbol"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/currency_dollar"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
-                        app:layout_constraintStart_toEndOf="@+id/barrier"
-                        tools:text="@string/currency_dollar" />
 
                     <TextView
                         android:id="@+id/textViewPrice"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
                         android:singleLine="true"
                         android:text="25.00"
-                        app:layout_constraintStart_toEndOf="@+id/currencySymbol"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
                         app:layout_constraintTop_toBottomOf="@+id/textViewQuantity" />
 
                     <!-- Guideline that divides labels from fields -->
@@ -199,6 +230,30 @@
                         app:barrierDirection="right"
                         app:constraint_referenced_ids="label_overview,label_supplier,label_in_stock"
                         app:layout_constraintStart_toStartOf="parent" />
+
+                    <View
+                        android:id="@+id/hr1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/offWhiteColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewAuthor" />
+
+                    <View
+                        android:id="@+id/hr2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/offWhiteColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewSupplier" />
 
                 </android.support.constraint.ConstraintLayout>
 
