@@ -128,32 +128,44 @@
                         <TextView
                             android:id="@+id/label_supplier"
                             style="@style/LabelStyle"
-                            android:layout_width="120dp"
-                            android:layout_marginBottom="32dp"
+                            android:layout_width="110dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="32dp"
                             android:text="@string/label_supplier"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <!-- Supplier -->
+                        <!-- Supplier Info -->
                         <TextView
                             android:id="@+id/textViewSupplier"
                             style="@style/RegularText"
                             android:layout_width="0dp"
                             android:layout_height="19dp"
-                            android:layout_marginBottom="32dp"
                             android:layout_marginEnd="16dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="32dp"
                             android:singleLine="true"
                             android:text="@string/supplier_unknown"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/label_supplier"
                             app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textViewSupplierPhone"
+                            style="@style/RegularText"
+                            android:layout_width="0dp"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="8dp"
+                            android:drawableLeft="@drawable/ic_contact"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@string/supplier_phone_1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/label_supplier"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewSupplier" />
                     </android.support.constraint.ConstraintLayout>
                 </android.support.v7.widget.CardView>
 
@@ -176,7 +188,7 @@
                         <TextView
                             android:id="@+id/label_in_stock"
                             style="@style/LabelStyle"
-                            android:layout_width="120dp"
+                            android:layout_width="110dp"
                             android:layout_marginBottom="32dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="32dp"
@@ -253,7 +265,7 @@
                         <TextView
                             android:id="@+id/label_price"
                             style="@style/LabelStyle"
-                            android:layout_width="120dp"
+                            android:layout_width="110dp"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="16dp"
                             android:text="@string/label_price"
