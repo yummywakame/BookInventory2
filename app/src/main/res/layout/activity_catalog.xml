@@ -137,6 +137,7 @@
                 android:layout_marginBottom="@dimen/half_dim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:layout_marginEnd="@dimen/base_dim"
                 android:layout_marginStart="@dimen/base_dim"
                 android:layout_marginTop="@dimen/half_dim"
@@ -146,12 +147,13 @@
                 android:paddingStart="@dimen/base_dim"
                 android:paddingTop="@dimen/half_dim"
                 android:text="@string/order_by_toolbar_results_found"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/orderby_toolbar_ordering"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_ascending"
                 android:layout_marginBottom="@dimen/half_dim"
                 android:layout_marginEnd="@dimen/base_dim"
                 android:layout_marginStart="0dp"
@@ -161,8 +163,10 @@
                 android:paddingEnd="@dimen/base_dim"
                 android:paddingStart="@dimen/base_dim"
                 android:paddingTop="@dimen/half_dim"
+                android:drawablePadding="8dp"
+                android:gravity="right"
                 android:text="@string/order_by_toolbar_title"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 

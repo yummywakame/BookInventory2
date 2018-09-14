@@ -46,6 +46,7 @@
 
     <!-- Semi transparent colours -->
     <color name="semiTransparentWhite">#66FFFFFF</color>
+    <color name="semiTransparentBlack">#66000000</color>
     <color name="semiTransparentPrimaryDark">#804b2a9b</color>
     <color name="semiTransparentPrimary">#80673ab7</color>
 
