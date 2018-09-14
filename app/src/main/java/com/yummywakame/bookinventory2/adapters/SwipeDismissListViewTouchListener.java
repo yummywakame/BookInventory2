@@ -1,4 +1,4 @@
-package com.yummywakame.bookinventory2;
+package com.yummywakame.bookinventory2.adapters;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

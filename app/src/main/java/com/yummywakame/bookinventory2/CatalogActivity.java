@@ -42,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yummywakame.bookinventory2.adapters.BookCursorAdapter;
+import com.yummywakame.bookinventory2.adapters.SwipeDismissListViewTouchListener;
 import com.yummywakame.bookinventory2.data.BookContract;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 import com.yummywakame.bookinventory2.data.BookDbHelper;
