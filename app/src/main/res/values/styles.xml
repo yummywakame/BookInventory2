@@ -191,7 +191,7 @@
 
     <!-- List Item Button Style -->
     <style name="SaleButtonStyle">
-        <item name="android:background">@drawable/sale_button_states</item>
+        <item name="android:background">@drawable/sale_button_selected</item>
         <item name="android:focusable">false</item>
         <item name="android:focusableInTouchMode">false</item>
     </style>
