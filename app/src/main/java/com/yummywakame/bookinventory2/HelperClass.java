@@ -1,8 +1,13 @@
 package com.yummywakame.bookinventory2;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -29,16 +34,16 @@ public class HelperClass {
         // Get only the currency symbol to display in the EditText field
         String formattedPrice = "";
 
-        Locale locale = getCurrencyPreference();
+        Locale locale = getCurrencyPreference(context);
 
         // Displays only the currency symbol in the Editor's Price field background
-        if (showOnlyCurrencySymbol) {
+        if (showOnlyCurrencySymbol && !showOnlyPrice) {
             Currency currency = Currency.getInstance(locale);
             formattedPrice = currency.getSymbol(locale);
 
             return formattedPrice;
             // Displays XX.XX format in the Editor's Price field
-        } else if (showOnlyPrice) {
+        } else if (showOnlyPrice && !showOnlyCurrencySymbol) {
             NumberFormat formatter = NumberFormat.getInstance();
             // Always display .X as .XX prices
             formatter.setMinimumFractionDigits(2);
@@ -69,12 +74,12 @@ public class HelperClass {
      * @return String array sort by COLUMN and ascending or descending order
      * Example: new String[] { "BookEntry.COLUMN_BOOK_AUTHOR", "DESC" };
      *
-     * To extract use String[] sortBy = HelperClass.getSortByPreference();
+     * To extract use String[] sortBy = HelperClass.getSortByPreference(context);
      * Then: sortBy[0] to retrieve the column and sortBy[2] to retrieve the sort direction;
      */
-    public static String[] getSortByPreference() {
-        String orderByColumn = getPreferenceStringValue(R.string.pref_order_by_key, R.string.pref_order_by_default);
-        String orderByDirection = getPreferenceStringValue(R.string.pref_order_by_direction_key, R.string.pref_order_by_direction_default);
+    public static String[] getSortByPreference(Context context) {
+        String orderByColumn = getPreferenceStringValue(context, R.string.pref_order_by_key, R.string.pref_order_by_default);
+        String orderByDirection = getPreferenceStringValue(context, R.string.pref_order_by_direction_key, R.string.pref_order_by_direction_default);
         return new String[]{orderByColumn, orderByDirection};
     }
 
@@ -84,8 +89,8 @@ public class HelperClass {
      *
      * @return Locale as a Locale
      */
-    private static Locale getCurrencyPreference() {
-        String formatStrToLocale = getPreferenceStringValue(R.string.pref_currency_key, R.string.pref_currency_default);
+    private static Locale getCurrencyPreference(Context context) {
+        String formatStrToLocale = getPreferenceStringValue(context, R.string.pref_currency_key, R.string.pref_currency_default);
         return formatStrToLocale(formatStrToLocale);
     }
 
@@ -132,11 +137,67 @@ public class HelperClass {
      * @param defaultValue preference's default value
      * @return preference  current value
      */
-    private static String getPreferenceStringValue(int key, int defaultValue) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
+    private static String getPreferenceStringValue(Context context, int key, int defaultValue) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPreferences.getString(
-                MyApplication.getAppContext().getString(key),
-                MyApplication.getAppContext().getString(defaultValue)
+                context.getString(key),
+                context.getString(defaultValue)
         );
+    }
+
+    /**
+     * Prompt the user to confirm that they want to delete this book.
+     */
+    public static void showDeleteConfirmationDialog(final Context context, final Uri currentBookUri) {
+        // Create an AlertDialog.Builder and set the message, and click listeners
+        // for the positive and negative buttons on the dialog.
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(R.string.delete_dialog_msg);
+        builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked the "Delete" button, so delete the book.
+                deleteBook(context, currentBookUri);
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked the "Cancel" button, so dismiss the dialog
+                // and continue editing the book.
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        // Create and show the AlertDialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Perform the deletion of the book in the database.
+     */
+    private static void deleteBook(Context context, Uri currentBookUri) {
+        // Only perform the delete if this is an existing book.
+        if (currentBookUri != null) {
+            // Call the ContentResolver to delete the book at the given content URI.
+            // Pass in null for the selection and selection args because the mCurrentBookUri
+            // content URI already identifies the book that we want.
+            int rowsDeleted = context.getContentResolver().delete(currentBookUri, null, null);
+
+            // Show a toast message depending on whether or not the delete was successful.
+            if (rowsDeleted == 0) {
+                // If no rows were deleted, then there was an error with the delete.
+                Toast.makeText(context, context.getString(R.string.toast_delete_book_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                // Otherwise, the delete was successful and we can display a toast.
+                Toast.makeText(context, context.getString(R.string.toast_delete_book_successful),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        // Close the activity
+        ((Activity) context).finish();
     }
 }

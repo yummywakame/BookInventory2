@@ -29,9 +29,10 @@
     <string name="hint_book_quantity">Quantity</string>
     <string name="hint_book_price">Price</string>
 
-    <!-- Label for the book's quantity or price if the quantity is unknown [CHAR LIMIT=20] -->
+    <!-- Strings for unknown things [CHAR LIMIT=20] -->
     <string name="unknown_quantity" translatable="false">0</string>
     <string name="unknown_price" translatable="false">0</string>
+    <string name="currently_unavailable">Currently unavailable</string>
 
     <!-- Buttons -->
     <string name="sale_button">Sale</string>

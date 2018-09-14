@@ -17,6 +17,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <!-- Main Activity theme -->
     <style name="Base.Theme.TransparentAppBar" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -59,22 +60,34 @@
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
     </style>
 
-
-
     <!-- Theme of the details screen -->
-    <style name="DetailTheme" parent="Base.Theme.TransparentAppBar">
+    <style name="DetailTheme" parent="Theme.TransparentAppBar">
         <item name="android:windowBackground">@color/offWhiteColor</item>
         <item name="buttonStyle">@style/DefaultFontButtonStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <item name="fontFamily">@font/quicksand_medium</item>
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
+        <item name="cardViewStyle">@style/CardView.Light</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+
+        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
+        <!-- Support library compatibility -->
+        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
     </style>
 
     <!-- Collapsed CollapsingToolbarLayout Title -->
-    <style name="CollapsedAppBar" parent="Base.Theme.TransparentAppBar">
+    <style name="CollapsedAppBar" parent="Theme.TransparentAppBar">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!-- Expanded CollapsingToolbarLayout Title -->
-    <style name="ExpandedAppBar" parent="Base.Theme.TransparentAppBar">
+    <style name="ExpandedAppBar" parent="Theme.TransparentAppBar">
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
@@ -95,14 +108,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
     <!-- Style for an EditText field in the editor -->
     <style name="EditorFieldStyle">
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textAppearance">?android:textAppearance</item>
         <item name="android:textColor">@color/darkTextColor</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
@@ -134,13 +147,14 @@
     <!-- Style for the Spinner -->
     <style name="SpinnerFieldStyle">
         <item name="android:layout_height">48dp</item>
-        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textAppearance">?android:textAppearance</item>
         <item name="android:textColor">@color/darkTextColor</item>
     </style>
 
     <!-- Style for the Spinners Background -->
     <style name="EditorSpinnerBg" parent="Base.Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/spinner_bg</item>
+        <item name="android:textAppearance">?android:textAppearance</item>
     </style>
 
     <!-- Settings Preferences Text Style -->
@@ -179,24 +193,13 @@
 
     <!-- Default Font Text Style -->
     <style name="DefaultFontTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textAppearance">?android:textAppearance</item>
     </style>
 
     <!-- Default Font Button Style -->
     <style name="DefaultFontButtonStyle" parent="android:Widget.Holo.Button">
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textAppearance">?android:button</item>
     </style>
 
-    <!-- Main Input Style -->
-    <style name="InputStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <!-- Price Input -->
-    <style name="PriceInputStyle" parent="InputStyle">
-        <item name="android:drawableRight">@drawable/ic_attach_money</item>
-        <item name="android:inputType">numberDecimal</item>
-    </style>
 </resources>
 

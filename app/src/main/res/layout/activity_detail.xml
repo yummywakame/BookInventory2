@@ -88,23 +88,23 @@
                     <TextView
                         android:id="@+id/label_overview"
                         style="@style/LabelStyle"
-                        android:layout_marginStart="24dp"
+                        android:layout_height="21dp"
+                        android:layout_marginStart="16dp"
                         android:text="@string/label_overview"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textViewTitle"
                         app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
                         android:id="@+id/textViewTitle"
+                        style="@style/LabelStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:lines="1"
                         android:maxLines="4"
                         android:text="@string/hint_book_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@android:color/black"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
@@ -112,14 +112,14 @@
 
                     <TextView
                         android:id="@+id/textViewAuthor"
+                        style="@style/DefaultFontTextViewStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:singleLine="true"
                         android:text="@string/hint_book_author"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
                         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
@@ -130,7 +130,7 @@
                     <TextView
                         android:id="@+id/label_supplier"
                         style="@style/LabelStyle"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="16dp"
                         android:text="@string/label_supplier"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textViewSupplier"
@@ -141,14 +141,14 @@
                     <!-- Supplier -->
                     <TextView
                         android:id="@+id/textViewSupplier"
+                        style="@style/DefaultFontTextViewStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:singleLine="true"
                         android:text="@string/supplier_unknown"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
                         app:layout_constraintTop_toBottomOf="@+id/hr1" />
@@ -159,7 +159,7 @@
                     <TextView
                         android:id="@+id/label_in_stock"
                         style="@style/LabelStyle"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="16dp"
                         android:text="@string/label_in_stock"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textViewQuantity"
@@ -170,24 +170,26 @@
                         android:id="@+id/button_subtract"
                         android:layout_width="0dp"
                         android:layout_height="24dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/ic_subtract"
                         android:text="@null"
                         app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
                         app:layout_constraintDimensionRatio="w,1:1"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
-                        app:layout_constraintTop_toTopOf="@+id/textViewQuantity" />
+                        app:layout_constraintTop_toTopOf="@+id/textViewQuantity"
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
                         android:id="@+id/textViewQuantity"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        style="@style/LabelStyle"
+                        android:layout_height="0dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:singleLine="true"
                         android:text="@string/hint_book_quantity"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/button_subtract"
                         app:layout_constraintTop_toTopOf="@+id/hr2" />
 
@@ -202,7 +204,8 @@
                         app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
                         app:layout_constraintDimensionRatio="w,1:1"
                         app:layout_constraintStart_toEndOf="@+id/textViewQuantity"
-                        app:layout_constraintTop_toTopOf="@+id/textViewQuantity" />
+                        app:layout_constraintTop_toTopOf="@+id/textViewQuantity"
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <!-- Currency and Price fields -->
 
@@ -210,17 +213,17 @@
                         android:id="@+id/textViewPrice"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:singleLine="true"
                         android:text="25.00"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="@+id/barrier"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewQuantity" />
+                        app:layout_constraintTop_toBottomOf="@+id/button_subtract" />
 
                     <!-- Guideline that divides labels from fields -->
                     <android.support.constraint.Barrier
@@ -235,9 +238,9 @@
                         android:id="@+id/hr1"
                         android:layout_width="fill_parent"
                         android:layout_height="1dip"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:background="@color/offWhiteColor"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -247,8 +250,8 @@
                         android:id="@+id/hr2"
                         android:layout_width="fill_parent"
                         android:layout_height="1dip"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:background="@color/offWhiteColor"
                         app:layout_constraintEnd_toEndOf="parent"

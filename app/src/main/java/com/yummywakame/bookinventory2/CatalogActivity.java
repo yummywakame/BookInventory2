@@ -252,7 +252,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         Log.i(LOG_TAG, "Loader<Cursor> onCreateLoader()");
 
         // Get the Sort By preference array from Preferences using the helper method
-        sortBy = HelperClass.getSortByPreference();
+        sortBy = HelperClass.getSortByPreference(this);
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,               // Parent activity context
