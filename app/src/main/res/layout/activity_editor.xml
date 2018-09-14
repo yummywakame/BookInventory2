@@ -76,9 +76,10 @@
                 android:lines="6"
                 android:minHeight="48dp"
                 android:minLines="1"
-                android:paddingBottom="@dimen/half_dim"
                 android:nextFocusDown="@id/editTextAuthor"
-                android:paddingTop="@dimen/half_dim" />
+                android:paddingBottom="@dimen/half_dim"
+                android:paddingTop="@dimen/half_dim"
+                android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -112,9 +113,10 @@
                 android:gravity="center_vertical"
                 android:hint="@string/hint_book_author"
                 android:inputType="textCapWords"
-                android:paddingTop="@dimen/half_dim"
                 android:nextFocusDown="@id/spinnerSupplier"
-                android:singleLine="true" />
+                android:paddingTop="@dimen/half_dim"
+                android:singleLine="true"
+                android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -205,9 +207,10 @@
                 android:gravity="center_vertical"
                 android:hint="@string/hint_book_quantity"
                 android:inputType="number"
-                android:paddingTop="@dimen/half_dim"
                 android:nextFocusDown="@id/editTextPrice"
-                android:singleLine="true" />
+                android:paddingTop="@dimen/half_dim"
+                android:singleLine="true"
+                android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -242,7 +245,8 @@
                 android:hint="@string/hint_book_price"
                 android:inputType="numberDecimal"
                 android:paddingTop="@dimen/half_dim"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
 

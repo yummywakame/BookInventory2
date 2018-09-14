@@ -206,7 +206,12 @@ public class HelperClass {
             }
         }
 
-        // Close the activity
-        ((Activity) context).finish();
+        //        ((Activity) context).finish();
+
+        // Close the activity and go back to the main activity CatalogActivity instead of the
+        // previous activity
+        Intent i = new Intent(context, CatalogActivity.class);
+        ((Activity) context).finish();  //Kill the activity from which you will go to next activity
+        context.startActivity(i);
     }
 }

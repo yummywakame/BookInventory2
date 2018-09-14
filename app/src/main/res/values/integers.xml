@@ -3,15 +3,15 @@
     <!-- Values for inserting dummy book data into the database -->
     <!-- Dummy book stock levels -->
     <integer name="dummy_book_stock_1">5</integer>
-    <integer name="dummy_book_stock_2">200</integer>
-    <integer name="dummy_book_stock_3">350</integer>
-    <integer name="dummy_book_stock_4">20</integer>
+    <integer name="dummy_book_stock_2">35</integer>
+    <integer name="dummy_book_stock_3">250</integer>
+    <integer name="dummy_book_stock_4">3</integer>
     <integer name="dummy_book_stock_5">500</integer>
     <integer name="dummy_book_stock_6">1200</integer>
     <integer name="dummy_book_stock_7">55</integer>
     <integer name="dummy_book_stock_8">21</integer>
     <integer name="dummy_book_stock_9">2</integer>
-    <integer name="dummy_book_stock_10">0</integer>
+    <integer name="dummy_book_stock_10">15</integer>
 
     <!-- Dummy book suppliers -->
     <integer name="dummy_book_supplier_1">4</integer>

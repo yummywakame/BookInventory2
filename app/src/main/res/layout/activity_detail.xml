@@ -147,6 +147,7 @@
                             android:layout_marginTop="32dp"
                             android:singleLine="true"
                             android:text="@string/supplier_unknown"
+                            android:textSize="16sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/label_supplier"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -162,6 +163,7 @@
                             android:gravity="center_vertical"
                             android:singleLine="true"
                             android:text="@string/supplier_phone_1"
+                            android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/label_supplier"
@@ -224,6 +226,7 @@
                             android:singleLine="true"
                             android:text="@string/hint_book_quantity"
                             android:textColor="@android:color/black"
+                            android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/button_subtract"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -285,6 +288,7 @@
                             android:layout_marginTop="32dp"
                             android:singleLine="true"
                             android:text="@string/unknown_price"
+                            android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/label_price"
