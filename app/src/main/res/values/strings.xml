@@ -22,6 +22,7 @@
     <string name="label_overview">Overview</string>
     <string name="label_supplier">Supplier</string>
     <string name="label_in_stock">In Stock</string>
+    <string name="label_price">Retail Price</string>
 
     <!-- Text hints and units for fields in the editor [CHAR LIMIT=30] -->
     <string name="hint_book_title">Book Title</string>

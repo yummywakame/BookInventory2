@@ -275,6 +275,7 @@
         <TextView
             android:id="@+id/instruction_required_field"
             style="@style/AsteriskDescStyle"
+            android:layout_height="14dp"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"

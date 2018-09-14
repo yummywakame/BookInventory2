@@ -51,17 +51,26 @@ public class DetailActivity extends AppCompatActivity implements
      */
     private String mCurrency;
 
-//    public static void start(Context context) {
-//        context.startActivity(new Intent(context, DetailActivity.class));
-//    }
+    /**
+     * String that holds the book title for the AppBar
+     */
+    String title;
+
+    /**
+     * Custom Expandable AppBar
+     */
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    AppBarLayout mAppBarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        // Toolbar back button click
         Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Toolbar back button click
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,13 +79,37 @@ public class DetailActivity extends AppCompatActivity implements
         });
 
         // Style the CollapsingToolbarLayout Title
-        CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
-        AppBarLayout appbar = findViewById(R.id.appbar);
-        appbar.addOnOffsetChangedListener(this);
-        setSupportActionBar(toolbar);
+        mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+
 //        getSupportActionBar().setTitle(R.string.editor_activity_title_view_book);
         mCollapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         mCollapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+
+        // This is the most important when you are putting custom textview in CollapsingToolbar
+        mCollapsingToolbarLayout.setTitle(" ");
+
+        mAppBarLayout = findViewById(R.id.appbar);
+        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    //when collapsingToolbar at that time display actionbar title
+                    mCollapsingToolbarLayout.setTitle(title);
+                    isShow = true;
+                } else if (isShow) {
+                    //careful there must a space between double quote otherwise it doesn't work
+                    mCollapsingToolbarLayout.setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
+
         Typeface font = Typeface.createFromAsset(MyApplication.getAppContext().getAssets(), "fonts/quicksand_medium.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
@@ -110,9 +143,6 @@ public class DetailActivity extends AppCompatActivity implements
 
         // Find user's locale currency from Preferences
         mCurrency = String.valueOf(HelperClass.formatPrice(this, 0, true, false));
-
-
-
     }
 
     @Override
@@ -154,16 +184,16 @@ public class DetailActivity extends AppCompatActivity implements
             int priceColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_PRICE);
 
             // Extract out the value from the Cursor for the given column index
-            String name = cursor.getString(nameColumnIndex);
+            title = cursor.getString(nameColumnIndex);
             String author = cursor.getString(authorColumnIndex);
             int supplier = cursor.getInt(supplierColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
             double price = cursor.getDouble(priceColumnIndex);
 
             // Update the views on the screen with the values from the database
-            getSupportActionBar().setTitle(name);
-            getSupportActionBar().setSubtitle(author);
-            mTitle.setText(name);
+//            getSupportActionBar().setTitle(name);
+//            getSupportActionBar().setSubtitle(author);
+            mTitle.setText(title);
             mAuthor.setText(author);
             mQuantity.setText(String.valueOf(quantity));
             // Show price with user's locale currency
