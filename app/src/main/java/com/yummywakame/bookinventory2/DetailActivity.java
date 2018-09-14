@@ -31,6 +31,15 @@ public class DetailActivity extends AppCompatActivity implements
      * Identifier for the book data loader
      */
     private static final int EXISTING_BOOK_LOADER = 0;
+    /**
+     * String that holds the book title for the AppBar
+     */
+    String title;
+    /**
+     * Custom Expandable AppBar
+     */
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    AppBarLayout mAppBarLayout;
     private View mFabBottom;
     /**
      * Variables needed to appear to "move" the FAB to the bottom on scroll
@@ -40,27 +49,14 @@ public class DetailActivity extends AppCompatActivity implements
      * Content URI for the existing book (null if it's a new book)
      */
     private Uri mCurrentBookUri;
-
     /**
      * EditText fields to enter the book's information
      */
     private TextView mTitle, mAuthor, mSupplier, mQuantity, mPrice;
-
     /**
      * String that holds currency from preferences
      */
     private String mCurrency;
-
-    /**
-     * String that holds the book title for the AppBar
-     */
-    String title;
-
-    /**
-     * Custom Expandable AppBar
-     */
-    CollapsingToolbarLayout mCollapsingToolbarLayout;
-    AppBarLayout mAppBarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +94,26 @@ public class DetailActivity extends AppCompatActivity implements
                 if (scrollRange == -1) {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
+                // Test if AppBar is expanded or collapsed
                 if (scrollRange + verticalOffset == 0) {
+                    // When AppBar is Collapsed
                     //when collapsingToolbar at that time display actionbar title
                     mCollapsingToolbarLayout.setTitle(title);
                     isShow = true;
+
+                    //  Hide top FAB, show bottom FAB
+                    ViewCompat.animate(mFabTop).scaleY(0).scaleX(0).start();
+                    mFabBottom.setVisibility(View.VISIBLE);
+                    ViewCompat.animate(mFabBottom).scaleY(1).scaleX(1).start();
                 } else if (isShow) {
+                    // When AppBar is expanded
                     //careful there must a space between double quote otherwise it doesn't work
                     mCollapsingToolbarLayout.setTitle(" ");
                     isShow = false;
+
+                    // Hide bottom FAB, show top FAB
+                    ViewCompat.animate(mFabTop).scaleY(1).scaleX(1).start();
+                    ViewCompat.animate(mFabBottom).scaleY(0).scaleX(0).start();
                 }
             }
         });
@@ -268,17 +276,5 @@ public class DetailActivity extends AppCompatActivity implements
 
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-
-        if (Math.abs(verticalOffset) - appBarLayout.getTotalScrollRange() == 0) {
-            //  Collapsed
-            ViewCompat.animate(mFabTop).scaleY(0).scaleX(0).start();
-            mFabBottom.setVisibility(View.VISIBLE);
-            ViewCompat.animate(mFabBottom).scaleY(1).scaleX(1).start();
-        } else {
-            //Expanded
-            ViewCompat.animate(mFabTop).scaleY(1).scaleX(1).start();
-            ViewCompat.animate(mFabBottom).scaleY(0).scaleX(0).start();
-        }
-
     }
 }
