@@ -13,6 +13,10 @@
     <!-- Name for the application [CHAR LIMIT=12] -->
     <string name="app_name">Inventory</string>
 
+    <!-- Catalog Activity "Ordered by" Toolbar area populated by stored preferences -->
+    <string name="order_by_toolbar_title">Ordered By:</string>
+    <string name="order_by_toolbar_results_found">results found</string>
+
     <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
     <string name="editor_activity_title_add_book">Add a Book</string>
     <string name="editor_activity_title_edit_book">Edit Book</string>

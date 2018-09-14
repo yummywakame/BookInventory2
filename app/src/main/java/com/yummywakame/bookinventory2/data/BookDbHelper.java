@@ -1,6 +1,7 @@
 package com.yummywakame.bookinventory2.data;
 
 import android.content.Context;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -65,5 +66,16 @@ public class BookDbHelper extends SQLiteOpenHelper {
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    /**
+     * Get the total number of books in the database to display the count at the top of the list
+     */
+    public static long getBookCount(Context context) {
+        SQLiteOpenHelper database = new BookDbHelper(context);
+        SQLiteDatabase db = database.getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, BookEntry.TABLE_NAME);
+        db.close();
+        return count;
     }
 }

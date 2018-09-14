@@ -121,7 +121,24 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/transparent"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/orderby_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar">
+
+            <TextView
+                android:id="@+id/orderby_toolbar_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/order_by_toolbar_results_found"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
 
         <!-- Empty view for the list -->
         <ListView
@@ -133,7 +150,7 @@
             android:clipToPadding="false"
             android:paddingBottom="@dimen/half_dim"
             android:listSelector="@android:color/transparent"
-            android:layout_below="@id/toolbar"
+            android:layout_below="@id/orderby_toolbar"
             tools:listitem="@layout/list_item" />
 
     </RelativeLayout>

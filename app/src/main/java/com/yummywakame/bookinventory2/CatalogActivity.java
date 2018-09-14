@@ -35,11 +35,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yummywakame.bookinventory2.adapters.BookCursorAdapter;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
+import com.yummywakame.bookinventory2.data.BookDbHelper;
 import com.yummywakame.bookinventory2.data.ContentProvider;
 
 /**
@@ -64,6 +67,13 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      * The Sort By preference array
      */
     String[] sortBy;
+
+    /**
+     * Number for results message that displays above the ListView
+     */
+    private String resultsCounter;
+    private TextView numberOfResults;
+    private LinearLayout orderByToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +131,31 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         // Kick off the loader that loads the list items
         getLoaderManager().initLoader(BOOK_LOADER, null, this);
 
+        // Find and set the results counter in the toolbar area
+        numberOfResults = findViewById(R.id.orderby_toolbar_results);
+        orderByToolbar = findViewById(R.id.orderby_toolbar);
+        setResultsCounter(numberOfResults);
+    }
+
+    /**
+     * Helper that checks and sets the results counter above the ListView
+     * Also shows or hides the counter and the App Title depending on whether the row count
+     * is greater than zero.
+     */
+    public void setResultsCounter(TextView numberOfResults) {
+        long count = BookDbHelper.getBookCount(this);
+        resultsCounter = String.valueOf(count) + " " + getString(R.string.order_by_toolbar_results_found);
+        numberOfResults.setText(resultsCounter);
+
+        if (count == 0) {
+            orderByToolbar.setVisibility(View.INVISIBLE);
+            // Hide the app title
+            getSupportActionBar().setTitle("");
+        } else {
+            orderByToolbar.setVisibility(View.VISIBLE);
+            // Show the app title
+            getSupportActionBar().setTitle(R.string.app_name);
+        }
     }
 
     /**
@@ -173,6 +208,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked the "Delete" button, so delete all the books.
                 deleteAllBooks();
+                setResultsCounter(numberOfResults);
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -221,6 +257,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                             getResources().getIntArray(R.array.array_book_stock)[i],
                             Double.parseDouble(getResources().getStringArray(R.array.array_book_price)[i]));
                 }
+                setResultsCounter(numberOfResults);
                 return true;
 
             // Respond to a click on the "Delete all entries" menu option
@@ -277,12 +314,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         Log.i(LOG_TAG, "onLoaderReset() on data that needs to be deleted.");
     }
 
-//    /**
-//     * Helper method that sorts the array alphabetically
-//     */
-//    private void sortArray() {
-//        Arrays.sort(mArrayNames);
-//        mCursorAdapter.notifyDataSetChanged();
-//    }
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setResultsCounter(numberOfResults);
+    }
 }
