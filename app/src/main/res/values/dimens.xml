@@ -29,6 +29,6 @@
     <dimen name="text_size_l">24sp</dimen>
 
     <!-- CoordinatoLayout sizes-->
-    <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="detail_backdrop_height">200dp</dimen>
 </resources>
 
