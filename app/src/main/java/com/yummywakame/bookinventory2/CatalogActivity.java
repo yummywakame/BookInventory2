@@ -42,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yummywakame.bookinventory2.adapters.BookCursorAdapter;
+import com.yummywakame.bookinventory2.data.BookContract;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 import com.yummywakame.bookinventory2.data.BookDbHelper;
 import com.yummywakame.bookinventory2.data.ContentProvider;
@@ -68,6 +69,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      * The Sort By preference array
      */
     String[] sortBy;
+
 
     /**
      * Number for results message that displays above the ListView
@@ -138,6 +140,32 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         orderOfResults = findViewById(R.id.orderby_toolbar_ordering);
         orderByToolbar = findViewById(R.id.orderby_toolbar);
         setResultsCounter(this, numberOfResults, orderOfResults);
+
+
+        // Swipe to delete
+        SwipeDismissListViewTouchListener touchListener =
+                new SwipeDismissListViewTouchListener(
+                        bookListView,
+                        new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                            @Override
+                            public boolean canDismiss(int position) {
+                                return true;
+                            }
+
+                            @Override
+                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                for (int id : reverseSortedPositions) {
+
+                                    final String idInt = String.valueOf(id);
+
+                                    Uri currentBookUri = ContentUris.withAppendedId(BookContract.BookEntry.CONTENT_URI, Long.parseLong(idInt));
+                                    HelperClass.deleteBook(CatalogActivity.this, currentBookUri, false);
+
+//                                    notifyDataSetChanged();
+                                }
+                            }
+                        });
+        bookListView.setOnTouchListener(touchListener);
     }
 
     /**

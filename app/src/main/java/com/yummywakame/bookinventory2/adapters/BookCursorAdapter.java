@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CursorAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,6 +67,9 @@ public class BookCursorAdapter extends CursorAdapter {
         // Find saleButton
         Button saleButton = view.findViewById(R.id.sale_button);
 
+        // Find ListView
+        ListView listView = view.findViewById(R.id.list);
+
         // Find fields to populate in inflated template
         TextView titleTextView = view.findViewById(R.id.title);
         TextView authorTextView = view.findViewById(R.id.author);
@@ -109,6 +113,7 @@ public class BookCursorAdapter extends CursorAdapter {
         // OnClickListener for Sale button
         // When clicked it reduces the number in stock by 1.
         final String id = cursorData.getString(cursorData.getColumnIndex(BookContract.BookEntry._ID));
+        final int idInt = Integer.parseInt(id);
 
         saleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,5 +131,7 @@ public class BookCursorAdapter extends CursorAdapter {
                 }
             }
         });
+
     }
+
 }

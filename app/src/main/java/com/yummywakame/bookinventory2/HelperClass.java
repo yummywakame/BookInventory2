@@ -157,7 +157,7 @@ public class HelperClass {
         builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked the "Delete" button, so delete the book.
-                deleteBook(context, currentBookUri);
+                deleteBook(context, currentBookUri, true);
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -186,7 +186,7 @@ public class HelperClass {
     /**
      * Perform the deletion of the book in the database.
      */
-    private static void deleteBook(Context context, Uri currentBookUri) {
+    public static void deleteBook(Context context, Uri currentBookUri, Boolean confirm) {
         // Only perform the delete if this is an existing book.
         if (currentBookUri != null) {
             // Call the ContentResolver to delete the book at the given content URI.
@@ -205,13 +205,13 @@ public class HelperClass {
                         Toast.LENGTH_SHORT).show();
             }
         }
-
-        //        ((Activity) context).finish();
-
-        // Close the activity and go back to the main activity CatalogActivity instead of the
-        // previous activity
-        Intent i = new Intent(context, CatalogActivity.class);
-        ((Activity) context).finish();  //Kill the activity from which you will go to next activity
-        context.startActivity(i);
+        // If accessed via the "Are you sure you want to delete" dialog
+        if (confirm) {
+            // Close the activity and go back to the main activity CatalogActivity instead of the
+            // previous activity
+            Intent i = new Intent(context, CatalogActivity.class);
+            ((Activity) context).finish();  //Kill the activity from which you will go to next activity
+            context.startActivity(i);
+        }
     }
 }
