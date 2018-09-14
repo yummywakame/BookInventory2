@@ -19,6 +19,7 @@ import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -73,6 +74,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      */
     private String resultsCounter;
     private TextView numberOfResults;
+    private TextView orderOfResults;
     private LinearLayout orderByToolbar;
 
     @Override
@@ -133,8 +135,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         // Find and set the results counter in the toolbar area
         numberOfResults = findViewById(R.id.orderby_toolbar_results);
+        orderOfResults = findViewById(R.id.orderby_toolbar_ordering);
         orderByToolbar = findViewById(R.id.orderby_toolbar);
-        setResultsCounter(numberOfResults);
+        setResultsCounter(this, numberOfResults, orderOfResults);
     }
 
     /**
@@ -142,10 +145,15 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      * Also shows or hides the counter and the App Title depending on whether the row count
      * is greater than zero.
      */
-    public void setResultsCounter(TextView numberOfResults) {
+    public void setResultsCounter(Context context, TextView numberOfResults, TextView orderOfResults) {
         long count = BookDbHelper.getBookCount(this);
         resultsCounter = String.valueOf(count) + " " + getString(R.string.order_by_toolbar_results_found);
         numberOfResults.setText(resultsCounter);
+
+        sortBy = HelperClass.getSortByPreference(context);
+        //sortBy[0] to retrieve the column and sortBy[2] to retrieve the sort direction
+        String sortedString = sortBy[0] + " " + sortBy[1];
+        orderOfResults.setText(sortedString);
 
         if (count == 0) {
             orderByToolbar.setVisibility(View.INVISIBLE);
@@ -208,7 +216,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked the "Delete" button, so delete all the books.
                 deleteAllBooks();
-                setResultsCounter(numberOfResults);
+                setResultsCounter(CatalogActivity.this, numberOfResults, orderOfResults);
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -257,7 +265,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                             getResources().getIntArray(R.array.array_book_stock)[i],
                             Double.parseDouble(getResources().getStringArray(R.array.array_book_price)[i]));
                 }
-                setResultsCounter(numberOfResults);
+                setResultsCounter(this, numberOfResults, orderOfResults);
                 return true;
 
             // Respond to a click on the "Delete all entries" menu option
@@ -317,6 +325,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     @Override
     protected void onStart() {
         super.onStart();
-        setResultsCounter(numberOfResults);
+        setResultsCounter(this, numberOfResults, orderOfResults);
     }
 }

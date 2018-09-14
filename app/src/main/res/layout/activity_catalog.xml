@@ -129,12 +129,13 @@
             android:id="@+id/orderby_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar">
+            android:layout_below="@id/toolbar"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/orderby_toolbar_results"
                 android:layout_marginBottom="@dimen/half_dim"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/base_dim"
                 android:layout_marginStart="@dimen/base_dim"
@@ -145,6 +146,22 @@
                 android:paddingStart="@dimen/base_dim"
                 android:paddingTop="@dimen/half_dim"
                 android:text="@string/order_by_toolbar_results_found"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/orderby_toolbar_ordering"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/half_dim"
+                android:layout_marginEnd="@dimen/base_dim"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/half_dim"
+                android:background="@drawable/rounded_toolbar_bg"
+                android:paddingBottom="@dimen/half_dim"
+                android:paddingEnd="@dimen/base_dim"
+                android:paddingStart="@dimen/base_dim"
+                android:paddingTop="@dimen/half_dim"
+                android:text="@string/order_by_toolbar_title"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>
