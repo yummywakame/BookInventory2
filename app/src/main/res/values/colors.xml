@@ -45,7 +45,7 @@
     <color name="navigationBarColor">@color/colorPrimaryDark</color>
 
     <!-- Semi transparent colours -->
-    <color name="semiTransparentWhite">#80FFFFFF</color>
+    <color name="semiTransparentWhite">#66FFFFFF</color>
     <color name="semiTransparentPrimaryDark">#804b2a9b</color>
     <color name="semiTransparentPrimary">#80673ab7</color>
 
