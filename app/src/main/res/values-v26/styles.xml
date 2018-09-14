@@ -23,7 +23,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/launch_screen</item>
         <item name="android:fontFamily">@font/quicksand_medium</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
 
         <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflow</item>

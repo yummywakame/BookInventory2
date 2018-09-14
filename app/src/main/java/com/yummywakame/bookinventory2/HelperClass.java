@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -172,6 +173,14 @@ public class HelperClass {
         // Create and show the AlertDialog
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    /**
+     * Call the supplier when the supplier phone buttons are clicked
+     */
+    public static void callSupplier(Context context, String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNumber, null));
+        context.startActivity(intent);
     }
 
     /**

@@ -26,7 +26,6 @@
         <item name="android:fontFamily">@font/quicksand</item>
         <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/quicksand</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:lineSpacingExtra">0dp</item>
@@ -46,7 +45,6 @@
         <item name="android:fontFamily">@font/quicksand_medium</item>
         <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/quicksand_medium</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:lineSpacingExtra">0dp</item>
@@ -57,7 +55,6 @@
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
         <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
     </style>
 
     <!-- Theme of the details screen -->
@@ -70,7 +67,6 @@
         <item name="android:fontFamily">@font/quicksand_medium</item>
         <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/quicksand_medium</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:lineSpacingExtra">0dp</item>
@@ -177,7 +173,6 @@
         <item name="android:textColorSecondary">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/text_size_m</item>
         <item name="fontFamily">@font/quicksand_medium</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <!-- Dialog Styles -->
         <item name="android:dialogTheme">@style/DialogStyle</item>
         <item name="android:alertDialogTheme">@style/DialogStyle</item>

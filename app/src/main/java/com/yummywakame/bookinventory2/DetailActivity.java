@@ -60,6 +60,10 @@ public class DetailActivity extends AppCompatActivity implements
      * String that holds currency from preferences
      */
     private String mCurrency;
+    /**
+     * String that holds the suppliers phone number
+     */
+    private String mSupplierPhone;
 
     /**
      * Int that holds the quantity for the + and - buttons
@@ -185,6 +189,22 @@ public class DetailActivity extends AppCompatActivity implements
                 }
             }
         });
+
+        // On touch listener for top FAB to call Supplier
+        mFabTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelperClass.callSupplier(DetailActivity.this, mSupplierPhone);
+            }
+        });
+
+        // On touch listener for bottom FAB to call Supplier
+        mFabBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelperClass.callSupplier(DetailActivity.this, mSupplierPhone);
+            }
+        });
     }
 
     @Override
@@ -248,18 +268,23 @@ public class DetailActivity extends AppCompatActivity implements
             switch (supplier) {
                 case BookEntry.SUPPLIER_1:
                     mSupplier.setText(getResources().getStringArray(R.array.array_supplier_options)[1]);
+                    mSupplierPhone = getResources().getStringArray(R.array.array_supplier_phone)[1];
                     break;
                 case BookEntry.SUPPLIER_2:
                     mSupplier.setText(getResources().getStringArray(R.array.array_supplier_options)[2]);
+                    mSupplierPhone = getResources().getStringArray(R.array.array_supplier_phone)[2];
                     break;
                 case BookEntry.SUPPLIER_3:
                     mSupplier.setText(getResources().getStringArray(R.array.array_supplier_options)[3]);
+                    mSupplierPhone = getResources().getStringArray(R.array.array_supplier_phone)[3];
                     break;
                 case BookEntry.SUPPLIER_4:
                     mSupplier.setText(getResources().getStringArray(R.array.array_supplier_options)[4]);
+                    mSupplierPhone = getResources().getStringArray(R.array.array_supplier_phone)[4];
                     break;
                 default:
                     mSupplier.setText(getResources().getString(R.string.supplier_unknown));
+                    mSupplierPhone = "0";
                     break;
             }
         }
