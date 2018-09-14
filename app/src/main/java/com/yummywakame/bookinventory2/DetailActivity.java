@@ -1,6 +1,7 @@
 package com.yummywakame.bookinventory2;
 
 import android.app.LoaderManager;
+import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -17,8 +18,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.yummywakame.bookinventory2.data.BookContract;
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 
 /**
@@ -57,6 +60,11 @@ public class DetailActivity extends AppCompatActivity implements
      * String that holds currency from preferences
      */
     private String mCurrency;
+
+    /**
+     * Int that holds the quantity for the + and - buttons
+     */
+    private int quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +159,32 @@ public class DetailActivity extends AppCompatActivity implements
 
         // Find user's locale currency from Preferences
         mCurrency = String.valueOf(HelperClass.formatPrice(this, 0, true, false));
+
+        // Click listener for "+" button
+        Button increaseBtn = findViewById(R.id.button_add);
+        increaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(BookEntry.COLUMN_BOOK_QUANTITY, Integer.valueOf(mQuantity.getText().toString()) + 1);
+                getContentResolver().update(mCurrentBookUri, contentValues, null, null);
+            }
+        });
+
+        // Click listener for "-" button
+        Button decreaseBtn = findViewById(R.id.button_subtract);
+        decreaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quantity = Integer.parseInt(mQuantity.getText().toString().trim());
+                if (quantity > 0) {
+                    quantity--;
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(BookContract.BookEntry.COLUMN_BOOK_QUANTITY, quantity);
+                    getContentResolver().update(mCurrentBookUri, contentValues, null, null);
+                }
+            }
+        });
     }
 
     @Override
@@ -246,6 +280,9 @@ public class DetailActivity extends AppCompatActivity implements
             // Respond to a click on the "Edit" menu option
             case R.id.action_edit:
                 // Go to {@link EditorActivity}
+                Intent editIntent = new Intent(this, EditorActivity.class);
+                editIntent.setData(mCurrentBookUri);
+                startActivity(editIntent);
                 return true;
 
             // Respond to a click on the "Delete" menu option

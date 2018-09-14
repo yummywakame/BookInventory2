@@ -21,7 +21,7 @@
     <color name="colorSecondary">#9b69eb</color>
 
     <!-- Accent color for UI controls like checkboxes and text fields -->
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff4081</color>
 
     <!-- App Title color -->
     <color name="appTitleColor">#ffffff</color>

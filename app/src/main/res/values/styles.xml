@@ -78,6 +78,10 @@
         <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
         <!-- Support library compatibility -->
         <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
+
+        <!-- Dialog Styles -->
+        <item name="android:dialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
+        <item name="android:alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
     </style>
 
     <!-- Collapsed CollapsingToolbarLayout Title -->
@@ -105,7 +109,7 @@
     <style name="LabelStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
