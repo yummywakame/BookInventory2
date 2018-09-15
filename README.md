@@ -7,7 +7,7 @@ Used **API 27: Android 8.1 (Oreo)**
 ![Book Inventory App Screenshots](./screenshots_tiny.png)
 
 ## Walkthrough
-_[Watch on YouTube](https://youtu.be/DxaIj-FBA9s)_
+_[Watch a short demo on YouTube](https://youtu.be/DxaIj-FBA9s)_
 
 ## Project Rubric
 Create an inventory app using an SQLite database that contains activities for the user to:
@@ -20,5 +20,8 @@ The Product Detail Layout displays the Product Name, Price, Quantity, Supplier N
 
 ## Resources
 
-*Title*
-Item
+1. **[Udacity Pets App](https://github.com/udacity/ud845-Pets)**
+Based loosely off the Pets App we created in class.
+
+2. **[Android swipe to delete listview](http://codesfor.in/android-swipe-to-delete-listview/)**
+Adapted with the help of [TheBaileyBrew](https://github.com/TheBaileyBrew)
