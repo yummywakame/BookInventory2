@@ -26,7 +26,7 @@
     <dimen name="text_size_m">16sp</dimen>
     <dimen name="text_size_l">18sp</dimen>
 
-    <!-- CoordinatoLayout sizes-->
+    <!-- CoordinatorLayout sizes-->
     <dimen name="detail_backdrop_height">200dp</dimen>
 </resources>
 
