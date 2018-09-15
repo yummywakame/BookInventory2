@@ -112,7 +112,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         mCursorAdapter = new BookCursorAdapter(this, null);
         bookListView.setAdapter(mCursorAdapter);
 
-        // Set up item click listener
+        // Set up a book list item click listener
         bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -141,7 +141,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         orderByToolbar = findViewById(R.id.orderby_toolbar);
         setResultsCounter(this, numberOfResults, orderOfResults);
 
-
         // Swipe to delete
         SwipeDismissListViewTouchListener touchListener =
                 new SwipeDismissListViewTouchListener(
@@ -163,6 +162,15 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                             }
                         });
         bookListView.setOnTouchListener(touchListener);
+
+        // Set up a click listener for the OrderBy TextView which opens up Preferences
+        orderOfResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent settingsIntent = new Intent(CatalogActivity.this, PreferencesActivity.class);
+                startActivity(settingsIntent);
+            }
+        });
     }
 
     /**
@@ -183,19 +191,19 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         switch (sortBy[0]) {
             case "book_author":
-                sortColumn = "Author";
+                sortColumn = getString(R.string.pref_order_by_author_label);
                 break;
             case "book_title":
-                sortColumn = "Title";
+                sortColumn = getString(R.string.pref_order_by_title_label);
                 break;
             case "quantity":
-                sortColumn = "Stock Count";
+                sortColumn = getString(R.string.pref_order_by_stockcount_label);
                 break;
             case "price":
-                sortColumn = "Price";
+                sortColumn = getString(R.string.pref_order_by_price_label);
                 break;
             default:
-                sortColumn = "Default";
+                sortColumn = getString(R.string.pref_order_by_author_label);
                 break;
         }
 
