@@ -11,10 +11,10 @@
 -->
 <resources>
     <!-- Name for the application [CHAR LIMIT=12] -->
-    <string name="app_name">Inventory</string>
+    <string name="app_name">Book Inventory</string>
 
     <!-- Catalog Activity "Ordered by" Toolbar area populated by stored preferences -->
-    <string name="order_by_toolbar_title">Ordered By:</string>
+    <string name="order_by_toolbar_title">ordered</string>
     <string name="order_by_toolbar_results_found">results found</string>
 
     <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->

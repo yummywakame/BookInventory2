@@ -30,7 +30,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -89,11 +88,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         // Get the App Title Bar and menu items to display
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle("");
         toolbar.setTitleTextColor(Color.WHITE);
-
-        // Get CardView in case we need to hide on swipe to delete
-        final CardView cardView = findViewById(R.id.book_card);
 
         // Setup FAB to open EditorActivity
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -176,15 +171,48 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      * is greater than zero.
      */
     public void setResultsCounter(Context context, TextView numberOfResults, TextView orderOfResults) {
+        // Show how many results found
         long count = BookDbHelper.getBookCount(this);
         resultsCounter = String.valueOf(count) + " " + getString(R.string.order_by_toolbar_results_found);
         numberOfResults.setText(resultsCounter);
 
+        // Shows what it's sorted by and changes the arrow graphic accordingly
         sortBy = HelperClass.getSortByPreference(context);
+        String sortColumn;
         //sortBy[0] to retrieve the column and sortBy[2] to retrieve the sort direction
-        String sortedString = sortBy[0] + " " + sortBy[1];
-        orderOfResults.setText(sortedString);
 
+        switch (sortBy[0]) {
+            case "book_author":
+                sortColumn = "Author";
+                break;
+            case "book_title":
+                sortColumn = "Title";
+                break;
+            case "quantity":
+                sortColumn = "Stock Count";
+                break;
+            case "price":
+                sortColumn = "Price";
+                break;
+            default:
+                sortColumn = "Default";
+                break;
+        }
+
+        switch (sortBy[1]) {
+            case "ASC":
+                orderOfResults.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_ascending, 0);
+                break;
+            case "DESC":
+                orderOfResults.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_descending, 0);
+                break;
+            default:
+                orderOfResults.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_ascending, 0);
+                break;
+        }
+        orderOfResults.setText(sortColumn);
+
+        // Hides App Title if there are no books to show
         if (count == 0) {
             orderByToolbar.setVisibility(View.INVISIBLE);
             // Hide the app title
