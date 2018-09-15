@@ -4,7 +4,7 @@
 Used **API 27: Android 8.1 (Oreo)**
 
 ## Screenshots
-![Book Inventory App Screenshots](./screenshots-layout.png)
+![Book Inventory App Screenshots](./screenshots_tiny.png)
 
 ## Walkthrough
 _[Watch on YouTube](https://youtu.be/DxaIj-FBA9s)_
