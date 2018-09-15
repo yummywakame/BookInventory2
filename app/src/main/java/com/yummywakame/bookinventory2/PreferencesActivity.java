@@ -82,7 +82,6 @@ public class PreferencesActivity extends AppCompatActivity {
                     ""
             );
             onPreferenceChange(preference, preferenceValue);
-
         }
     }
 }

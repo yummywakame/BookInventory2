@@ -18,8 +18,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Lets the user swipe a list view item to delete the product from the database
- * Credit: http://codesfor.in/android-swipe-to-delete-listview/
+ * Lets the user swipe a list view item to delete the product from the database.
+ * Credit: http://codesfor.in/android-swipe-to-delete-listview/ for original code.
+ * Credit: The BaileyBrew https://github.com/TheBaileyBrew for adapting it.
  */
 
 public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
@@ -35,7 +36,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
     private int mViewWidth = 1; // 1 and not 0 to prevent dividing by zero
 
     // Transient properties
-    private List<PendingDismissData> mPendingDismisses = new ArrayList<PendingDismissData>();
+    private List<PendingDismissData> mPendingDismisses = new ArrayList<>();
     private int mDismissAnimationRefCount = 0;
     private float mDownX;
     private float mDownY;
@@ -46,6 +47,11 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
     private View mDownView;
     private boolean mPaused;
 
+    public interface DismissCallbacks {
+        boolean canDismiss(int position);
+
+        void onDismiss(ListView listView, int[] reverseSortedPositions);
+    }
 
     public SwipeDismissListViewTouchListener(ListView listView, DismissCallbacks callbacks) {
         ViewConfiguration vc = ViewConfiguration.get(listView.getContext());
@@ -86,9 +92,6 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 if (mPaused) {
                     return false;
                 }
-
-                // TODO: ensure this is a finger, and set a flag
-
                 // Find the child view that was touched (perform a hit test)
                 Rect rect = new Rect();
                 int childCount = mListView.getChildCount();
@@ -232,6 +235,22 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
         return false;
     }
 
+    class PendingDismissData implements Comparable<PendingDismissData> {
+        public int position;
+        public View view;
+
+        public PendingDismissData(int position, View view) {
+            this.position = position;
+            this.view = view;
+        }
+
+        @Override
+        public int compareTo(PendingDismissData other) {
+            // Sort by descending position
+            return other.position - position;
+        }
+    }
+
     private void performDismiss(final View dismissView, final int dismissPosition) {
         // Animate the dismissed list item to zero-height and fire the dismiss callback when
         // all dismissed list item animations have completed. This triggers layout on each animation
@@ -292,29 +311,5 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
 
         mPendingDismisses.add(new PendingDismissData(dismissPosition, dismissView));
         animator.start();
-    }
-
-    public interface DismissCallbacks {
-
-        boolean canDismiss(int position);
-
-
-        void onDismiss(ListView listView, int[] reverseSortedPositions);
-    }
-
-    class PendingDismissData implements Comparable<PendingDismissData> {
-        public int position;
-        public View view;
-
-        public PendingDismissData(int position, View view) {
-            this.position = position;
-            this.view = view;
-        }
-
-        @Override
-        public int compareTo(PendingDismissData other) {
-            // Sort by descending position
-            return other.position - position;
-        }
     }
 }

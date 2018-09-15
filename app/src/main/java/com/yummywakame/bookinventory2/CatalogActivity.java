@@ -30,6 +30,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -90,6 +91,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setTitle("");
         toolbar.setTitleTextColor(Color.WHITE);
+
+        // Get CardView in case we need to hide on swipe to delete
+        final CardView cardView = findViewById(R.id.book_card);
 
         // Setup FAB to open EditorActivity
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -156,13 +160,10 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                             @Override
                             public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                                 for (int id : reverseSortedPositions) {
-
-                                    final String idInt = String.valueOf(id);
-
-                                    Uri currentBookUri = ContentUris.withAppendedId(BookContract.BookEntry.CONTENT_URI, Long.parseLong(idInt));
+                                    long currentID = listView.getAdapter().getItemId(id);
+                                    Uri currentBookUri = ContentUris.withAppendedId(BookContract.BookEntry.CONTENT_URI, currentID);
                                     HelperClass.deleteBook(CatalogActivity.this, currentBookUri, false);
-
-//                                    notifyDataSetChanged();
+                                    setResultsCounter(CatalogActivity.this, numberOfResults, orderOfResults);
                                 }
                             }
                         });
@@ -234,9 +235,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     }
 
     /**
-     * Prompt the user to confirm that they want to delete this book.
+     * Prompt the user to confirm that they want to delete ALL the books.
      */
-    private void showDeleteConfirmationDialog() {
+    private void showDeleteAllConfirmationDialog() {
         // Create an AlertDialog.Builder and set the message, and click listeners
         // for the positive and negative buttons on the dialog.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -300,7 +301,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             // Respond to a click on the "Delete all entries" menu option
             case R.id.action_delete_all_entries:
                 // Pop up confirmation dialog for deletion
-                showDeleteConfirmationDialog();
+                showDeleteAllConfirmationDialog();
                 return true;
 
             // Respond to a click on the "Settings" menu option

@@ -8,13 +8,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.CardView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
-
 
 /**
  * BookInventory2
@@ -23,6 +23,8 @@ import java.util.Locale;
  * olivia@yummy-wakame.com
  */
 public class HelperClass {
+
+    CardView cardView;
 
     /**
      * Helper method that formats the price

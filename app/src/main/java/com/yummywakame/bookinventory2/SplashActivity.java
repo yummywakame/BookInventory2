@@ -36,7 +36,6 @@ public class SplashActivity extends AppCompatActivity {
                 launchNextActivity();
             }
         }, SECONDS_DELAY);   // 5 seconds
-
     }
 
     // Launches Catalog Activity
