@@ -57,10 +57,6 @@ public class DetailActivity extends AppCompatActivity implements
      */
     private TextView mTitle, mAuthor, mSupplier, mQuantity, mPrice;
     /**
-     * String that holds currency from preferences
-     */
-    private String mCurrency;
-    /**
      * String that holds the suppliers phone number
      */
     private String mSupplierPhone;
@@ -134,8 +130,6 @@ public class DetailActivity extends AppCompatActivity implements
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
-//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); //bellow setSupportActionBar(toolbar);
-//        getSupportActionBar().setCustomView(R.layout.titlebar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Locate both FAB buttons
@@ -159,10 +153,6 @@ public class DetailActivity extends AppCompatActivity implements
         mQuantity = findViewById(R.id.textViewQuantity);
         mSupplier = findViewById(R.id.textViewSupplier);
         mPrice = findViewById(R.id.textViewPrice);
-//        mCurrency = findViewById(R.id.currencySymbol);
-
-        // Find user's locale currency from Preferences
-        mCurrency = String.valueOf(HelperClass.formatPrice(this, 0, true, false));
 
         // Click listener for "+" button
         Button increaseBtn = findViewById(R.id.button_add);

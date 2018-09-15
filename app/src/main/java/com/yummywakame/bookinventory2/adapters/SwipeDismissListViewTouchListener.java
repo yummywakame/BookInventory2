@@ -10,7 +10,6 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -62,23 +61,6 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 android.R.integer.config_shortAnimTime);
         mListView = listView;
         mCallbacks = callbacks;
-    }
-
-    public void setEnabled(boolean enabled) {
-        mPaused = !enabled;
-    }
-
-    public AbsListView.OnScrollListener makeScrollListener() {
-        return new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int scrollState) {
-                setEnabled(scrollState != AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL);
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-            }
-        };
     }
 
     @Override

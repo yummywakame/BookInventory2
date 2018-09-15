@@ -22,7 +22,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <item name="android:windowBackground">@color/offWhiteColor</item>
         <item name="android:fontFamily">@font/quicksand</item>
         <!-- fontFamily: target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/quicksand</item>
@@ -52,7 +52,7 @@
 
     <!-- The launcher theme. It sets the main window background to the launch_screen drawable -->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
         <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
