@@ -13,7 +13,6 @@
         <item>@string/book_title_9</item>
         <item>@string/book_title_10</item>
     </string-array>
-
     <!-- Book authors used for dummy data -->
     <string-array name="array_book_author">
         <item>@string/book_author_1</item>
@@ -27,7 +26,6 @@
         <item>@string/book_author_9</item>
         <item>@string/book_author_10</item>
     </string-array>
-
     <!-- Book suppliers used for dummy data -->
     <!-- integer-array is declared as array in xml -->
     <array name="array_book_supplier">
@@ -42,7 +40,6 @@
         <item>@integer/dummy_book_supplier_9</item>
         <item>@integer/dummy_book_supplier_10</item>
     </array>
-
     <!-- Dummy book stock levels -->
     <!-- integer-array is declared as array in xml -->
     <array name="array_book_stock">
@@ -57,7 +54,6 @@
         <item>@integer/dummy_book_stock_9</item>
         <item>@integer/dummy_book_stock_10</item>
     </array>
-
     <!-- Dummy book prices -->
     <!-- Doubles are stored as strings -->
     <string-array name="array_book_price">

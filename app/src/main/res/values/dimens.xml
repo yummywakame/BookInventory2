@@ -13,7 +13,6 @@
     <!-- General shared base dimensions -->
     <dimen name="base_dim">16dp</dimen>
     <dimen name="half_dim">8dp</dimen>
-    <dimen name="item_height">88dp</dimen>
 
     <!-- Margin around the floating action button in CatalogActivity -->
     <dimen name="fab_margin">24dp</dimen>
@@ -22,11 +21,7 @@
     <dimen name="sale_btn_size">60dp</dimen>
 
     <!-- Default text sizes -->
-    <dimen name="text_size_apptitle">20sp</dimen>
-    <dimen name="text_size_xs">12sp</dimen>
-    <dimen name="text_size_s">14sp</dimen>
     <dimen name="text_size_m">16sp</dimen>
-    <dimen name="text_size_l">24sp</dimen>
 
     <!-- CoordinatoLayout sizes-->
     <dimen name="detail_backdrop_height">200dp</dimen>

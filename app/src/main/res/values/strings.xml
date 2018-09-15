@@ -20,7 +20,6 @@
     <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
     <string name="editor_activity_title_add_book">Add a Book</string>
     <string name="editor_activity_title_edit_book">Edit Book</string>
-    <string name="editor_activity_title_view_book">Book Details</string>
 
     <!-- Text Labels for fields in the editor [CHAR LIMIT=30] -->
     <string name="label_overview">Overview</string>
@@ -40,7 +39,6 @@
     <string name="currently_unavailable">Currently unavailable</string>
 
     <!-- Buttons -->
-    <string name="sale_button">Sale</string>
 
     <!-- Toast / Validation messages -->
     <string name="toast_insert_book_failed">Error adding book</string>
@@ -60,7 +58,6 @@
 
     <!-- Instructions for the user -->
     <string name="instruction_required_field">Indicates required fields.</string>
-    <string name="instruction_loading">Loading&#8230;</string>
 
     <!-- Confirmation dialog labels and messages -->
     <string name="delete_dialog_msg">Delete this book?</string>
@@ -81,14 +78,12 @@
     <string name="action_insert_dummy_data">Insert Dummy Data</string>
     <string name="action_delete_all_entries">Delete All Books</string>
     <string name="action_preferences">Preferences</string>
-    <string name="cursor_message">The books table contains %1$d books.</string>
 
     <!-- Text for the empty view, which that prompts the user to add a book [CHAR LIMIT=50] -->
     <string name="empty_view_title_text">It\'s a bit lonely here&#8230;</string>
     <string name="empty_view_subtitle_text">Get started by adding a book.</string>
 
     <!-- Image descriptions for accessibility -->
-    <string name="logo_image_desc">Logo</string>
     <string name="empty_shelf_image_desc">Empty book shelf</string>
 
     <!-- Asterisk that indicates a required field -->
@@ -102,7 +97,6 @@
     <string name="preferences_title">Preferences</string>
     <!--Preference categories-->
     <string name="general_category">General</string>
-    <string name="metadata_category">Metadata</string>
 
     <!-- Order preference-->
     <string name="pref_order_by_title">Order By</string>

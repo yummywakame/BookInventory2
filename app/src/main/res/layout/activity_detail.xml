@@ -13,14 +13,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/offWhiteColor"
     tools:context=".DetailActivity">
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
@@ -45,7 +43,6 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView
-                    android:id="@+id/backdrop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
@@ -110,7 +107,6 @@
                 android:orientation="vertical">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/book_card_supplier"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/base_dim"
@@ -120,7 +116,6 @@
 
                     <!-- Layout for the Views -->
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/ConstraintLayout_supplier"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -153,7 +148,6 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textViewSupplierPhone"
                             style="@style/RegularText"
                             android:layout_width="0dp"
                             android:layout_marginBottom="32dp"
@@ -172,7 +166,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/book_card_stock"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/base_dim"
@@ -182,7 +175,6 @@
 
                     <!-- Layout for the Views -->
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/ConstraintLayout_stock"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -249,7 +241,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/book_card_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/base_dim"
@@ -260,7 +251,6 @@
 
                     <!-- Layout for the Views -->
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/ConstraintLayout_price"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 

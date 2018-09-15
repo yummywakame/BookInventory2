@@ -35,6 +35,5 @@
         <item>@string/pref_currency_3_label_value</item>
         <item>@string/pref_currency_4_label_value</item>
         <item>@string/pref_currency_5_label_value</item>
-
     </string-array>
 </resources>

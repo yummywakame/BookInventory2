@@ -26,7 +26,7 @@ public class HelperClass {
     /**
      * Helper method that formats the price
      *
-     * @param price is the original double price
+     * @param price     is the original double value
      * @return price    formatted with chosen currency in correct position
      * Displays eg: $35.99 instead of $39.998
      */
@@ -87,7 +87,7 @@ public class HelperClass {
      * A helper method that gets the user's Currency preference from Preferences and returns a
      * Usable locale.
      *
-     * @return Locale as a Locale
+     * @return String locale as a Locale
      */
     private static Locale getCurrencyPreference(Context context) {
         String formatStrToLocale = getPreferenceStringValue(context, R.string.pref_currency_key, R.string.pref_currency_default);

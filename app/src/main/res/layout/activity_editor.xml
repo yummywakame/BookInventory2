@@ -25,8 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Overview category -->
-
         <!-- Label -->
         <TextView
             android:id="@+id/label_overview"
@@ -37,8 +35,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/asterisk_title"
             app:layout_constraintVertical_bias="0.0" />
-
-        <!-- Input fields -->
 
         <!-- Asterisk for Title -->
         <TextView
@@ -120,8 +116,6 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Supplier category -->
-
         <!-- Label -->
         <TextView
             android:id="@+id/label_supplier"
@@ -134,8 +128,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/asterisk_supplier"
             app:layout_constraintVertical_bias="1.0" />
-
-        <!-- Input field -->
 
         <!-- Asterisk -->
         <TextView
@@ -162,8 +154,6 @@
             android:nextFocusDown="@id/editTextQuantity"
             app:layout_constraintTop_toBottomOf="@+id/author" />
 
-        <!-- Quantity category -->
-
         <!-- Label -->
         <TextView
             android:id="@+id/label_in_stock"
@@ -174,8 +164,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/asterisk_quantity"
             app:layout_constraintVertical_bias="0.0" />
-
-        <!-- Input fields -->
 
         <!-- Asterisk -->
         <TextView
@@ -250,6 +238,7 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Currency Symbol -->
         <TextView
             android:id="@+id/currencySymbol"
             android:layout_width="wrap_content"
@@ -265,18 +254,15 @@
             app:layout_constraintTop_toTopOf="@+id/price"
             tools:text="@string/currency_dollar" />
 
-        <!-- Guideline that divides labels from fields -->
-
         <!-- Asterisk -->
         <TextView
-            android:id="@+id/asterisk_instruction"
             style="@style/AsteriskStyle"
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/instruction_required_field"
             app:layout_constraintEnd_toStartOf="@+id/instruction_required_field"
             app:layout_constraintTop_toTopOf="@+id/instruction_required_field" />
 
-        <!-- Instruction -->
+        <!-- Required Fields Instructions -->
         <TextView
             android:id="@+id/instruction_required_field"
             style="@style/AsteriskDescStyle"

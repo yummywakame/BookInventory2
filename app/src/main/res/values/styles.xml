@@ -151,11 +151,6 @@
     </style>
 
     <!-- Style for the Spinner -->
-    <style name="SpinnerFieldStyle">
-        <item name="android:layout_height">48dp</item>
-        <item name="android:textAppearance">?android:textAppearance</item>
-        <item name="android:textColor">@color/darkTextColor</item>
-    </style>
 
     <!-- Style for the Spinners Background -->
     <style name="EditorSpinnerBg" parent="Base.Widget.AppCompat.Spinner">
@@ -197,9 +192,6 @@
     </style>
 
     <!-- Default Font Text Style -->
-    <style name="DefaultFontTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:textAppearance">?android:textAppearance</item>
-    </style>
 
     <!-- Default Font Button Style -->
     <style name="DefaultFontButtonStyle" parent="android:Widget.Holo.Button">
