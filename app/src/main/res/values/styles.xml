@@ -111,14 +111,14 @@
 
     <!-- Style for an EditText field in the editor -->
     <style name="EditorFieldStyle">
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_height">@dimen/widest_dim</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textAppearance">?android:textAppearance</item>
         <item name="android:textColor">@color/darkTextColor</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingEnd">8dp</item>
-        <item name="android:paddingTop">4dp</item>
-        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingStart">@dimen/half_dim</item>
+        <item name="android:paddingEnd">@dimen/half_dim</item>
+        <item name="android:paddingTop">@dimen/quarter_dim</item>
+        <item name="android:paddingBottom">@dimen/quarter_dim</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@drawable/edittext_bg</item>
     </style>

@@ -5,7 +5,7 @@
     android:layout_gravity="start"
     android:gravity="center_vertical"
     android:ellipsize="end"
-    android:paddingEnd="24dp"
+    android:paddingEnd="@dimen/double_dim"
     android:paddingStart="@dimen/half_dim"
     android:singleLine="true"
     android:textAppearance="?android:textAppearanceListItem"

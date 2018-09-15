@@ -29,7 +29,7 @@
         <TextView
             android:id="@+id/label_overview"
             style="@style/LabelStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             android:text="@string/label_overview"
             app:layout_constraintBottom_toBottomOf="@+id/asterisk_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +40,8 @@
         <TextView
             android:id="@+id/asterisk_title"
             style="@style/AsteriskStyle"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginBottom="@dimen/half_dim"
+            android:layout_marginStart="@dimen/base_dim"
             app:layout_constraintBottom_toBottomOf="@+id/title"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/title"
@@ -52,9 +52,9 @@
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginEnd="@dimen/base_dim"
+            android:layout_marginStart="@dimen/half_dim"
+            android:layout_marginTop="@dimen/wide_dim"
             android:minHeight="56dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -70,12 +70,12 @@
                 android:hint="@string/hint_book_title"
                 android:inputType="textMultiLine|textCapWords"
                 android:lines="6"
-                android:minHeight="48dp"
+                android:minHeight="@dimen/widest_dim"
                 android:minLines="1"
                 android:nextFocusDown="@id/editTextAuthor"
                 android:paddingBottom="@dimen/half_dim"
                 android:paddingTop="@dimen/half_dim"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_m" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -83,7 +83,7 @@
         <TextView
             android:id="@+id/asterisk_author"
             style="@style/AsteriskStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             app:layout_constraintBottom_toBottomOf="@+id/author"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/author"
@@ -94,9 +94,9 @@
             android:id="@+id/author"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/base_dim"
+            android:layout_marginStart="@dimen/half_dim"
+            android:layout_marginTop="@dimen/quarter_dim"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_author"
             app:layout_constraintTop_toBottomOf="@+id/title">
@@ -112,7 +112,7 @@
                 android:nextFocusDown="@id/spinnerSupplier"
                 android:paddingTop="@dimen/half_dim"
                 android:singleLine="true"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_m" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -120,9 +120,9 @@
         <TextView
             android:id="@+id/label_supplier"
             style="@style/LabelStyle"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/half_dim"
+            android:layout_marginStart="@dimen/base_dim"
+            android:layout_marginTop="@dimen/half_dim"
             android:text="@string/label_supplier"
             app:layout_constraintBottom_toBottomOf="@+id/asterisk_supplier"
             app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +133,7 @@
         <TextView
             android:id="@+id/asterisk_supplier"
             style="@style/AsteriskStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             app:layout_constraintBottom_toBottomOf="@+id/spinnerSupplier"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/spinnerSupplier"
@@ -144,9 +144,9 @@
             android:id="@+id/spinnerSupplier"
             style="@style/EditorSpinnerBg"
             android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
+            android:layout_height="@dimen/wider_dim"
+            android:layout_marginEnd="@dimen/base_dim"
+            android:layout_marginStart="@dimen/half_dim"
             android:layout_marginTop="20dp"
             android:spinnerMode="dropdown"
             app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +158,7 @@
         <TextView
             android:id="@+id/label_in_stock"
             style="@style/LabelStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             android:text="@string/label_in_stock"
             app:layout_constraintBottom_toBottomOf="@+id/asterisk_quantity"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +169,7 @@
         <TextView
             android:id="@+id/asterisk_quantity"
             style="@style/AsteriskStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             app:layout_constraintBottom_toBottomOf="@+id/quantity"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/quantity"
@@ -180,9 +180,9 @@
             android:id="@+id/quantity"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/base_dim"
+            android:layout_marginStart="@dimen/half_dim"
+            android:layout_marginTop="@dimen/quarter_dim"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_quantity"
             app:layout_constraintTop_toBottomOf="@+id/spinnerSupplier">
@@ -198,7 +198,7 @@
                 android:nextFocusDown="@id/editTextPrice"
                 android:paddingTop="@dimen/half_dim"
                 android:singleLine="true"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_m" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -206,7 +206,7 @@
         <TextView
             android:id="@+id/asterisk_price"
             style="@style/AsteriskStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             app:layout_constraintBottom_toBottomOf="@+id/price"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/price"
@@ -217,9 +217,9 @@
             android:id="@+id/price"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/base_dim"
+            android:layout_marginStart="@dimen/half_dim"
+            android:layout_marginTop="@dimen/quarter_dim"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asterisk_price"
             app:layout_constraintTop_toBottomOf="@+id/quantity">
@@ -234,7 +234,7 @@
                 android:inputType="numberDecimal"
                 android:paddingTop="@dimen/half_dim"
                 android:singleLine="true"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_m" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -243,8 +243,8 @@
             android:id="@+id/currencySymbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/half_dim"
+            android:layout_marginTop="@dimen/base_dim"
             android:text="@string/currency_dollar"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/lightTextColor"
@@ -257,7 +257,7 @@
         <!-- Asterisk -->
         <TextView
             style="@style/AsteriskStyle"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/base_dim"
             app:layout_constraintBottom_toBottomOf="@+id/instruction_required_field"
             app:layout_constraintEnd_toStartOf="@+id/instruction_required_field"
             app:layout_constraintTop_toTopOf="@+id/instruction_required_field" />
@@ -266,9 +266,9 @@
         <TextView
             android:id="@+id/instruction_required_field"
             style="@style/AsteriskDescStyle"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/base_dim"
+            android:layout_marginEnd="@dimen/base_dim"
+            android:layout_marginTop="@dimen/half_dim"
             android:text="@string/instruction_required_field"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
