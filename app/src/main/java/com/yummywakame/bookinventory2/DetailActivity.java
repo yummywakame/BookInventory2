@@ -85,7 +85,6 @@ public class DetailActivity extends AppCompatActivity implements
         // Style the CollapsingToolbarLayout Title
         mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
 
-//        getSupportActionBar().setTitle(R.string.editor_activity_title_view_book);
         mCollapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         mCollapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
 
@@ -242,9 +241,6 @@ public class DetailActivity extends AppCompatActivity implements
             int quantity = cursor.getInt(quantityColumnIndex);
             double price = cursor.getDouble(priceColumnIndex);
 
-            // Update the views on the screen with the values from the database
-//            getSupportActionBar().setTitle(name);
-//            getSupportActionBar().setSubtitle(author);
             mTitle.setText(title);
             mAuthor.setText(author);
             mQuantity.setText(String.valueOf(quantity));
@@ -254,7 +250,6 @@ public class DetailActivity extends AppCompatActivity implements
             // Supplier options available: (0 is "Please select...",
             // 1 is "Ingram Content Group", 2 is "Baker & Taylor", 3 is "Publishers Group West",
             // 4 is "Independent Publishers Group").
-
             switch (supplier) {
                 case BookEntry.SUPPLIER_1:
                     mSupplier.setText(getResources().getStringArray(R.array.array_supplier_options)[1]);

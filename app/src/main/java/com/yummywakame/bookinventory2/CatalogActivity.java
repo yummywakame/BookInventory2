@@ -31,7 +31,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -244,14 +243,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         values.put(BookEntry.COLUMN_SUPPLIER_ID, Supplier);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, Stock);
         values.put(BookEntry.COLUMN_BOOK_PRICE, Price);
-
-        // Insert a new row for the book into the provider using the ContentResolver.
-        // Use the {@link BookEntry#CONTENT_URI} to indicate that we want to insert
-        // into the books database table.
-        // Receive the new content URI that will allow us to access the book's data in the future.
-        Uri newUri = getContentResolver().insert(BookEntry.CONTENT_URI, values);
-
-        Log.v(LOG_TAG, "Inserted new row: " + newUri);
     }
 
     /**
@@ -360,8 +351,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                 BookEntry.COLUMN_BOOK_QUANTITY,
                 BookEntry.COLUMN_BOOK_PRICE};
 
-        Log.i(LOG_TAG, "Loader<Cursor> onCreateLoader()");
-
         // Get the Sort By preference array from Preferences using the helper method
         sortBy = HelperClass.getSortByPreference(this);
 
@@ -378,14 +367,12 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursorData) {
         // Update {@link BookCursorAdapter} with this new cursor containing updated book data
         mCursorAdapter.swapCursor(cursorData);
-        Log.i(LOG_TAG, "onLoadFinished() updates BookCursorAdapter with new cursor containing updated book data. Cursor: " + cursorData);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         // Callback called when the data needs to be deleted
         mCursorAdapter.swapCursor(null);
-        Log.i(LOG_TAG, "onLoaderReset() on data that needs to be deleted.");
     }
 
     @Override

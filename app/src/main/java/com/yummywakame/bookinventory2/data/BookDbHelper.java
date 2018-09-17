@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
 
@@ -15,9 +14,6 @@ import com.yummywakame.bookinventory2.data.BookContract.BookEntry;
  * olivia@yummy-wakame.com
  */
 public class BookDbHelper extends SQLiteOpenHelper {
-
-    private static final String LOG_TAG = "My Log - " + BookDbHelper.class.getSimpleName();
-
     /**
      * Name of the database file
      */
@@ -53,7 +49,6 @@ public class BookDbHelper extends SQLiteOpenHelper {
 
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_BOOKS_TABLE);
-        Log.i(LOG_TAG, "db.execSQL(SQL_CREATE_BOOKS_TABLE): " + SQL_CREATE_BOOKS_TABLE);
     }
 
     /**

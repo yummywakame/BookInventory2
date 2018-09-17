@@ -179,7 +179,9 @@ public class HelperClass {
      */
     public static void callSupplier(Context context, String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNumber, null));
-        context.startActivity(intent);
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
     }
 
     /**

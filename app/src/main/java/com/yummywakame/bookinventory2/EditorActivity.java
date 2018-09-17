@@ -250,6 +250,12 @@ public class EditorActivity extends AppCompatActivity implements
         quantityString = mQuantityEditText.getText().toString().trim();
         priceString = mPriceEditText.getText().toString().trim();
 
+        // If quantity is left empty, set to zero
+        if (TextUtils.isEmpty(quantityString)) {
+            // Show the error in a toast message.
+            mQuantityEditText.setText(String.valueOf(0));
+        }
+
         // Quick validation
         if (TextUtils.isEmpty(titleString)) {
             // Show the error in a toast message.
@@ -264,11 +270,6 @@ public class EditorActivity extends AppCompatActivity implements
         } else if (mSupplierId == 0) {
             // Show the error in a toast message.
             Toast.makeText(this, getString(R.string.toast_required_supplier),
-                    Toast.LENGTH_SHORT).show();
-            return false;
-        } else if (TextUtils.isEmpty(quantityString)) {
-            // Show the error in a toast message.
-            Toast.makeText(this, getString(R.string.toast_required_quantity),
                     Toast.LENGTH_SHORT).show();
             return false;
         } else if (TextUtils.isEmpty(priceString)) {

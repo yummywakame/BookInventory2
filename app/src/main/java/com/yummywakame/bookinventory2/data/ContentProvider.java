@@ -119,14 +119,9 @@ public class ContentProvider extends android.content.ContentProvider {
         // If the data at this URI changes, then we know we need to update the Cursor.
         try {
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
-            Log.i(LOG_TAG, "setNotificationUri on Cursor success!");
         } catch (NullPointerException npe) {
             Log.e(LOG_TAG, "Failed to setNotificationUri on Cursor. NullPointerException: " + npe);
         }
-
-        // Return the cursor
-        Log.i(LOG_TAG, "Cursor: " + cursor);
-        Log.i(LOG_TAG, "URI: " + uri);
         return cursor;
     }
 
@@ -188,8 +183,6 @@ public class ContentProvider extends android.content.ContentProvider {
         if (id == -1) {
             Log.e(LOG_TAG, "Failed to insert row for uri: " + uri);
             return null;
-        } else {
-            Log.i(LOG_TAG, "Succeeded inserting row for uri: " + uri);
         }
 
         // Notify all listeners that the data has changed for the book content URI
@@ -198,15 +191,12 @@ public class ContentProvider extends android.content.ContentProvider {
             // object will get notified, and the LoaderCallBack methods will still get triggered.
             // uri: content://com.yummywakame.bookinventory2/books
             getContext().getContentResolver().notifyChange(uri, null);
-            Log.i(LOG_TAG, "notifyChange() Success! Data for the book content URI has changed.");
         } catch (NullPointerException npe) {
             Log.e(LOG_TAG, "notifyChange() Failed! " + npe);
         }
 
         // Once we know the ID of the new row in the table,
         // return the new URI with the ID (of the newly inserted row) appended at the end
-        Log.i(LOG_TAG, "ID of new row: " + id);
-        Log.i(LOG_TAG, "URI: " + uri);
         return ContentUris.withAppendedId(uri, id);
     }
 
@@ -300,15 +290,10 @@ public class ContentProvider extends android.content.ContentProvider {
         if (rowsUpdated != 0) {
             try {
                 getContext().getContentResolver().notifyChange(uri, null);
-                Log.i(LOG_TAG, "notifyChange() Success! Data for the book content URI has changed.");
             } catch (NullPointerException npe) {
                 Log.e(LOG_TAG, "notifyChange() Failed! " + npe);
             }
         }
-
-        // Log the rowsUpdated
-        Log.i(LOG_TAG, "rowsUpdated: " + rowsUpdated);
-
         // Return the number of rows updated
         return rowsUpdated;
     }
@@ -345,15 +330,10 @@ public class ContentProvider extends android.content.ContentProvider {
         if (rowsDeleted != 0) {
             try {
                 getContext().getContentResolver().notifyChange(uri, null);
-                Log.i(LOG_TAG, "notifyChange() Success! Data for the book content URI has changed.");
             } catch (NullPointerException npe) {
                 Log.e(LOG_TAG, "notifyChange() Failed! " + npe);
             }
         }
-
-        // Log the rowsDeleted
-        Log.i(LOG_TAG, "rowsDeleted: " + rowsDeleted);
-
         // Return the number of rows deleted
         return rowsDeleted;
     }

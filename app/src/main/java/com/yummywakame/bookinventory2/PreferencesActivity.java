@@ -23,7 +23,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 public class PreferencesActivity extends AppCompatActivity {
 
@@ -51,10 +50,6 @@ public class PreferencesActivity extends AppCompatActivity {
             // Get user's section preference
             Preference chosenCurrency = findPreference(getString(R.string.pref_currency_key));
             setPreferenceSummary(chosenCurrency);
-
-            // LOG chosen variables
-            Log.i(LOG_TAG, "Variable chosenCurrency: " + chosenCurrency);
-            Log.i(LOG_TAG, "Variable orderBy: " + orderBy);
         }
 
         @Override

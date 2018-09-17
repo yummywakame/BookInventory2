@@ -160,20 +160,10 @@
             style="@style/LabelStyle"
             android:layout_marginStart="@dimen/base_dim"
             android:text="@string/label_in_stock"
-            app:layout_constraintBottom_toBottomOf="@+id/asterisk_quantity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/asterisk_quantity"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:layout_editor_absoluteY="244dp" />
 
         <!-- Asterisk -->
-        <TextView
-            android:id="@+id/asterisk_quantity"
-            style="@style/AsteriskStyle"
-            android:layout_marginStart="@dimen/base_dim"
-            app:layout_constraintBottom_toBottomOf="@+id/quantity"
-            app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/quantity"
-            app:layout_constraintVertical_bias="1.0" />
 
         <!-- Quantity field -->
         <android.support.design.widget.TextInputLayout
@@ -181,10 +171,10 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_marginEnd="@dimen/base_dim"
-            android:layout_marginStart="@dimen/half_dim"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="@dimen/quarter_dim"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/asterisk_quantity"
+            app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toBottomOf="@+id/spinnerSupplier">
 
             <EditText
