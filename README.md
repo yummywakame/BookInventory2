@@ -28,3 +28,9 @@ Based loosely off the Pets App we created in class.
 
 2. **[Android swipe to delete listview](http://codesfor.in/android-swipe-to-delete-listview/)**
 Adapted with the help of [TheBaileyBrew](https://github.com/TheBaileyBrew)
+
+## Future improvements
+- Product search
+- Image upload
+- ISBN scan to auto-add books
+- Alphabet index
